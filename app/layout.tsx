@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/navbar";
 import { NavigationItem } from "@/lib/types";
 import { ChevronDown } from "lucide-react";
+import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/layout/footer";
 export const metadata: Metadata = {
   title: "FedEx Smart Center",
   description: "FedEx Smart Center in collaboration with IIT Madras",
@@ -21,14 +23,20 @@ const nav_list: NavigationItem[] = [
       {
         name: "Overview",
         href: "/about/",
+        color: "bg-red-300",
+        description: "Learn more about our research center"
       },
       {
         name: "Team",
-        href: "/about/team",
+        href: "/team",
+        color:"bg-purple-300",
+        description: "Meet our expert research team"
       },
       {
         name: "Gallery",
-        href: "/about/gallery",
+        href: "/gallery",
+        color:"bg-green-300",
+        description: "View highlights of our work"
       },
     ],
   },
@@ -56,9 +64,17 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased flex justify-center items-center flex-col`}
       >
-        <Navbar list={nav_list} />
-        {children}
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar list={nav_list} />
+          {children}
+          <Footer />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,9 +1,9 @@
 import Image from "next/image"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 import Link from "next/link"
 import { ArrowRight, ArrowUpRightFromSquare, Link2 } from "lucide-react";
-import { Badge } from "./badge";
-import { Button } from "./button";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 
 export default function EventCard({
     title,
@@ -19,7 +19,7 @@ export default function EventCard({
     img_link:string
 }) {
     return (
-      <Card className="w-full max-w-[350px] md:max-w-[500px]">
+      <Card className="w-full md:max-w-[500px]">
         <CardContent className="p-0">
           <Image
             src={img_link}
