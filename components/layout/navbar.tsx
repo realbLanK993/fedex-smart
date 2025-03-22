@@ -120,7 +120,9 @@ export default function Navbar({ list }: { list: NavigationItem[] }) {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <span className="font-bold text-xl">LOGO</span>
+            <Link href={"/"}>
+              <span className="font-bold text-xl">LOGO</span>
+            </Link>
           </div>
           <div className="md:flex gap-2 hidden">
             {list.map((item, index) => {

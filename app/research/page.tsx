@@ -64,9 +64,11 @@ export default function Research(){
           </div>
           {/* <Button>Filter</Button> */}
         </div>
-        {research.map((item, index) => {
-          return <HoverList key={index} {...item} />;
-        })}
+        <div>
+          {research.map((item, index) => {
+            return <HoverList key={index} {...item} />;
+          })}
+        </div>
       </main>
     );
 }
