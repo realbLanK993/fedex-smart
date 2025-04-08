@@ -1,7 +1,6 @@
 "use client"; // Needed for useState
 
 import React, { useState, useMemo } from "react";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,

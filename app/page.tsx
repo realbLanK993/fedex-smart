@@ -3,7 +3,6 @@ import Hero from "@/components/layout/hero";
 import { Button } from "@/components/ui/button";
 import { Carousel } from "@/components/common/carousel";
 import EventCard from "@/components/common/event-card";
-import Image from "next/image";
 import { EventItem } from "@/lib/types";
 import { eventsData } from "@/lib/data";
 

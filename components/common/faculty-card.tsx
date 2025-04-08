@@ -1,6 +1,5 @@
 import { Faculty } from "@/lib/types";
 import { Card } from "../ui/card";
-import Image from "next/image";
 import { Badge } from "../ui/badge";
 
 export default function FacultyCard({ designation, name, location }: Faculty) {

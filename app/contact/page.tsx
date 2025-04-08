@@ -1,6 +1,5 @@
 import React from "react";
-import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube } from "lucide-react"; // Import relevant icons
-import Link from "next/link";
+import { Mail, MapPin } from "lucide-react";
 import { Separator } from "@/components/ui/separator"; // Optional separator
 
 export default function ContactPage() {
@@ -14,8 +13,8 @@ export default function ContactPage() {
       <section className="">
         <h1 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h1>
         <p className="text-muted-foreground">
-          Have questions about our research, collaborations, or opportunities?
-          We're here to help.
+          {`Have questions about our research, collaborations, or opportunities?
+          We're here to help.`}
         </p>
       </section>
 

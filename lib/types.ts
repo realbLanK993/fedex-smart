@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 export type Faculty = {
   image?: string;
   designation: string;
@@ -63,4 +61,21 @@ export interface EventItem {
   affiliation?: string; // Optional: Speaker's affiliation
   img_link: string; // Image URL
   learn_more_link?: string; // Optional link to details/slides/recording
+}
+
+export interface OpportunityItem {
+  id: string;
+  title: string; // e.g., "Summer Research Intern", "Postdoctoral Fellow"
+  type: "Internship" | "Project" | "Research Staff" | "Postdoc" | "Faculty"; // Category for filtering
+  status: "Ongoing Interest" | "Closed" | "Currently Open" | "Completed"; // Indicate availability status
+  description: string; // Brief description of the role/area
+  details?: string; // Optional longer details or lists (can be used later)
+  link?: string; // Link to details or contact info (use '#' or mailto: for now)
+}
+
+export interface ResearchListItem {
+  id: string;
+  title: string;
+  vertical: string; // e.g., "Sustainability", "Worker Wellness", "Algorithms & ML", "Infrastructure"
+  slug: string; // Path for the detail page, e.g., "digital-sustainable-supply-chain"
 }

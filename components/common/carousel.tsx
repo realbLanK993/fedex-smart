@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
@@ -16,14 +16,12 @@ type CarouselProps = {
 };
 
 export function Carousel({ arr, autoplay, DELAY = 3000 }: CarouselProps) {
-  const PROGRESS_UPDATE = 10;
   const totalDuration = (len: number) => {
     return len * DELAY;
   };
   const progress = (currentIndex: number, len: number) => {
     return ((currentIndex + 1) * DELAY * 100) / totalDuration(len);
   };
-  const updatedValue = useRef(((1 / arr.length) * PROGRESS_UPDATE) / DELAY); // This is the value that should be passed to the progress component when it autoplays
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const nextSlide = () => {

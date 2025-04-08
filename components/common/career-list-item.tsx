@@ -3,7 +3,7 @@
 // It will display the concise description from the updated opportunitiesData.
 import { twMerge } from "tailwind-merge";
 import Link from "next/link";
-import { ArrowRight, Info } from "lucide-react"; // Import icons
+import { ArrowRight } from "lucide-react"; // Import icons
 import { Badge } from "@/components/ui/badge"; // Use Badge for type/status
 
 interface OpportunityListItemProps {

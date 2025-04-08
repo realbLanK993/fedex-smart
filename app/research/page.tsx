@@ -2,7 +2,6 @@
 
 import React, { useState, useMemo } from "react";
 import HoverList from "@/components/common/hover-list"; // Adjust path
-import { Label } from "@/components/ui/label"; // Adjust path
 import {
   Select,
   SelectContent,
@@ -10,81 +9,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"; // Adjust path
+import { researchListData, researchVerticals } from "@/lib/data";
 
 // src/data/researchListData.ts
-export interface ResearchListItem {
-  id: string;
-  title: string;
-  vertical: string; // e.g., "Sustainability", "Worker Wellness", "Algorithms & ML", "Infrastructure"
-  slug: string; // Path for the detail page, e.g., "digital-sustainable-supply-chain"
-}
-
-export const researchListData: ResearchListItem[] = [
-  // --- Main 5-Year Projects ---
-  {
-    id: "p1",
-    title: "Digital and Sustainable Supply Chain Modelling & Analytics",
-    vertical: "Supply Chain Sustainability",
-    slug: "digital-sustainable-supply-chain",
-  },
-  {
-    id: "p2",
-    title:
-      "Holistic Human-Machine Collaboration with Biomedical-Cognitive Measures",
-    vertical: "Logistics Worker Wellness",
-    slug: "human-machine-collaboration-wellness",
-  },
-  {
-    id: "p3",
-    title: "Accelerating Learning and Algorithms for Logistics Problems",
-    vertical: "Algorithms & ML",
-    slug: "accelerating-learning-algorithms",
-  },
-  {
-    id: "p4",
-    title: "Development of Modules for Integrating Autonomous Delivery Agents",
-    vertical: "Logistics Infrastructure",
-    slug: "autonomous-delivery-integration",
-  },
-
-  // --- Key Research Highlights (Derived from PPT/Website Content & detailed data) ---
-  {
-    id: "rl-rail-network", // Consistent ID
-    title: "Reinforcement Learning for Rail Network Efficiency", // Consistent Title
-    vertical: "Algorithms & ML",
-    slug: "rl-rail-network", // Consistent Slug
-  },
-  {
-    id: "drone-logistics-operations", // Consistent ID
-    title: "Drone Delivery Operations & Feasibility (Mid/Last-Mile)", // Consistent Title
-    vertical: "Logistics Infrastructure",
-    slug: "drone-logistics-operations", // Consistent Slug
-  },
-  {
-    id: "ev-fleet-charging-optimization", // Consistent ID
-    title: "EV Fleet Size & Charging Network Optimization", // Consistent Title
-    vertical: "Logistics Infrastructure",
-    slug: "ev-fleet-charging-optimization", // Consistent Slug
-  },
-  {
-    id: "worker-wellness-technologies", // Added
-    title: "Technologies for Logistics Worker Wellness & Safety",
-    vertical: "Logistics Worker Wellness",
-    slug: "worker-wellness-technologies", // Added - Ensure this key exists in researchDetailsData
-  },
-  {
-    id: "sustainable-resilient-last-mile", // Added
-    title: "Sustainable & Resilient Last-Mile Distribution Framework",
-    vertical: "Supply Chain Sustainability", // Or Infrastructure
-    slug: "sustainable-resilient-last-mile", // Added - Ensure this key exists in researchDetailsData
-  },
-];
 
 // Extract unique verticals for the filter dropdown
-export const researchVerticals = [
-  "All Research",
-  ...Array.from(new Set(researchListData.map((item) => item.vertical))),
-];
 
 export default function ResearchPage() {
   const [selectedVertical, setSelectedVertical] =
@@ -145,7 +74,7 @@ export default function ResearchPage() {
         {/* Add top border to the container, not first item */}
         <div className="border-t border-border/80">
           {filteredResearch.length > 0 ? (
-            filteredResearch.map((item, index) => (
+            filteredResearch.map((item) => (
               <HoverList
                 key={item.id}
                 title={item.title}

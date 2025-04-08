@@ -1,23 +1,32 @@
 import { notFound } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 // Adjust import paths as needed
 import CommonPage from "@/components/common/common-page";
 import { CommonPageProps } from "@/lib/types"; // Your type definition
-import { researchListData } from "../page";
-import { researchDetailsData } from "@/lib/data";
+import { researchDetailsData, researchListData } from "@/lib/data";
 
 // Define the structure of the props passed to the page component
 type Props = {
   params: { slug: string }; // Next.js passes dynamic route segments in params
 };
 
+// --- Generate Static Paths (Optional but recommended for SSG) ---
+// This function tells Next.js which 'slug' values exist and should be
+// pre-rendered into static HTML pages at build time.
+export async function generateStaticParams() {
+  // Map over your list data to get all possible slugs
+  return researchListData.map((research) => ({
+    slug: research.slug,
+  }));
+
+  // Alternative if your researchDetailsData keys are exactly the slugs:
+  // return Object.keys(researchDetailsData).map(slug => ({ slug }));
+}
+
 // --- Generate Dynamic Metadata (Optional but recommended for SEO) ---
 // This function generates metadata (like title, description) for each specific page
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata // Access parent metadata if needed
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
   const pageData: CommonPageProps | undefined = researchDetailsData[slug];
 
@@ -30,14 +39,7 @@ export async function generateMetadata(
     };
   }
 
-  // Generate a simple description from the content (remove HTML tags and truncate)
-  const description =
-    typeof pageData.content === "string"
-      ? pageData.content
-          .substring(0, 155)
-          .replace(/<[^>]*>?/gm, "")
-          .trim() + "..."
-      : `Learn about the ${pageData.title} research at the FedEx SMART Centre.`;
+  const description = `Learn about the ${pageData.title} research at the FedEx SMART Centre.`;
 
   return {
     title: `${pageData.title} | FedEx SMART Centre Research`,

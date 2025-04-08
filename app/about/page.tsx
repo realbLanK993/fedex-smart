@@ -1,17 +1,5 @@
 import { OurImpactCard } from "@/components/common/impact-card";
-import {
-  Cog,
-  Cpu,
-  Handshake,
-  HeartPulse,
-  Leaf,
-  Lightbulb,
-  Recycle,
-  Target,
-  TrendingUp,
-  Truck,
-  Zap,
-} from "lucide-react";
+import { HeartPulse, Leaf, Lightbulb, TrendingUp } from "lucide-react";
 import Image from "next/image";
 
 export default function About() {
