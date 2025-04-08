@@ -1,62 +1,61 @@
-"use client"
+"use client";
 
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
-import {ChevronLeft, ChevronRight} from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import Image from "next/image";
 
-const DELAY = 1000;
-const PROGRESS_UPDATE = 10
-const totalDuration = (len:number) => {
-    return len * DELAY
-}
-const progress = (currentIndex: number, len:number) => {
-    return ((currentIndex + 1) * DELAY * 100) / totalDuration(len);
-}
 type CarouselProps = {
-    arr: {
-      img:string,
-      title:string
-    }[],
-    autoplay?:boolean
-}
+  arr: {
+    img: string;
+    title: string;
+  }[];
+  autoplay?: boolean;
+  DELAY?: number;
+};
 
-export function Carousel({arr, autoplay}:CarouselProps) {
-    const updatedValue = useRef(((1 / arr.length) * PROGRESS_UPDATE) / DELAY) // This is the value that should be passed to the progress component when it autoplays
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [currentTime, setCurrentTime] = useState(0)
-    const nextSlide = () => {
-        const isLastSlide = currentIndex === arr.length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex);
-        
+export function Carousel({ arr, autoplay, DELAY = 3000 }: CarouselProps) {
+  const PROGRESS_UPDATE = 10;
+  const totalDuration = (len: number) => {
+    return len * DELAY;
+  };
+  const progress = (currentIndex: number, len: number) => {
+    return ((currentIndex + 1) * DELAY * 100) / totalDuration(len);
+  };
+  const updatedValue = useRef(((1 / arr.length) * PROGRESS_UPDATE) / DELAY); // This is the value that should be passed to the progress component when it autoplays
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === arr.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? arr.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  // useEffect(() => {
+  //   if (autoplay) {
+  //     const interval = setInterval(() => {
+  //       setCurrentTime((prev) => prev + updatedValue.current);
+  //     }, PROGRESS_UPDATE);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [currentTime]);
+  useEffect(() => {
+    setCurrentTime(() => {
+      return progress(currentIndex, arr.length);
+    });
+    if (autoplay) {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, DELAY);
+      return () => clearInterval(interval);
     }
-    const prevSlide = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? arr.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-    }
-    
-    useEffect(() =>{
-        if(autoplay){
-            const interval = setInterval(() => {
-              setCurrentTime((prev) => prev + updatedValue.current);
-            }, PROGRESS_UPDATE);
-            return () => clearInterval(interval);
-        }
-    },[currentTime])
-    useEffect(() => {
-        setCurrentTime(() => {
-          return progress(currentIndex, arr.length);
-        });
-        if(autoplay){
-            const interval = setInterval(() => {
-              nextSlide();
-            }, DELAY);
-            return () => clearInterval(interval);
-        }
-    }, [currentIndex])
+  }, [currentIndex]);
   return (
     <div className="flex flex-col gap-4">
       <div className="overflow-hidden">
@@ -83,15 +82,18 @@ export function Carousel({arr, autoplay}:CarouselProps) {
                   />
                 )}
                 <span
-                  className={` font-bold  transition-opacity duration-500 ease-in-out  ${
+                  className={` font-bold transition-opacity duration-500 ease-in-out  ${
                     currentIndex != index
                       ? "-rotate-90 inline-block opacity-100 min-w-[350px] text-xl"
-                      : "absolute bottom-3 text-3xl opacity-100 right-10 "
+                      : "absolute z-30 bottom-3 text-3xl opacity-100 right-10 text-white"
                   }`}
                 >
                   {/* Content to be written here */}
                   {item.title}
                 </span>
+                {currentIndex == index && (
+                  <div className="absolute bottom-0 bg-black/20 w-full h-[70px] backdrop-blur" />
+                )}
               </div>
             </div>
           ))}
@@ -99,9 +101,9 @@ export function Carousel({arr, autoplay}:CarouselProps) {
       </div>
       <div className="flex justify-between">
         <div className=" md:flex max-w-[300px] w-full gap-2 justify-center items-center hidden">
-          <span>{currentIndex + 1} </span>
+          {/* <span>{currentIndex + 1} </span> */}
           <Progress className="" value={currentTime} />
-          <span> {arr.length} </span>
+          {/* <span> {arr.length} </span> */}
         </div>
         <span className="md:hidden w-full">
           {currentIndex + 1 + " - " + arr.length}

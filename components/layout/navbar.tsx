@@ -131,7 +131,9 @@ export default function Navbar({ list }: { list: NavigationItem[] }) {
                   <NavigationMenuList>
                     {item.subItems ? (
                       <NavigationMenuItem>
-                        <NavigationMenuTrigger>About us</NavigationMenuTrigger>
+                        <NavigationMenuTrigger>
+                          {item.name}
+                        </NavigationMenuTrigger>
                         <NavigationMenuContent className="grid grid-cols-1 min-w-[330px] max-w-[340px] w-full">
                           {item.subItems.map((i, n) => (
                             <NavigationMenuLink href={i.href} key={n}>

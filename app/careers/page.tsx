@@ -1,5 +1,6 @@
-import HoverList from "@/components/common/hover-list";
-import { Button } from "@/components/ui/button";
+"use client"; // Needed for useState
+
+import React, { useState, useMemo } from "react";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -8,66 +9,103 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { OpportunityItem } from "@/lib/types";
+import { opportunitiesData, opportunityTypes } from "@/lib/data";
+import OpportunityListItem from "@/components/common/career-list-item";
+import Link from "next/link";
 
-const research = [
-  {
-    title: "Title One",
-    learn_more_link: "string",
-    className: "border-t-2",
-  },
-  {
-    title: "Title Two",
-    learn_more_link: "string",
-  },
-  {
-    title: "Title Three",
-    learn_more_link: "string",
-  },
-  {
-    title: "Title Four",
-    learn_more_link: "string",
-  },
-  {
-    title: "Title Five",
-    learn_more_link: "string",
-  },
-];
+type FilterType = OpportunityItem["type"] | "All Opportunities";
 
-export default function Research() {
+export default function CareersPage() {
+  const [selectedType, setSelectedType] =
+    useState<FilterType>("All Opportunities");
+
+  // Memoize filtered list
+  const filteredOpportunities = useMemo(() => {
+    if (selectedType === "All Opportunities") {
+      return opportunitiesData;
+    }
+    return opportunitiesData.filter((item) => item.type === selectedType);
+  }, [selectedType]); // Recalculate only when selectedType changes
+
   return (
-    <main className="defined-width pt-16 flex flex-col gap-16">
-      <div className="flex flex-col gap-8">
-        <h2 className="text-2xl font-bold">All Openings</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati
-          velit accusamus illum consectetur est dicta esse ducimus dolore
-          cupiditate voluptatum aperiam commodi dolorem ratione architecto vitae
-          quae autem porro magni, repellendus molestiae nam voluptates. Libero
-          maxime molestiae eum autem nemo debitis error fuga veritatis
-          doloribus, eaque ut. Dolor, expedita odio!
+    <main className="defined-width px-4 py-16 flex flex-col gap-12 ">
+      {/* Header Section */}
+      <section className="">
+        <h1 className="text-3xl font-bold tracking-tight mb-4">
+          Careers & Opportunities
+        </h1>
+        <p className="text-muted-foreground">
+          Join the FedEx SMART Centre at IIT Madras - a hub of innovation
+          bridging industry and academia. We tackle complex logistics challenges
+          through cutting-edge research in sustainability, AI/ML, worker
+          wellness, and infrastructure. Explore opportunities to contribute to
+          impactful projects in a dynamic environment. While specific openings
+          vary, we welcome inquiries for potential collaborations and future
+          roles.
         </p>
-      </div>
-      <div className="flex gap-2 w-full">
-        <div className="flex flex-col gap-4 w-full">
-          <Label>Core Research</Label>
-          <Select>
-            <SelectTrigger className="max-w-[380px] w-full rounded-full">
-              <SelectValue placeholder="Research Area" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="one">Title One</SelectItem>
-              <SelectItem value="two">Title Two</SelectItem>
-              <SelectItem value="three">Title Three</SelectItem>
-            </SelectContent>
-          </Select>
+      </section>
+
+      {/* Filter Section */}
+      <section className="flex flex-col sm:flex-row sm:items-center gap-4 w-full">
+        <Select
+          value={selectedType}
+          onValueChange={(value) => setSelectedType(value as FilterType)} // Update state on change
+        >
+          <SelectTrigger
+            id="opportunity-filter"
+            className="max-w-xs w-full rounded-full border-primary/50 focus:ring-primary"
+          >
+            <SelectValue placeholder="Select Opportunity Type" />
+          </SelectTrigger>
+          <SelectContent>
+            {opportunityTypes.map((type) => (
+              <SelectItem key={type} value={type}>
+                {type}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </section>
+
+      {/* Opportunities List Section */}
+      <section>
+        <h2 className="text-2xl font-semibold tracking-tight mb-6">
+          Current Listings & Areas of Interest
+        </h2>
+        <div className="border-t border-border/80">
+          {filteredOpportunities.length > 0 ? (
+            filteredOpportunities.map((item) => (
+              <OpportunityListItem
+                key={item.id}
+                title={item.title}
+                type={item.type}
+                status={item.status}
+                description={item.description} // Concise description displayed
+                link={item.link}
+              />
+            ))
+          ) : (
+            <p className="py-10 text-center text-muted-foreground">
+              No opportunities found for the selected type.
+            </p>
+          )}
         </div>
-        {/* <Button>Filter</Button> */}
-      </div>
-      <div>
-        {research.map((item, index) => {
-          return <HoverList key={index} {...item} />;
-        })}
-      </div>
+        <div className="mt-8 text-center text-muted-foreground text-sm">
+          <p>
+            Specific openings are posted as they become available. For inquiries
+            about potential research collaborations or future opportunities,
+            please{" "}
+            <Link
+              href="/contact"
+              className="text-primary hover:underline font-medium"
+            >
+              contact us
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

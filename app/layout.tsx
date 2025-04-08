@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import {Poppins} from "next/font/google"
+import { Poppins } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/navbar";
 import { NavigationItem } from "@/lib/types";
@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   description: "FedEx Smart Center in collaboration with IIT Madras",
 };
 
-const poppins = Poppins({weight:['100','200','300','400','500','600','700','800','900'], subsets:['latin']})
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 const nav_list: NavigationItem[] = [
   {
@@ -24,19 +27,19 @@ const nav_list: NavigationItem[] = [
         name: "Overview",
         href: "/about/",
         color: "bg-red-300",
-        description: "Learn more about our research center"
+        description: "Learn more about our research center",
       },
       {
         name: "Team",
         href: "/team",
-        color:"bg-purple-300",
-        description: "Meet our expert research team"
+        color: "bg-purple-300",
+        description: "Meet our expert research team",
       },
       {
         name: "Gallery",
         href: "/gallery",
-        color:"bg-green-300",
-        description: "View highlights of our work"
+        color: "bg-green-300",
+        description: "View highlights of our work",
       },
     ],
   },
@@ -49,8 +52,23 @@ const nav_list: NavigationItem[] = [
     href: "/events",
   },
   {
-    name: "Careers",
-    href: "/careers",
+    name: "Get in Touch",
+    icon: <ChevronDown size={16} />,
+    href: "#",
+    subItems: [
+      {
+        name: "Contact us",
+        href: "/contact/",
+        color: "bg-green-300",
+        description: "Learn more about our research center",
+      },
+      {
+        name: "Join Us",
+        href: "/careers",
+        color: "bg-yellow-300",
+        description: "View highlights of our work",
+      },
+    ],
   },
 ];
 
