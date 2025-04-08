@@ -47,7 +47,7 @@ export default function Home() {
 
       <div className="flex flex-col gap-16 md:gap-20">
         {/* --- Latest Events Section --- */}
-        <section className="flex flex-col gap-8 p-6 rounded-lg bg-muted/30">
+        <section className="flex flex-col gap-8 p-6 rounded-lg">
           {" "}
           {/* Added background */}
           <div className="flex flex-wrap justify-between items-center gap-4">
@@ -82,7 +82,7 @@ export default function Home() {
         </section>
 
         {/* --- Core Research Section --- */}
-        <section className="flex flex-col gap-8 p-6 rounded-lg bg-muted/30">
+        <section className="flex flex-col gap-8 p-6 rounded-lg">
           {" "}
           {/* Added background */}
           <div className="flex flex-wrap justify-between items-center gap-4">
