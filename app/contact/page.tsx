@@ -1,14 +1,47 @@
 import React from "react";
-import { Mail, MapPin } from "lucide-react";
+import { Building, Mail, MapPin, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator"; // Optional separator
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function ContactPage() {
   const emailAddress = "fedexiitm.admin@imail.iitm.ac.in"; // Define centrally
   const fullAddress =
     "NAC 1, Indian Institute of Technology Madras, Chennai, Tamil Nadu 600036"; // Define centrally
-
+  const centerContact = "044 2257 9668";
+  const keyContacts = [
+    {
+      name: "Ms. Geetha UdayaKumar", // Use placeholder or actual name if known
+      title: "Smart Center Coordinator",
+      email: emailAddress, // Use general admin email
+      phone: "044 2257 9669", // Placeholder phone
+    },
+    {
+      name: " Dr. Kelitha Cherian", // Placeholder - Replace with actual name
+      title: "Senior Program Manager",
+      email: "fedexiitm.pm@imail.iitm.ac.in", // Placeholder - Replace with actual email
+      phone: "044 2257 9670", // Placeholder phone
+    },
+    {
+      name: "Prof. Arshinder Kaur",
+      title: "Professor, Dept. of Management Studies",
+      email: "arshinder.kaur@example.iitm.ac.in", // Placeholder - Use official IITM email if known
+      phone: "+91-AAA-AAAAAAA (Example)", // Placeholder phone
+    },
+    {
+      name: "Prof. C Rajendran",
+      title: "Professor, Dept. of Management Studies",
+      email: "c.rajendran@example.iitm.ac.in", // Placeholder - Use official IITM email if known
+      phone: "+91-BBB-BBBBBBB (Example)", // Placeholder phone
+    },
+  ];
   return (
-    <main className="defined-width px-4 py-16 md:py-24 flex flex-col gap-16">
+    <main className="defined-width px-4 py-16 0 flex flex-col gap-16">
       {/* Centered Header */}
       <section className="">
         <h1 className="text-3xl font-bold tracking-tight mb-4">Get In Touch</h1>
@@ -21,9 +54,59 @@ export default function ContactPage() {
       {/* Contact Details Section */}
       <section className="">
         <div className="space-y-6">
-          {" "}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {keyContacts.map((contact, index) => (
+              <Card key={index} className="flex flex-col">
+                {" "}
+                {/* Use Card for structure */}
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg font-medium text-primary">
+                    {contact.name}
+                  </CardTitle>
+                  <CardDescription className="text-sm">
+                    {contact.title}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="text-sm space-y-2 flex-grow">
+                  {" "}
+                  {/* Added flex-grow */}
+                  {/* Email */}
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Mail size={16} className="shrink-0" />
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="hover:text-primary transition-colors break-all" // Allow wrapping
+                    >
+                      {contact.email}
+                    </a>
+                  </div>
+                  {/* Phone */}
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Phone size={16} className="shrink-0" />
+                    <span>{contact.phone}</span>
+                  </div>
+                  {/* Location (simplified) */}
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Building size={16} className="shrink-0" />
+                    <span>FedEx SMART Centre, IIT Madras</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>{" "}
           {/* Increased spacing */}
           {/* Email */}
+          <div className="flex gap-4"></div>
+          <div className="flex items-start gap-4">
+            <Phone className="h-5 w-5 text-primary mt-1 shrink-0" />
+            <div>
+              <h3 className="text-base font-semibold text-foreground mb-1">
+                Phone
+              </h3>
+              <span>{centerContact}</span>
+            </div>
+          </div>
+          <Separator className="my-6 bg-border/60" />{" "}
           <div className="flex items-start gap-4">
             <Mail className="h-5 w-5 text-primary mt-1 shrink-0" />
             <div>

@@ -34,7 +34,7 @@ export default function EventCard({
 }) {
   return (
     <Card className="w-full md:max-w-[500px] overflow-hidden flex flex-col h-full transition-all duration-300 hover:shadow-md hover:border-primary/50">
-      <CardContent className="p-0 relative aspect-video md:aspect-[16/10]">
+      <CardContent className="p-0 relative aspect-video">
         <Image
           src={img_link}
           className="object-cover"
@@ -59,22 +59,24 @@ export default function EventCard({
             {date.toDateString()}
           </div>
         </div>
+
         <CardTitle className="text-lg mb-1">{title}</CardTitle>
         {/* Optional Speaker Display */}
-        {speaker && (
-          <div className="flex items-center gap-1.5 text-xs text-primary mb-2">
-            <Mic className="h-3.5 w-3.5 min-w-6" />
-            <span>
-              {speaker} {affiliation && `(${affiliation})`}
-            </span>
-          </div>
-        )}
+
         <CardDescription className="text-sm text-muted-foreground line-clamp-3">
           {description}
         </CardDescription>
       </CardHeader>
       {learn_more_link && ( // Conditionally render footer if link exists
-        <CardFooter className="p-4 md:p-6 pt-0 mt-auto">
+        <CardFooter className="p-4 md:p-6 pt-0 mt-auto flex justify-between items-center">
+          {speaker && (
+            <div className="flex items-center gap-1.5 text-xs text-primary mb-2">
+              <Mic className="h-3.5 w-3.5 min-w-6" />
+              <span>
+                {speaker} {affiliation && `(${affiliation})`}
+              </span>
+            </div>
+          )}
           <Button
             asChild
             variant="outline"

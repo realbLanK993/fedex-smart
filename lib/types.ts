@@ -7,6 +7,13 @@ export type Faculty = {
     institution?: string;
   };
 };
+
+export type Judge = {
+  image?: string;
+  name: string;
+  description?: string;
+};
+
 export type NavigationItem = {
   name: string;
   icon?: JSX.Element;
@@ -29,7 +36,8 @@ export type CommonPageProps = {
   };
   header_img_link: string;
   content: string;
-  faculty: Faculty[];
+  faculty?: Faculty[];
+  judges?: Judge[];
 };
 
 export interface GalleryImage {
@@ -41,16 +49,6 @@ export interface GalleryImage {
   height: number; // Original image height (for next/image)
 }
 
-// src/data/teamData.ts
-
-export interface TeamMember {
-  id: number | string; // Unique identifier
-  imageUrl?: string; // Leave blank or use '/placeholder.jpg' for now
-  name: string;
-  title: string; // Can combine role and department or vertical affiliation
-  profileLink?: string; // The link from your website content
-}
-
 export interface EventItem {
   id: string; // Unique identifier
   title: string;
@@ -60,7 +58,7 @@ export interface EventItem {
   speaker?: string; // Optional: Speaker name
   affiliation?: string; // Optional: Speaker's affiliation
   img_link: string; // Image URL
-  learn_more_link?: string; // Optional link to details/slides/recording
+  slug?: string; // Optional link to details/slides/recording
 }
 
 export interface OpportunityItem {
@@ -78,4 +76,15 @@ export interface ResearchListItem {
   title: string;
   vertical: string; // e.g., "Sustainability", "Worker Wellness", "Algorithms & ML", "Infrastructure"
   slug: string; // Path for the detail page, e.g., "digital-sustainable-supply-chain"
+}
+
+export type TeamCategory = "Faculty" | "Advisory" | "Center" | "Research";
+
+export interface TeamMember {
+  id: number | string; // Unique identifier
+  category: TeamCategory; // New field for the tab category
+  imageUrl?: string; // Leave blank or use '/placeholder.jpg' for now
+  name: string;
+  title: string; // Can combine role and department or affiliation
+  profileLink?: string; // The link from your website content
 }

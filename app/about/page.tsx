@@ -1,3 +1,4 @@
+import AboutHeader from "@/components/common/about-header-img";
 import { OurImpactCard } from "@/components/common/impact-card";
 import { HeartPulse, Leaf, Lightbulb, TrendingUp } from "lucide-react";
 import Image from "next/image";
@@ -35,24 +36,7 @@ export default function About() {
   ];
   return (
     <div className="w-full max-w-[1200px] flex flex-col gap-32">
-      <header className="flex justify-center items-center relative w-full rounded-xl p-8">
-        <h1 className="text-3xl font-semibold max-w-[500px] absolute z-[1] top-8 left-8">
-          Pioneering Sustainable & Intelligent Logistics Solutions
-        </h1>
-        <div className="w-[400px] h-[600px] relative">
-          <Image
-            src={"/warehouse-worker.jpg"}
-            alt="Warehouse worker walking."
-            width={800}
-            height={1280}
-            className="w-full"
-          />
-        </div>
-        <h1 className="text-3xl max-w-[500px] font-semibold absolute z-[1] bottom-8 right-8 text-right">
-          FedEx SMART
-          <p>Smarter. Greener. Healthier.</p>
-        </h1>
-      </header>
+      <AboutHeader />
       <main className="flex flex-col gap-32 justify-center items-center mb-32">
         <p className="text-center text-lg">
           The FedEx SMART (Supply Chain Modelling, Algorithms, Research and

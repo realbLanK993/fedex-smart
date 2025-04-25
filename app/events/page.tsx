@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import EventCard from "@/components/common/event-card"; // Adjust path
 import { Button } from "@/components/ui/button"; // Adjust path
 import { EventItem } from "@/lib/types";
-import { eventCategories, eventsData } from "@/lib/data";
+import { eventCategories, eventsListData } from "@/lib/data";
 
 type FilterType = EventItem["tag"] | "All";
 
@@ -15,8 +15,8 @@ export default function EventsPage() {
   const sortedFilteredEvents = useMemo(() => {
     const filtered =
       activeFilter === "All"
-        ? eventsData
-        : eventsData.filter((event) => event.tag === activeFilter);
+        ? eventsListData
+        : eventsListData.filter((event) => event.tag === activeFilter);
 
     // Sort by date, newest first
     return filtered.sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -67,7 +67,7 @@ export default function EventsPage() {
                 date={event.date} // Pass date object
                 speaker={event.speaker} // Pass speaker
                 affiliation={event.affiliation} // Pass affiliation
-                learn_more_link={event.learn_more_link}
+                learn_more_link={event.slug}
                 img_link={event.img_link}
               />
             ))}

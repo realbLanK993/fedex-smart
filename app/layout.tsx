@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Poppins, Raleway } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/navbar";
 import { NavigationItem } from "@/lib/types";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "FedEx Smart Center in collaboration with IIT Madras",
 };
 
-const poppins = Poppins({
+const poppins = Raleway({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });

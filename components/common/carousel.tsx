@@ -68,7 +68,10 @@ export function Carousel({ arr, autoplay, DELAY = 3000 }: CarouselProps) {
               }`}
             >
               <div
-                className={`border relative overflow-hidden rounded-lg h-[300px] object-contain md:h-[400px] flex justify-center items-center mr-4`}
+                onClick={() => {
+                  setCurrentIndex(index);
+                }}
+                className={`border relative  cursor-pointer overflow-hidden rounded-lg h-[300px] object-contain md:h-[400px] flex justify-center items-center mr-4`}
               >
                 {currentIndex == index && (
                   <Image
@@ -80,7 +83,7 @@ export function Carousel({ arr, autoplay, DELAY = 3000 }: CarouselProps) {
                   />
                 )}
                 <span
-                  className={` font-bold transition-opacity duration-500 ease-in-out  ${
+                  className={` font-bold transition-opacity duration-500 ease-in-out select-none ${
                     currentIndex != index
                       ? "-rotate-90 inline-block opacity-100 min-w-[350px] text-xl"
                       : "absolute z-30 bottom-3 text-3xl opacity-100 right-10 text-white"

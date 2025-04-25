@@ -1,13 +1,8 @@
-import { Faculty } from "@/lib/types";
+import { Judge } from "@/lib/types";
 import { Card } from "../ui/card";
 import { Badge } from "../ui/badge";
 
-export default function FacultyCard({
-  designation,
-  name,
-  location,
-  image,
-}: Faculty) {
+export default function JudgeCard({ description, name, image }: Judge) {
   return (
     <Card className="flex flex-row gap-4 min-w-[400px]">
       {image && (
@@ -16,14 +11,8 @@ export default function FacultyCard({
         </div>
       )}
       <div className="flex flex-col gap-4 p-4">
-        <Badge className="w-fit text-xs">
-          {designation.toLocaleUpperCase()}
-        </Badge>
         <p className="text-xl font-bold"> {name} </p>
-        <div className="flex flex-col gap-2">
-          <p> {location.department} </p>
-          <p className="text-sm text-gray-400"> {location.institution} </p>
-        </div>
+        <span className="text-muted text-sm">{description}</span>
       </div>
     </Card>
   );

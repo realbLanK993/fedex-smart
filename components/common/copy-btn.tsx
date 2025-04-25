@@ -3,18 +3,26 @@
 import { copyText } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function CopyBtn({
   text,
   children,
 }: {
-  text: string;
+  text?: string;
   children: React.ReactNode;
 }) {
+  const router = usePathname();
   return (
     <Button
       onClick={() => {
-        copyText(text);
+        if (text) {
+          copyText(text);
+        } else {
+          const host = window.location.href;
+          copyText(`${host}`);
+        }
         toast.success("Link copied to clipboard", {
           description: text,
         });

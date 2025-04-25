@@ -4,6 +4,7 @@ import {
   EventItem,
   OpportunityItem,
   ResearchListItem,
+  TeamCategory,
   TeamMember,
 } from "@/lib/types"; // Assuming your type definition is here
 
@@ -11,11 +12,12 @@ import {
 const createFaculty = (
   name: string,
   designation = "Professor",
-  department = "Multiple Departments Involved"
+  department?: string,
+  institution = "IIT Madras"
 ) => ({
-  name: `Prof. ${name}`,
+  name: `${name}`,
   designation,
-  location: { department, institution: "IIT Madras" },
+  location: { department, institution },
 });
 
 // Define the detailed data for each research slug
@@ -383,7 +385,7 @@ export const researchDetailsData: { [key: string]: CommonPageProps } = {
 // src/data/eventsData.ts
 
 // Populate with data from PPT and planned events
-export const eventsData: EventItem[] = [
+export const eventsListData: EventItem[] = [
   // --- Past Events (Order doesn't matter here, we'll sort later) ---
   {
     id: "seminar-rodrigues",
@@ -398,7 +400,7 @@ export const eventsData: EventItem[] = [
       "MD, The Business Binnacle Ltd (Retired Commander, Indian Navy)",
     img_link:
       "https://images.pexels.com/photos/1181344/pexels-photo-1181344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Global/Tech/Business
-    learn_more_link: "#", // Add link if available
+    slug: "/events/seminar-rodrigues", // Add link if available
   },
   {
     id: "seminar-ganesh",
@@ -413,7 +415,7 @@ export const eventsData: EventItem[] = [
       "Partner & Global Lead of MSC Center of Competence, McKinsey & Company",
     img_link:
       "https://images.pexels.com/photos/17483870/pexels-photo-17483870/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-was-inspired-neural-networks-used-in-deep-learning-it-was-created-by-novoto-studio-as-part-of-the-visualising-ai-proje.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: AI/Abstract
-    learn_more_link: "#",
+    slug: "/events/seminar-ganesh",
   },
   {
     id: "seminar-doreswamy",
@@ -426,7 +428,7 @@ export const eventsData: EventItem[] = [
     affiliation: "VP, Data Science, Swiggy",
     img_link:
       "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Charts/Analytics
-    learn_more_link: "#",
+    slug: "/events/seminar-doreswamy",
   },
   {
     id: "seminar-thakkar",
@@ -440,7 +442,7 @@ export const eventsData: EventItem[] = [
     affiliation: "Prof & Dean (Academics), Gati Shakti Vishwavidyalaya",
     img_link:
       "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Logistics/Infrastructure
-    learn_more_link: "#",
+    slug: "/events/seminar-thakkar",
   },
   {
     id: "seminar-goyal",
@@ -453,7 +455,7 @@ export const eventsData: EventItem[] = [
     affiliation: "Founder & CEO, Instavans Logistics (P) Ltd",
     img_link:
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Platform/Interface/India Map
-    learn_more_link: "#",
+    slug: "/events/seminar-goyal",
   },
   {
     id: "seminar-akella",
@@ -467,7 +469,7 @@ export const eventsData: EventItem[] = [
       "Co-founder & Chief Strategy Officer, Mera Transport Exchange (p) Ltd",
     img_link:
       "https://images.pexels.com/photos/163726/logistics-network-business-industry-163726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Map/Network India
-    learn_more_link: "#",
+    slug: "/events/seminar-akella",
   },
   {
     id: "seminar-yamarthy",
@@ -480,7 +482,7 @@ export const eventsData: EventItem[] = [
     affiliation: "CEO, Logistics Sector Skill Council",
     img_link:
       "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: People/Learning/Career
-    learn_more_link: "#",
+    slug: "/events/seminar-yamarthy",
   },
   {
     id: "seminar-kadavan",
@@ -493,33 +495,30 @@ export const eventsData: EventItem[] = [
     affiliation: "Director-Sea Vantage, Founder - Insites Technology",
     img_link:
       "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Future Tech/Abstract
-    learn_more_link: "#",
+    slug: "/events/seminar-kadavan",
   },
 
   // --- Upcoming/Planned Events ---
   {
     id: "hackathon-shastra-2025",
-    title: "Logistics Innovation Challenge @ Shastra 2025",
+    title: "FedEx SMART Hackathon",
     description:
-      "A grand challenge hackathon focused on solving pressing logistics problems using data and technology. Details coming soon!",
+      "The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction.",
     tag: "Hackathon",
-    date: new Date("2025-01-15"), // Placeholder Date in Jan 2025
-    img_link:
-      "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Code/Hackathon
-    learn_more_link: "#", // Update when details available
+    date: new Date("2025-01-31"), // Placeholder Date in Jan 2025
+    img_link: "/events/fedex-smart-hackathon.jpg", // Placeholder: Code/Hackathon
+    slug: "/events/hackathon-shastra-2025", // Update when details available
   },
   {
-    id: "seminar-mohan-asu",
-    title: "Seminar by Redington Srinivasan International Visiting Chair",
+    id: "seminar-gopalakrishnan",
+    title: "A Tale of two cities",
     description:
-      "Prof. Gopalakrishnan Mohan from Arizona State University will deliver a seminar (topic TBA).",
+      "A Seminar on supply chain resilience and viability in the post-Covid world facilitated by Dr Gopalakrishnan Mohan",
     tag: "Seminar",
+    speaker: "Dr Gopalakrishnan Mohan",
     date: new Date("2025-02-01"), // Placeholder Future Date - Update when scheduled
-    speaker: "Prof. Gopalakrishnan Mohan",
-    affiliation: "Arizona State University, WPC School of Business",
-    img_link:
-      "https://images.pexels.com/photos/267491/pexels-photo-267491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Speaker/University/Global
-    learn_more_link: "#",
+    img_link: "/events/supply-chain-modelling.jpg", // Placeholder: Speaker/University/Global
+    slug: "/events/a-tale-of-two-cities",
   },
   // Add workshops or other events mentioned if applicable
 ];
@@ -619,106 +618,250 @@ export const researchVerticals = [
   ...Array.from(new Set(researchListData.map((item) => item.vertical))),
 ];
 
+export const eventDetailsData: { [key: string]: CommonPageProps } = {
+  "a-tale-of-two-cities": {
+    title: "A Tale Of Two Cities",
+    date: "February 1 2025",
+    type: "Seminar",
+    header_img_link: "/events/supply-chain-modelling.jpg", // Placeholder: Sustainable logistics concept
+    content: `
+      <h3>Key Focus Areas</h3>      
+      <h4>Digital Transformation of supply chains</h2>
+        <p>Discussions touched up the role of AI, ML, IoT, blockchain in supply chain management. Case studies were discussed with understanding of real-time data sharing and predicative analytics.</p>
+      <h4>Sustainability and ESG in supply chains</h2>
+        <p> The issues of carbon footprints, areas that included green logistics and circular supply chains were discussed. Some noteworthy points on climate risks and their impact on sourcing and transportation.</p>
+      <h4>Localisation & regionalisation with case studies </h2>  
+        <p> Professor included case studies of two cities to highlight the importance of localisation and regionalization. The impact of this on MSMEs and startup ecosystems. </p>
+        `, // Combined objectives from PPT/website text
+    links: {
+      /* Placeholder links */ common: "a-tale-of-two-cities",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Dr Gopalakrishnan Mohan",
+        "Director",
+        " School of Technology, Innovation and Entrepreneurship",
+        "West Valley Campus "
+      ),
+    ],
+    judges: [],
+  },
+  "hackathon-shastra-2025": {
+    title: "FedEx Smart Hackathon",
+    date: "Jan 31 2025",
+    type: "Hackathon",
+    header_img_link: "/events/fedex-smart-hackathon.jpg", // Placeholder: Sustainable logistics concept
+    content: `
+      <p>The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction. By utilizing real-time traffic, weather, social media and vehicle data, participants showcased exceptional ingenuity in building original hardware prototypes to eco-friendly routing systems. FedEx's active involvement provided invaluable industry insights and real-world guidance that inspired participants to develop cutting-edge approaches. The judges played a crucial role in evaluating projects, interacting with participants, and offering advice based on their extensive experience. The winning teams were from Indian Institute of Technology (IIT), Madras, SNS College of Technology and Sri Sairam Engineering College. Post the event, FedEx experts also engaged with IIT professors and their student teams, underscoring the importance of collaboration and industry support in driving technological advancements.  </p>
+    `, // Combined objectives from PPT/website text
+    links: {
+      /* Placeholder links */ common: "#",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [],
+    judges: [
+      {
+        name: "Vijay Kumar R",
+        description: "Manager Shared Services",
+      },
+      {
+        name: "S. Karthikeyan",
+        description: "Manager Clearance Operations",
+      },
+    ],
+  },
+};
+
+// --- Populate this with actual data ---
 export const teamData: TeamMember[] = [
+  // --- Faculty Team ---
   {
     id: 1,
+    category: "Faculty",
     name: "Prof. Arshinder Kaur",
     title: "Professor, Dept. of Management Studies | PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur", // Replace with actual links from your site data
+    profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur",
   },
   {
     id: 2,
+    category: "Faculty",
     name: "Prof. C Rajendran",
     title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/prof-c-rajendran", // Replace link
+    profileLink: "https://doms.iitm.ac.in/index.php/prof-c-rajendran",
   },
   {
     id: 3,
+    category: "Faculty",
     name: "Prof. R P Sundararaj",
     title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/prof-r-p-sundararaj", // Replace link
+    profileLink: "https://doms.iitm.ac.in/index.php/prof-r-p-sundararaj",
   },
   {
     id: 4,
+    category: "Faculty",
     name: "Prof. Nargis Pervin",
     title:
       "Associate Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/dr-nargis-pervin", // Replace link
+    profileLink: "https://doms.iitm.ac.in/index.php/dr-nargis-pervin",
   },
   {
     id: 5,
+    category: "Faculty",
     name: "Prof. Vaibhav Chawla",
     title:
       "Assistant Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/dr-vaibhav-chawla", // Replace link
+    profileLink: "https://doms.iitm.ac.in/index.php/dr-vaibhav-chawla",
   },
   {
     id: 6,
+    category: "Faculty",
     name: "Prof. Usha Mohan",
     title: "Associate Professor, Dept. of Civil Engg. | Co-PI, Sustainability",
-    profileLink: "https://civil.iitm.ac.in/faculty/ushamohan/", // Replace link
+    profileLink: "https://civil.iitm.ac.in/faculty/ushamohan/",
   },
   {
     id: 7,
+    category: "Faculty",
     name: "Prof. Chandrashekar L",
     title: "Assistant Professor, Dept. of CSE | PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~chandrashekhar/", // Replace link
+    profileLink: "https://www.cse.iitm.ac.in/~chandrashekhar/",
   },
   {
     id: 8,
+    category: "Faculty",
     name: "Prof. N S Narayanaswamy",
     title: "Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~swamy/", // Replace link
+    profileLink: "https://www.cse.iitm.ac.in/~swamy/",
   },
   {
     id: 9,
+    category: "Faculty",
     name: "Prof. Rupesh Nasre",
     title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~rupesh/", // Replace link
+    profileLink: "https://www.cse.iitm.ac.in/~rupesh/",
   },
-  // Add ALL other faculty members listed in your core team...
   {
     id: 10,
+    category: "Faculty",
     name: "Prof. B. Ravindran",
-    title: "Professor, Dept. of CSE | Head, RBCDSAI", // Role might need adjustment
+    title: "Professor, Dept. of CSE | Head, RBCDSAI",
     profileLink: "https://www.cse.iitm.ac.in/~ravi/",
   },
   {
     id: 11,
+    category: "Faculty",
     name: "Prof. Anil Prabhakar",
     title: "Professor, Dept. of Electrical Engg. | Co-PI, Algorithms & ML",
     profileLink: "https://www.ee.iitm.ac.in/anilpr/",
   },
   {
     id: 12,
+    category: "Faculty",
     name: "Prof. Rahul Marathe",
     title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
     profileLink: "https://www.cse.iitm.ac.in/~marathe/",
   },
   {
     id: 13,
+    category: "Faculty",
     name: "Prof. Babji Srinivasan",
     title: "Associate Professor, Dept. of Chemical Engg. | PI, Worker Wellness",
     profileLink: "https://chemeng.iitm.ac.in/babjis/",
   },
   {
     id: 14,
+    category: "Faculty",
     name: "Prof. S R Chakravarthy",
     title: "Professor, Dept. of Aerospace Engg. | Co-PI, Infrastructure",
     profileLink: "https://aero.iitm.ac.in/personnel/dr-s-r-chakravarthy/",
   },
   {
     id: 15,
+    category: "Faculty",
     name: "Prof. Rajagopalan Srinivasan",
     title: "Professor, Dept. of Chemical Engg. | Co-PI, Worker Wellness",
     profileLink: "https://chemeng.iitm.ac.in/raj/",
   },
   {
     id: 16,
+    category: "Faculty",
     name: "Prof. Gitakrishnan Ramadurai",
     title: "Professor, Dept. of Civil Engg. | PI, Infrastructure",
     profileLink: "https://civil.iitm.ac.in/faculty/gitakrishnan/",
   },
 
-  // ... continue for all faculty listed in the PPT Core Team
+  // --- Advisory Board (Placeholders - Replace with actual members) ---
+  {
+    id: "adv01",
+    category: "Advisory",
+    name: "[Senior FedEx Representative]",
+    title: "VP/Director, FedEx (Region/Function)",
+    // profileLink: "#" // Add link if available
+  },
+  {
+    id: "adv02",
+    category: "Advisory",
+    name: "[IITM Dean/Director]",
+    title: "Dean (ICSR or ACR) / Director, IIT Madras",
+    // profileLink: "#" // Add link if available
+  },
+  {
+    id: "adv03",
+    category: "Advisory",
+    name: "[Industry Expert]",
+    title: "CEO/CTO, Logistics Technology Company",
+    // profileLink: "#" // Add link if available
+  },
+
+  // --- Center Team (Placeholders - Update with info from Contact Page) ---
+  {
+    id: "ctr01",
+    category: "Center",
+    name: "Centre Admin", // Use actual name if known
+    title: "Administrative Support",
+    // profileLink: "#" // Link to contact?
+  },
+  {
+    id: "ctr02",
+    category: "Center",
+    name: "[Project Manager Name]", // Update Name
+    title: "Centre Project Manager",
+    // profileLink: "#"
+  },
+
+  // --- Research Team (Placeholders - Add Postdocs, Staff, PhDs as applicable) ---
+  {
+    id: "res01",
+    category: "Research",
+    name: "[Postdoctoral Fellow Name]",
+    title: "Postdoctoral Research Fellow",
+    // profileLink: "#"
+  },
+  {
+    id: "res02",
+    category: "Research",
+    name: "[Research Staff Name]",
+    title: "Project Engineer / Research Associate",
+    // profileLink: "#"
+  },
+  {
+    id: "res03",
+    category: "Research",
+    name: "[PhD Scholar Name]",
+    title: "PhD Scholar (Vertical)",
+    // profileLink: "#"
+  },
+];
+
+// Define the order and labels for tabs
+export const teamCategories: { value: TeamCategory; label: string }[] = [
+  { value: "Faculty", label: "Faculty Team" },
+  { value: "Advisory", label: "Advisory Board" },
+  { value: "Center", label: "Center Team" },
+  { value: "Research", label: "Research Team" },
 ];
