@@ -9,7 +9,6 @@ export default function CommonPage({
   type,
   title,
   date,
-  links,
   header_img_link,
   content,
   faculty,

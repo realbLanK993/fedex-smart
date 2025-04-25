@@ -1,7 +1,6 @@
 import AboutHeader from "@/components/common/about-header-img";
 import { OurImpactCard } from "@/components/common/impact-card";
 import { HeartPulse, Leaf, Lightbulb, TrendingUp } from "lucide-react";
-import Image from "next/image";
 
 export default function About() {
   const impactData = [

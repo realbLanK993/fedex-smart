@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { animate, cubicBezier, motion } from "framer-motion";
+import { cubicBezier, motion } from "framer-motion";
 
 export default function AnimatedText({
   text,

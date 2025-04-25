@@ -1,6 +1,5 @@
 import { Judge } from "@/lib/types";
 import { Card } from "../ui/card";
-import { Badge } from "../ui/badge";
 
 export default function JudgeCard({ description, name, image }: Judge) {
   return (

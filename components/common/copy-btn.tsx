@@ -3,8 +3,6 @@
 import { copyText } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
-import { useRouter } from "next/router";
-import { usePathname } from "next/navigation";
 
 export default function CopyBtn({
   text,
@@ -13,7 +11,6 @@ export default function CopyBtn({
   text?: string;
   children: React.ReactNode;
 }) {
-  const router = usePathname();
   return (
     <Button
       onClick={() => {
