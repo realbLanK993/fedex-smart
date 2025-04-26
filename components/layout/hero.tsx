@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type HeroWords =
@@ -57,6 +58,16 @@ export default function Hero() {
         </motion.span>
         Tomorrow
       </h1>
+      <div className="w-full max-h-[400px] h-full overflow-hidden">
+        <Image
+          src={`/hero/${current + 1}.jpg`}
+          alt="People in lab"
+          width={1200}
+          height={800}
+          className=""
+        />
+      </div>
+
       <p className="text-center">
         {`Welcome to the FedEx SMART Center at IIT Madras—where innovation meets
           impact. We’re pioneering greener supply chains, smarter technologies,
