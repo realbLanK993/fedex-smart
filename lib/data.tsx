@@ -427,7 +427,7 @@ export const eventsListData: EventItem[] = [
     speaker: "Ms. Goda Doreswamy",
     affiliation: "VP, Data Science, Swiggy",
     img_link:
-      "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Charts/Analytics
+      "/events/neon-ai.jpg", // Placeholder: Charts/Analytics
     slug: "/events/seminar-doreswamy",
   },
   {
@@ -468,7 +468,7 @@ export const eventsListData: EventItem[] = [
     affiliation:
       "Co-founder & Chief Strategy Officer, Mera Transport Exchange (p) Ltd",
     img_link:
-      "https://images.pexels.com/photos/163726/logistics-network-business-industry-163726.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Map/Network India
+      "/events/logistics-problems.jpg", // Placeholder: Map/Network India
     slug: "/events/seminar-akella",
   },
   {
@@ -481,7 +481,7 @@ export const eventsListData: EventItem[] = [
     speaker: "Mr. Ravikanth Yamarthy",
     affiliation: "CEO, Logistics Sector Skill Council",
     img_link:
-      "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: People/Learning/Career
+      "/events/career.jpg", // Placeholder: People/Learning/Career
     slug: "/events/seminar-yamarthy",
   },
   {
@@ -494,7 +494,7 @@ export const eventsListData: EventItem[] = [
     speaker: "Mr. Vinod Alex Kadavan",
     affiliation: "Director-Sea Vantage, Founder - Insites Technology",
     img_link:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Future Tech/Abstract
+      "/events/modern-tech.jpg", // Placeholder: Future Tech/Abstract
     slug: "/events/seminar-kadavan",
   },
 
@@ -620,45 +620,53 @@ export const researchVerticals = [
 
 export const eventDetailsData: { [key: string]: CommonPageProps } = {
   "a-tale-of-two-cities": {
-    title: "A Tale Of Two Cities",
-    date: "February 1 2025",
+    title: "A Tale of Two Cities",
+    date: "February 1, 2025",
     type: "Seminar",
-    header_img_link: "/events/supply-chain-modelling.jpg", // Placeholder: Sustainable logistics concept
+    header_img_link: "/events/supply-chain-modelling.jpg",
     content: `
-      <h3>Key Focus Areas</h3>      
-      <h4>Digital Transformation of supply chains</h2>
-        <p>Discussions touched up the role of AI, ML, IoT, blockchain in supply chain management. Case studies were discussed with understanding of real-time data sharing and predicative analytics.</p>
-      <h4>Sustainability and ESG in supply chains</h2>
-        <p> The issues of carbon footprints, areas that included green logistics and circular supply chains were discussed. Some noteworthy points on climate risks and their impact on sourcing and transportation.</p>
-      <h4>Localisation & regionalisation with case studies </h2>  
-        <p> Professor included case studies of two cities to highlight the importance of localisation and regionalization. The impact of this on MSMEs and startup ecosystems. </p>
-        `, // Combined objectives from PPT/website text
+    <p>Dr. Gopalakrishnan Mohan presented a seminar on supply chain resilience and viability in the post-Covid world. The session included two contrasting case studies of U.S. cities to highlight resilience strategies and was well-received for its interactive approach.</p>
+    <h3>Key Focus Areas</h3>
+    <h4>Digital Transformation of Supply Chains</h4>
+    <p>Discussions covered the role of AI, ML, IoT, and blockchain in supply chain management, with case studies on real-time data sharing and predictive analytics.</p>
+    <h4>Sustainability and ESG in Supply Chains</h4>
+    <p>The seminar addressed carbon footprints, green logistics, circular supply chains, and the impact of climate risks on sourcing and transportation.</p>
+    <h4>Localisation & Regionalisation</h4>
+    <p>Case studies of two cities emphasized the importance of localisation and regionalization, particularly their impact on MSMEs and startup ecosystems.</p>
+  `,
     links: {
-      /* Placeholder links */ common: "a-tale-of-two-cities",
+      common: "/events/a-tale-of-two-cities",
       linkedin: "#",
       facebook: "#",
       twitter: "#",
     },
     faculty: [
       createFaculty(
-        "Dr Gopalakrishnan Mohan",
-        "Director",
-        " School of Technology, Innovation and Entrepreneurship",
-        "West Valley Campus "
+        "Gopalakrishnan Mohan",
+        "R Srinivasan Visiting Chair Professor",
+        "School of Technology, Innovation and Entrepreneurship",
+        "Arizona State University & IIT Madras"
       ),
     ],
     judges: [],
   },
   "hackathon-shastra-2025": {
-    title: "FedEx Smart Hackathon",
-    date: "Jan 31 2025",
+    title: "FedEx SMART Hackathon",
+    date: "January 31, 2025",
     type: "Hackathon",
-    header_img_link: "/events/fedex-smart-hackathon.jpg", // Placeholder: Sustainable logistics concept
+    header_img_link: "/events/fedex-smart-hackathon.jpg",
     content: `
-      <p>The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction. By utilizing real-time traffic, weather, social media and vehicle data, participants showcased exceptional ingenuity in building original hardware prototypes to eco-friendly routing systems. FedEx's active involvement provided invaluable industry insights and real-world guidance that inspired participants to develop cutting-edge approaches. The judges played a crucial role in evaluating projects, interacting with participants, and offering advice based on their extensive experience. The winning teams were from Indian Institute of Technology (IIT), Madras, SNS College of Technology and Sri Sairam Engineering College. Post the event, FedEx experts also engaged with IIT professors and their student teams, underscoring the importance of collaboration and industry support in driving technological advancements.  </p>
-    `, // Combined objectives from PPT/website text
+    <p>The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction. By utilizing real-time traffic, weather, social media, and vehicle data, participants showcased exceptional ingenuity in building original hardware prototypes to eco-friendly routing systems. FedEx's active involvement provided invaluable industry insights and real-world guidance that inspired participants to develop cutting-edge approaches.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Problem statements focused on enhanced demand forecasting and dynamic route optimization.</li>
+      <li>Winning teams from IIT Madras, SNS College of Technology, and Sri Sairam Engineering College.</li>
+      <li>Judges evaluated projects based on innovation, feasibility, and impact.</li>
+      <li>Post-event engagement with IIT professors and students to foster collaboration.</li>
+    </ul>
+  `,
     links: {
-      /* Placeholder links */ common: "#",
+      common: "/events/hackathon-shastra-2025",
       linkedin: "#",
       facebook: "#",
       twitter: "#",
@@ -673,7 +681,267 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
         name: "S. Karthikeyan",
         description: "Manager Clearance Operations",
       },
+      {
+        name: "Micheal",
+        description: "FedEx Representative",
+      },
     ],
+  },
+  "seminar-kadavan": {
+    title: "The Future of Logistics: Technology-Driven Solutions",
+    date: "August 1, 2024",
+    type: "Seminar",
+    header_img_link: "/events/modern-tech.jpg",
+    content: `
+    <p>Mr. Vinod Alex Kadavan explored how technology is shaping the future of the logistics industry. The seminar focused on emerging technologies like AI, IoT, and blockchain, and their role in improving efficiency and sustainability.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Significance of automation in warehouse operations and autonomous vehicles.</li>
+      <li>Impact of AI/ML in predictive analytics, demand forecasting, and route optimization.</li>
+      <li>Future innovations in intelligent transportation systems.</li>
+      <li>Challenges of data security and privacy in technology adoption.</li>
+      <li>Importance of aligning training programs to bridge talent gaps.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-kadavan",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Vinod Alex Kadavan",
+        "Director & Founder",
+        undefined,
+        "Sea Vantage, Insites Technology"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-yamarthy": {
+    title: "Career in Logistics & Essence of Upskilling",
+    date: "July 1, 2024",
+    type: "Seminar",
+    header_img_link: "/events/career.jpg",
+    content: `
+    <p>Mr. Ravikanth Yamarthy discussed career paths in logistics and the importance of continuous learning. The seminar covered the evolving logistics landscape, from warehouses to digital highways, and emerging trends like digitization and sustainability.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Core roles in operations, procurement, planning, and analytics.</li>
+      <li>Emerging fields like maritime logistics, cold chain, and green logistics.</li>
+      <li>Importance of upskilling through certifications, workshops, and hands-on labs.</li>
+      <li>Role of industry-institution collaborations and experiential learning.</li>
+      <li>Need for soft skills like communication, leadership, and problem-solving.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-yamarthy",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Ravikanth Yamarthy",
+        "CEO",
+        undefined,
+        "Logistics Sector Skill Council"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-akella": {
+    title: "Interesting Logistics Problems in India",
+    date: "March 28, 2024",
+    type: "Seminar",
+    header_img_link: "/events/logistics-problems.jpg",
+    content: `
+    <p>Mr. Brahmayya Akella highlighted unique challenges and problems within the Indian logistics context, focusing on inefficiencies and opportunities for innovation.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Challenges like infrastructure bottlenecks, fragmented markets, and skill gaps.</li>
+      <li>Adoption of technologies like GPS, RFID, and blockchain for supply chain visibility.</li>
+      <li>Customized solutions for warehousing and distribution centers.</li>
+      <li>Impact of e-commerce on logistics operations.</li>
+      <li>Case studies on innovative solutions applied in India and globally.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-akella",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Brahmayya Akella",
+        "Co-founder & Chief Strategy Officer",
+        undefined,
+        "Mera Transport Exchange (P) Ltd"
+      ),
+    ],
+    judges: [],
+  }, "seminar-goyal": {
+    title: "Unified Logistics Interface Platform (ULIP): A Game Changer?",
+    date: "April 5, 2024",
+    type: "Seminar",
+    header_img_link: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    content: `
+    <p>Mr. Vinay Goyal discussed the potential impact of the Unified Logistics Interface Platform (ULIP) on the Indian logistics ecosystem. The seminar explored the evolution of UI design, benefits of unified interfaces, and implementation challenges.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Evolution of user interface design and emergence of unified platforms.</li>
+      <li>Advantages of ULIP in streamlining workflows and reducing training time.</li>
+      <li>Impact on user experience, business processes, and operational efficiency.</li>
+      <li>Role of data integration and analytics in better decision-making.</li>
+      <li>Need for National Logistics Data Services to democratize data management.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-goyal",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Vinay Goyal",
+        "Founder & CEO",
+        undefined,
+        "Instavans Logistics (P) Ltd"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-thakkar": {
+    title: "Emerging Challenges and Opportunities in the Transportation and Logistics Sector",
+    date: "April 18, 2024",
+    type: "Seminar",
+    header_img_link: "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    content: `
+    <p>Prof. Jitesh Thakkar provided an overview of the current landscape and future trends in transportation and logistics, focusing on India's emerging economy. The seminar addressed challenges like automation, supply chain disruptions, and evolving customer expectations.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Challenges from automation, sustainability, and regulatory compliance.</li>
+      <li>Opportunities in digital transformation, data analytics, and e-commerce growth.</li>
+      <li>Case studies illustrating strategies for addressing customer needs in India.</li>
+      <li>Impact of green logistics and alternative workforce models.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-thakkar",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Jitesh J Thakkar",
+        "Professor & Dean (Academics)",
+        undefined,
+        "Gati Shakti Vishwavidyalaya"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-doreswamy": {
+    title: "Applications of Optimization in Business",
+    date: "April 25, 2024",
+    type: "Seminar",
+    header_img_link: "/events/neon-ai.jpg",
+    content: `
+    <p>Ms. Goda Doreswamy shared insights on practical applications of optimization techniques in a business context. The seminar emphasized the role of optimization in improving efficiency, reducing costs, and gaining a competitive edge.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>Case studies showcasing optimization in supply chain management and other industries.</li>
+      <li>Impact of optimization on resource allocation, production planning, and demand forecasting.</li>
+      <li>Applications across manufacturing, retail, finance, healthcare, and transportation.</li>
+      <li>Role of data analytics, statistical methods, ML, and AI in driving optimization.</li>
+      <li>Future trends and challenges in adopting sustainable optimization approaches.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-doreswamy",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Goda Doreswamy",
+        "Vice President, Data Science",
+        undefined,
+        "Swiggy"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-ganesh": {
+    title: "Intensify Brilliance in Supply Chain and Logistics with Gen AI Models",
+    date: "May 31, 2024",
+    type: "Seminar",
+    header_img_link: "https://images.pexels.com/photos/17483870/pexels-photo-17483870/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-was-inspired-neural-networks-used-in-deep-learning-it-was-created-by-novoto-studio-as-part-of-the-visualising-ai-proje.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    content: `
+    <p>Dr. K Ganesh discussed how Generative AI can revolutionize supply chain and logistics operations. The seminar covered the foundations and capabilities of GenAI models, focusing on their ability to generate novel content and predictions. Discussions highlighted GenAI's applications in predictive analytics, demand forecasting, and inventory management.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>GenAI's role in analyzing historical data and market trends for accurate demand forecasts.</li>
+      <li>Optimizing inventory levels and predicting stock requirements with high accuracy.</li>
+      <li>Enhancing production planning and resource allocation.</li>
+      <li>Identifying areas where AI and GenAI improve efficiency, resilience, and customer experience.</li>
+      <li>Future implications of GenAI in supply chain innovations.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-ganesh",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "K Ganesh",
+        "Partner & Global Lead",
+        undefined,
+        "MSC Center of Competence, McKinsey & Company"
+      ),
+    ],
+    judges: [],
+  },
+  "seminar-rodrigues": {
+    title: "The 21st Century Lean-Agile Global Supply Chains: Nexus between Business & Technology",
+    date: "October 10, 2024",
+    type: "Seminar",
+    header_img_link: "https://images.pexels.com/photos/1181344/pexels-photo-1181344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    content: `
+    <p>Mr. Allan Rodrigues explored the intersection of modern supply chain strategies and technological advancements. The seminar introduced global supply chains, their impact on geo-economies and knowledge economies, and the need for hybrid Lean-Agile models in the current market. It highlighted the role of globalization, digitalization, and technologies like real-time data, IoT, AI/ML, and blockchain.</p>
+    <h3>Highlights</h3>
+    <ul class="list-disc space-y-2 pl-6 my-4">
+      <li>The Lean-Agile hybrid model and its adaptability for businesses.</li>
+      <li>Impact of the pandemic on global supply chains and coping mechanisms.</li>
+      <li>Role of technology in transforming industries via data analytics, AI, automation, and blockchain.</li>
+      <li>Advantages of the Lean-Agile model with a sustainable approach.</li>
+      <li>Case studies illustrating real-world applications.</li>
+      <li>Challenges like data privacy, legacy system integration, and talent gaps.</li>
+      <li>Integration of Industry 4.0 concepts, IoT, AI-enabled predictive analytics, and blockchain.</li>
+    </ul>
+  `,
+    links: {
+      common: "/events/seminar-rodrigues",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    faculty: [
+      createFaculty(
+        "Allan Rodrigues",
+        "Managing Director",
+        undefined,
+        "The Business Binnacle Ltd (Retired Commander, Indian Navy)"
+      ),
+    ],
+    judges: [],
   },
 };
 
