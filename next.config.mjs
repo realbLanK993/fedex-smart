@@ -14,6 +14,7 @@ const nextConfig = {
       "www.ieor.iitb.ac.in",
       "www.fedex.com",
     ],
+    unoptimized: true,
   },
 };
 
