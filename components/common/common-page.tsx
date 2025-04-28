@@ -4,6 +4,7 @@ import { CommonPageProps } from "@/lib/types";
 import FacultyCard from "./faculty-card";
 import CopyBtn from "./copy-btn";
 import { Badge } from "../ui/badge";
+import JudgeCard from "./judge-card";
 
 export default function CommonPage({
   type,
@@ -48,7 +49,7 @@ export default function CommonPage({
           className="prose dark:prose-invert px-4"
         />
       </div>
-      {(faculty || judges) && (
+      {faculty && faculty.length > 0 && (
         <div className="flex flex-col gap-8 px-4">
           <p className="font-bold text-xl">Faculty Members</p>
           {faculty && (
@@ -59,6 +60,23 @@ export default function CommonPage({
                   name={person.name}
                   designation={person.designation}
                   location={person.location}
+                />,
+              ])}
+            </div>
+          )}
+        </div>
+      )}
+      {judges && judges.length > 0 && (
+        <div className="flex flex-col gap-8 px-4">
+          <p className="font-bold text-xl">Judges</p>
+          {judges && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+              {judges.map((person, index) => [
+                <JudgeCard
+                  key={index}
+                  name={person.name}
+                  description={person.description}
+                  image={person.image}
                 />,
               ])}
             </div>

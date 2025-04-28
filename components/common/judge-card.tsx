@@ -11,7 +11,7 @@ export default function JudgeCard({ description, name, image }: Judge) {
       )}
       <div className="flex flex-col gap-4 p-4">
         <p className="text-xl font-bold"> {name} </p>
-        <span className="text-muted text-sm">{description}</span>
+        <span className="text-muted-foreground text-sm">{description}</span>
       </div>
     </Card>
   );

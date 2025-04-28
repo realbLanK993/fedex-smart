@@ -640,7 +640,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     faculty: [
       createFaculty(
         "Gopalakrishnan Mohan",
-        "R Srinivasan Visiting Chair Professor",
+        "International Visiting Chair Professor",
         "School of Technology, Innovation and Entrepreneurship",
         "Arizona State University & IIT Madras"
       ),
@@ -1157,14 +1157,14 @@ export const teamData: TeamMember[] = [
   {
     id: "ctr01",
     category: "Center",
-    name: "Centre Admin",
-    title: "Administrative Support",
+    name: "Ms. Geetha Udayakumar",
+    title: "Smart Center Coordinator",
   },
   {
     id: "ctr02",
     category: "Center",
-    name: "[Project Manager Name]",
-    title: "Centre Project Manager",
+    name: "Dr. Kelitha Cherian",
+    title: "Centre Program Manager",
   },
 
   // --- Research Team (Placeholders - Add Postdocs, Staff, PhDs) ---
