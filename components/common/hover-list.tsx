@@ -23,17 +23,17 @@ export default function HoverList({
     title.split(" ").length > 1 ? title.split(" ") : title.split("");
   const DURATION = title.split(" ").length > 1 ? 0.5 : 0.75;
   const STAGGER = title.split(" ").length > 1 ? 0.07 : 0.025;
-  const slashMotion = {
-    initial: { opacity: 0, ease: "easeOut", duration: 0.2, type: "tween" },
-    hovered: {
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        type: "tween",
-        ease: "easeIn",
-      },
-    },
-  };
+  // const slashMotion = {
+  //   initial: { opacity: 0, ease: "easeOut", duration: 0.2, type: "tween" },
+  //   hovered: {
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.4,
+  //       type: "tween",
+  //       ease: "easeIn",
+  //     },
+  //   },
+  // };
   return (
     <Link href={linkPath} className="group block">
       {" "}

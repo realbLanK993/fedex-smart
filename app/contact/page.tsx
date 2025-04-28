@@ -1,5 +1,5 @@
 import React from "react";
-import { Building, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Separator } from "@/components/ui/separator"; // Optional separator
 import {
   Card,

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -15,12 +14,7 @@ interface VerticalCardProps {
   link?: string;
 }
 
-export function VerticalCard({
-  icon,
-  link,
-  title,
-  description,
-}: VerticalCardProps) {
+export function VerticalCard({ icon, title, description }: VerticalCardProps) {
   return (
     <Card className="flex flex-col h-full transition-shadow duration-300 hover:shadow-lg border border-border hover:border-primary/50">
       <CardHeader className="flex flex-row items-start gap-4 space-y-0 pb-4">

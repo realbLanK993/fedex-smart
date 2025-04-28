@@ -1,6 +1,6 @@
 import { NavigationItem } from "@/lib/types";
 import Link from "next/link";
-import { Menu, Search } from "lucide-react";
+import { Menu } from "lucide-react";
 import { ThemeToggle } from "../theme-provider";
 import {
   NavigationMenu,

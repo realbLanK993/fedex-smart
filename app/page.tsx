@@ -20,19 +20,19 @@ function getLatestEvents(allEvents: EventItem[], count: number): EventItem[] {
 // --- Static Carousel Data (remains the same) ---
 const carouselArr = [
   {
-    img: "/slide-pics/supply-chain-sustainability.jpg",
+    img: "/slide-pics/supply-chain-sustainability.webp",
     title: "Supply Chain Sustainability",
   },
   {
-    img: "/slide-pics/worker-wellness.jpg",
+    img: "/slide-pics/worker-wellness.webp",
     title: "Logistics Worker Wellness",
   },
   {
-    img: "/slide-pics/ml-algo.jpg",
+    img: "/slide-pics/ml-algo.webp",
     title: "Algorithms and Machine Learning",
   },
   {
-    img: "/slide-pics/logistics-infra.jpg",
+    img: "/slide-pics/logistics-infra.webp",
     title: "Logistics Infrastructure",
   },
 ];

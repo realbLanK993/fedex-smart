@@ -21,7 +21,7 @@ export default function AboutHeader() {
           className="absolute left-0 right-0 top-0 bg-background w-full h-[1800px]"
         />
         <Image
-          src={"/bg-about.jpg"}
+          src={"/bg-about.webp"}
           alt="Warehouse worker walking."
           width={800}
           height={1280}

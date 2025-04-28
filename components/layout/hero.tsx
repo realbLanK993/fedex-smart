@@ -60,7 +60,7 @@ export default function Hero() {
       </h1>
       <div className="w-full max-h-[400px] h-full overflow-hidden">
         <Image
-          src={`/hero/${current + 1}.jpg`}
+          src={`/hero/${current + 1}.webp`}
           alt="People in lab"
           width={1200}
           height={800}

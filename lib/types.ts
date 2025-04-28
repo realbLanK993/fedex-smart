@@ -83,7 +83,7 @@ export type TeamCategory = "Faculty" | "Advisory" | "Center" | "Research";
 export interface TeamMember {
   id: number | string; // Unique identifier
   category: TeamCategory; // New field for the tab category
-  imageUrl?: string; // Leave blank or use '/placeholder.jpg' for now
+  imageUrl?: string; // Leave blank or use '/placeholder.webp' for now
   name: string;
   title: string; // Can combine role and department or affiliation
   profileLink?: string; // The link from your website content

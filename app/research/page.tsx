@@ -10,8 +10,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"; // Adjust path
 import { researchListData, researchVerticals, verticalsData } from "@/lib/data";
-import { VerticalCard } from "@/components/common/vertical-card";
-import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
