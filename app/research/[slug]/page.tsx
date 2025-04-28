@@ -34,15 +34,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!pageData) {
     // Return default metadata or specific "Not Found" metadata
     return {
-      title: "Research Not Found | FedEx SMART Centre",
+      title: "Research Not Found | FedEx SMART Center",
       description: "The requested research topic could not be found.",
     };
   }
 
-  const description = `Learn about the ${pageData.title} research at the FedEx SMART Centre.`;
+  const description = `Learn about the ${pageData.title} research at the FedEx SMART Center.`;
 
   return {
-    title: `${pageData.title} | FedEx SMART Centre Research`,
+    title: `${pageData.title} | FedEx SMART Center Research`,
     description: description,
     // Add Open Graph data, etc., using pageData if desired
     openGraph: {

@@ -6,7 +6,9 @@ import {
   ResearchListItem,
   TeamCategory,
   TeamMember,
+  VerticalData,
 } from "@/lib/types"; // Assuming your type definition is here
+import { Cpu, HeartPulse, Leaf, Truck } from "lucide-react";
 
 // Helper function to create faculty objects easily (Adjust departments/institutions as needed)
 const createFaculty = (
@@ -219,7 +221,7 @@ export const researchDetailsData: { [key: string]: CommonPageProps } = {
       createFaculty(
         "Chandrashekar Lakshminarayanan",
         "Assistant Professor",
-        "Dept. of CSE (Lead)"
+        "Dept. of CSE "
       ),
       createFaculty("N S Narayanaswamy", "Professor", "Dept. of CSE"),
       createFaculty("Rupesh Nasre", "Associate Professor", "Dept. of CSE"),
@@ -396,10 +398,9 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-10-10"), // From PPT
     speaker: "Mr. Allan Rodrigues",
-    affiliation:
-      "MD, The Business Binnacle Ltd (Retired Commander, Indian Navy)",
-    img_link:
-      "https://images.pexels.com/photos/1181344/pexels-photo-1181344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Global/Tech/Business
+    // affiliation:
+    //   "MD, The Business Binnacle Ltd (Retired Commander, Indian Navy)",
+    img_link: "/events/nexus-seminar.jpg", // Placeholder: Global/Tech/Business
     slug: "/events/seminar-rodrigues", // Add link if available
   },
   {
@@ -411,8 +412,8 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-05-31"), // From Website Content
     speaker: "Dr. K Ganesh",
-    affiliation:
-      "Partner & Global Lead of MSC Center of Competence, McKinsey & Company",
+    // affiliation:
+    //   "Partner & Global Lead of MSC Center of Competence, McKinsey & Company",
     img_link:
       "https://images.pexels.com/photos/17483870/pexels-photo-17483870/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-was-inspired-neural-networks-used-in-deep-learning-it-was-created-by-novoto-studio-as-part-of-the-visualising-ai-proje.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: AI/Abstract
     slug: "/events/seminar-ganesh",
@@ -425,9 +426,8 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-04-25"), // From Website Content
     speaker: "Ms. Goda Doreswamy",
-    affiliation: "VP, Data Science, Swiggy",
-    img_link:
-      "/events/neon-ai.jpg", // Placeholder: Charts/Analytics
+    // affiliation: "VP, Data Science, Swiggy",
+    img_link: "/events/neon-ai.jpg", // Placeholder: Charts/Analytics
     slug: "/events/seminar-doreswamy",
   },
   {
@@ -439,7 +439,7 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-04-18"), // From Website Content
     speaker: "Prof. Jitesh J Thakkar",
-    affiliation: "Prof & Dean (Academics), Gati Shakti Vishwavidyalaya",
+    // affiliation: "Prof & Dean (Academics), Gati Shakti Vishwavidyalaya",
     img_link:
       "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Logistics/Infrastructure
     slug: "/events/seminar-thakkar",
@@ -452,7 +452,7 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-04-05"), // From Website Content
     speaker: "Mr. Vinay Goyal",
-    affiliation: "Founder & CEO, Instavans Logistics (P) Ltd",
+    // affiliation: "Founder & CEO, Instavans Logistics (P) Ltd",
     img_link:
       "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Platform/Interface/India Map
     slug: "/events/seminar-goyal",
@@ -465,10 +465,9 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-03-28"), // From Website Content
     speaker: "Mr. Brahmayya Akella",
-    affiliation:
-      "Co-founder & Chief Strategy Officer, Mera Transport Exchange (p) Ltd",
-    img_link:
-      "/events/logistics-problems.jpg", // Placeholder: Map/Network India
+    // affiliation:
+    //   "Co-founder & Chief Strategy Officer, Mera Transport Exchange (p) Ltd",
+    img_link: "/events/logistics-problems.jpg", // Placeholder: Map/Network India
     slug: "/events/seminar-akella",
   },
   {
@@ -479,9 +478,8 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-07-01"), // Placeholder Date - Update if known
     speaker: "Mr. Ravikanth Yamarthy",
-    affiliation: "CEO, Logistics Sector Skill Council",
-    img_link:
-      "/events/career.jpg", // Placeholder: People/Learning/Career
+    // affiliation: "CEO, Logistics Sector Skill Council",
+    img_link: "/events/career.jpg", // Placeholder: People/Learning/Career
     slug: "/events/seminar-yamarthy",
   },
   {
@@ -492,9 +490,8 @@ export const eventsListData: EventItem[] = [
     tag: "Seminar",
     date: new Date("2024-08-01"), // Placeholder Date - Update if known
     speaker: "Mr. Vinod Alex Kadavan",
-    affiliation: "Director-Sea Vantage, Founder - Insites Technology",
-    img_link:
-      "/events/modern-tech.jpg", // Placeholder: Future Tech/Abstract
+    // affiliation: "Director-Sea Vantage, Founder - Insites Technology",
+    img_link: "/events/modern-tech.jpg", // Placeholder: Future Tech/Abstract
     slug: "/events/seminar-kadavan",
   },
 
@@ -503,7 +500,7 @@ export const eventsListData: EventItem[] = [
     id: "hackathon-shastra-2025",
     title: "FedEx SMART Hackathon",
     description:
-      "The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction.",
+      "The SMART hackathon conducted by the FedEx SMART center, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction.",
     tag: "Hackathon",
     date: new Date("2025-01-31"), // Placeholder Date in Jan 2025
     img_link: "/events/fedex-smart-hackathon.jpg", // Placeholder: Code/Hackathon
@@ -531,7 +528,7 @@ export const eventCategories: EventItem["tag"][] = [
   "Other",
 ];
 
-// Populate with types of opportunities based on Centre's activities
+// Populate with types of opportunities based on Center's activities
 export const opportunitiesData: OpportunityItem[] = [
   {
     id: "intern-summer-2024", // Specific ID
@@ -656,7 +653,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     type: "Hackathon",
     header_img_link: "/events/fedex-smart-hackathon.jpg",
     content: `
-    <p>The SMART hackathon conducted by the FedEx SMART centre, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction. By utilizing real-time traffic, weather, social media, and vehicle data, participants showcased exceptional ingenuity in building original hardware prototypes to eco-friendly routing systems. FedEx's active involvement provided invaluable industry insights and real-world guidance that inspired participants to develop cutting-edge approaches.</p>
+    <p>The SMART hackathon conducted by the FedEx SMART center, IIT Madras was a remarkable success, attracting an impressive 2100 professionals and college students who developed futuristic solutions for dynamic route optimization and emission reduction. By utilizing real-time traffic, weather, social media, and vehicle data, participants showcased exceptional ingenuity in building original hardware prototypes to eco-friendly routing systems. FedEx's active involvement provided invaluable industry insights and real-world guidance that inspired participants to develop cutting-edge approaches.</p>
     <h3>Highlights</h3>
     <ul class="list-disc space-y-2 pl-6 my-4">
       <li>Problem statements focused on enhanced demand forecasting and dynamic route optimization.</li>
@@ -782,11 +779,13 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       ),
     ],
     judges: [],
-  }, "seminar-goyal": {
+  },
+  "seminar-goyal": {
     title: "Unified Logistics Interface Platform (ULIP): A Game Changer?",
     date: "April 5, 2024",
     type: "Seminar",
-    header_img_link: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    header_img_link:
+      "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     content: `
     <p>Mr. Vinay Goyal discussed the potential impact of the Unified Logistics Interface Platform (ULIP) on the Indian logistics ecosystem. The seminar explored the evolution of UI design, benefits of unified interfaces, and implementation challenges.</p>
     <h3>Highlights</h3>
@@ -815,10 +814,12 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     judges: [],
   },
   "seminar-thakkar": {
-    title: "Emerging Challenges and Opportunities in the Transportation and Logistics Sector",
+    title:
+      "Emerging Challenges and Opportunities in the Transportation and Logistics Sector",
     date: "April 18, 2024",
     type: "Seminar",
-    header_img_link: "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    header_img_link:
+      "https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     content: `
     <p>Prof. Jitesh Thakkar provided an overview of the current landscape and future trends in transportation and logistics, focusing on India's emerging economy. The seminar addressed challenges like automation, supply chain disruptions, and evolving customer expectations.</p>
     <h3>Highlights</h3>
@@ -878,10 +879,12 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     judges: [],
   },
   "seminar-ganesh": {
-    title: "Intensify Brilliance in Supply Chain and Logistics with Gen AI Models",
+    title:
+      "Intensify Brilliance in Supply Chain and Logistics with Gen AI Models",
     date: "May 31, 2024",
     type: "Seminar",
-    header_img_link: "https://images.pexels.com/photos/17483870/pexels-photo-17483870/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-was-inspired-neural-networks-used-in-deep-learning-it-was-created-by-novoto-studio-as-part-of-the-visualising-ai-proje.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    header_img_link:
+      "https://images.pexels.com/photos/17483870/pexels-photo-17483870/free-photo-of-an-artist-s-illustration-of-artificial-intelligence-ai-this-image-was-inspired-neural-networks-used-in-deep-learning-it-was-created-by-novoto-studio-as-part-of-the-visualising-ai-proje.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     content: `
     <p>Dr. K Ganesh discussed how Generative AI can revolutionize supply chain and logistics operations. The seminar covered the foundations and capabilities of GenAI models, focusing on their ability to generate novel content and predictions. Discussions highlighted GenAI's applications in predictive analytics, demand forecasting, and inventory management.</p>
     <h3>Highlights</h3>
@@ -910,10 +913,11 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     judges: [],
   },
   "seminar-rodrigues": {
-    title: "The 21st Century Lean-Agile Global Supply Chains: Nexus between Business & Technology",
+    title:
+      "The 21st Century Lean-Agile Global Supply Chains: Nexus between Business & Technology",
     date: "October 10, 2024",
     type: "Seminar",
-    header_img_link: "https://images.pexels.com/photos/1181344/pexels-photo-1181344.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    header_img_link: "/events/nexus-seminar.jpg",
     content: `
     <p>Mr. Allan Rodrigues explored the intersection of modern supply chain strategies and technological advancements. The seminar introduced global supply chains, their impact on geo-economies and knowledge economies, and the need for hybrid Lean-Agile models in the current market. It highlighted the role of globalization, digitalization, and technologies like real-time data, IoT, AI/ML, and blockchain.</p>
     <h3>Highlights</h3>
@@ -947,68 +951,143 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
 
 // --- Populate this with actual data ---
 export const teamData: TeamMember[] = [
-  // --- Faculty Team ---
+  // --- Advisory Board (Extracted from "Governing Board" HTML + Duplicates) ---
   {
-    id: 1,
-    category: "Faculty",
+    id: "adv01",
+    category: "Advisory",
+    imageUrl:
+      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/05/nitin-150x150.png",
+    name: "Nitin Tatiwala",
+    title: "Vice President, AMEA Marketing, FedEx",
+    profileLink: undefined,
+  },
+  {
+    id: "adv02",
+    category: "Advisory",
+    imageUrl:
+      "https://www.fedex.com/content/dam/fedex/us-united-states/About/upload/Kami_Viswanathan_Circle_Headshot_2_100KB.jpg",
+    name: "Kami Vishwanathan",
+    title: "President, Middle East, Indian Subcontinent and Africa, FedEx",
+    profileLink:
+      "https://www.fedex.com/en-us/about/leadership/kami-viswanathan.html",
+  },
+  {
+    // Duplicate entry for Swamy under Advisory
+    id: "adv-swamy", // Unique ID for this role
+    category: "Advisory",
+    imageUrl: "https://cse.iitm.ac.in/images/swamy.jpg",
+    name: "Prof. N S Narayanaswamy",
+    title: "Professor, Dept. of CSE, IIT Madras | Advisory Member", // Title indicating advisory role
+    profileLink: "https://cse.iitm.ac.in/profile.php?arg=MTA=",
+  },
+  {
+    // Duplicate entry for Arshinder under Advisory
+    id: "adv-arshinder", // Unique ID for this role
+    category: "Advisory",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/arshinder.png",
     name: "Prof. Arshinder Kaur",
-    title: "Professor, Dept. of Management Studies | PI, Sustainability",
+    title:
+      "Professor, Dept. of Management Studies, IIT Madras | Advisory Member", // Title indicating advisory role
+    profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur",
+  },
+  {
+    id: "adv03", // Renumbered original adv03
+    category: "Advisory",
+    imageUrl:
+      "https://civil.iitm.ac.in/faculty/mash/admin/download/athena-infonomics-advisors-potrait_ashwin-mahalingam-600x600.jpg",
+    name: "Ashwin Mahalingam",
+    title: "Dean ACR, IIT Madras",
+    profileLink: "https://civil.iitm.ac.in/faculty/mash/",
+  },
+  {
+    id: "adv04", // Renumbered original adv04
+    category: "Advisory",
+    imageUrl: "https://civil.iitm.ac.in/faculty/manus/admin/download/50472.jpg",
+    name: "Manu Santhanam",
+    title: "Dean (IC & SR), IIT Madras",
+    profileLink: "https://civil.iitm.ac.in/faculty/manus/",
+  },
+  {
+    id: "adv05", // Renumbered original adv05
+    category: "Advisory",
+    imageUrl:
+      "https://www.ieor.iitb.ac.in/files/faculty/amahajan/2019sept_200.png",
+    name: "Ashutosh Mahajan",
+    title: "Professor, IE & OR, IIT Bombay",
+    profileLink: "https://www.ieor.iitb.ac.in/amahajan",
+  },
+
+  // --- Faculty Team (Original entries remain) ---
+  {
+    id: 1, // Original Faculty ID
+    category: "Faculty",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/arshinder.png",
+    name: "Prof. Arshinder Kaur",
+    title: "Professor, Dept. of Management Studies | PI, Sustainability", // Primary Faculty Role Title
     profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur",
   },
   {
     id: 2,
     category: "Faculty",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/rajendran.png",
     name: "Prof. C Rajendran",
     title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/prof-c-rajendran",
+    profileLink: "https://doms.iitm.ac.in/index.php/rajendran-c",
   },
   {
     id: 3,
     category: "Faculty",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/sudararaj_doms.png",
     name: "Prof. R P Sundararaj",
     title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/prof-r-p-sundararaj",
+    profileLink: "https://doms.iitm.ac.in/index.php/rps",
   },
   {
     id: 4,
     category: "Faculty",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/nargis.png",
     name: "Prof. Nargis Pervin",
     title:
       "Associate Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/dr-nargis-pervin",
+    profileLink: "https://doms.iitm.ac.in/index.php/nargis-pervin",
   },
   {
     id: 5,
     category: "Faculty",
     name: "Prof. Vaibhav Chawla",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/vaibhav.png",
     title:
       "Assistant Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/dr-vaibhav-chawla",
+    profileLink: "https://doms.iitm.ac.in/index.php/vaibhav",
   },
   {
     id: 6,
     category: "Faculty",
     name: "Prof. Usha Mohan",
+    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/usha.png",
     title: "Associate Professor, Dept. of Civil Engg. | Co-PI, Sustainability",
-    profileLink: "https://civil.iitm.ac.in/faculty/ushamohan/",
+    profileLink: "https://doms.iitm.ac.in/index.php/ushamohan",
   },
   {
     id: 7,
     category: "Faculty",
     name: "Prof. Chandrashekar L",
+    imageUrl: "https://cse.iitm.ac.in/images/CL.jpg",
     title: "Assistant Professor, Dept. of CSE | PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~chandrashekhar/",
+    profileLink: "https://cse.iitm.ac.in/profile.php?arg=Mjc5Nw==",
   },
   {
-    id: 8,
+    id: 8, // Original Faculty ID
     category: "Faculty",
+    imageUrl: "https://cse.iitm.ac.in/images/swamy.jpg",
     name: "Prof. N S Narayanaswamy",
-    title: "Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~swamy/",
+    title: "Professor, Dept. of CSE | Co-PI, Algorithms & ML", // Primary Faculty Role Title
+    profileLink: "https://cse.iitm.ac.in/profile.php?arg=MTA=",
   },
   {
     id: 9,
     category: "Faculty",
+    imageUrl: "https://www.cse.iitm.ac.in/~rupesh/media/rupesh.jpg",
     name: "Prof. Rupesh Nasre",
     title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
     profileLink: "https://www.cse.iitm.ac.in/~rupesh/",
@@ -1016,9 +1095,10 @@ export const teamData: TeamMember[] = [
   {
     id: 10,
     category: "Faculty",
+    imageUrl: "https://dsai.iitm.ac.in/~ravi/img/ravi-pic.jpg",
     name: "Prof. B. Ravindran",
     title: "Professor, Dept. of CSE | Head, RBCDSAI",
-    profileLink: "https://www.cse.iitm.ac.in/~ravi/",
+    profileLink: "https://www.cse.iitm.ac.in/~ravi/", // Using previously known link
   },
   {
     id: 11,
@@ -1032,104 +1112,114 @@ export const teamData: TeamMember[] = [
     category: "Faculty",
     name: "Prof. Rahul Marathe",
     title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~marathe/",
+    profileLink:
+      "https://irepose.iitm.ac.in/entities/person/51187/publications",
   },
   {
     id: 13,
     category: "Faculty",
+    imageUrl:
+      "https://home.iitm.ac.in/babji.srinivasan/assets/img/profiles/babjiSrinivasan.jpg",
     name: "Prof. Babji Srinivasan",
     title: "Associate Professor, Dept. of Chemical Engg. | PI, Worker Wellness",
-    profileLink: "https://chemeng.iitm.ac.in/babjis/",
+    profileLink: "https://home.iitm.ac.in/babji.srinivasan/babji.html",
   },
   {
     id: 14,
     category: "Faculty",
-    name: "Prof. S R Chakravarthy",
+    imageUrl:
+      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/06/satya_c-150x150.png",
+    name: "Prof. Satya R Chakravarthy",
     title: "Professor, Dept. of Aerospace Engg. | Co-PI, Infrastructure",
     profileLink: "https://aero.iitm.ac.in/personnel/dr-s-r-chakravarthy/",
   },
   {
     id: 15,
     category: "Faculty",
+    imageUrl:
+      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/05/raj-150x150.png",
     name: "Prof. Rajagopalan Srinivasan",
     title: "Professor, Dept. of Chemical Engg. | Co-PI, Worker Wellness",
-    profileLink: "https://chemeng.iitm.ac.in/raj/",
+    profileLink: "https://che.iitm.ac.in/raj/",
   },
   {
     id: 16,
     category: "Faculty",
+    imageUrl:
+      "https://civil.iitm.ac.in/faculty/gitakrishnan/admin/download/gr%20-%20Gitakrishnan%20Ramadurai.jpg",
     name: "Prof. Gitakrishnan Ramadurai",
     title: "Professor, Dept. of Civil Engg. | PI, Infrastructure",
     profileLink: "https://civil.iitm.ac.in/faculty/gitakrishnan/",
-  },
-
-  // --- Advisory Board (Placeholders - Replace with actual members) ---
-  {
-    id: "adv01",
-    category: "Advisory",
-    name: "[Senior FedEx Representative]",
-    title: "VP/Director, FedEx (Region/Function)",
-    // profileLink: "#" // Add link if available
-  },
-  {
-    id: "adv02",
-    category: "Advisory",
-    name: "[IITM Dean/Director]",
-    title: "Dean (ICSR or ACR) / Director, IIT Madras",
-    // profileLink: "#" // Add link if available
-  },
-  {
-    id: "adv03",
-    category: "Advisory",
-    name: "[Industry Expert]",
-    title: "CEO/CTO, Logistics Technology Company",
-    // profileLink: "#" // Add link if available
   },
 
   // --- Center Team (Placeholders - Update with info from Contact Page) ---
   {
     id: "ctr01",
     category: "Center",
-    name: "Centre Admin", // Use actual name if known
+    name: "Centre Admin",
     title: "Administrative Support",
-    // profileLink: "#" // Link to contact?
   },
   {
     id: "ctr02",
     category: "Center",
-    name: "[Project Manager Name]", // Update Name
+    name: "[Project Manager Name]",
     title: "Centre Project Manager",
-    // profileLink: "#"
   },
 
-  // --- Research Team (Placeholders - Add Postdocs, Staff, PhDs as applicable) ---
+  // --- Research Team (Placeholders - Add Postdocs, Staff, PhDs) ---
   {
     id: "res01",
     category: "Research",
     name: "[Postdoctoral Fellow Name]",
     title: "Postdoctoral Research Fellow",
-    // profileLink: "#"
   },
   {
     id: "res02",
     category: "Research",
     name: "[Research Staff Name]",
     title: "Project Engineer / Research Associate",
-    // profileLink: "#"
-  },
-  {
-    id: "res03",
-    category: "Research",
-    name: "[PhD Scholar Name]",
-    title: "PhD Scholar (Vertical)",
-    // profileLink: "#"
   },
 ];
-
 // Define the order and labels for tabs
 export const teamCategories: { value: TeamCategory; label: string }[] = [
+  { value: "Advisory", label: "Governing Board" },
   { value: "Faculty", label: "Faculty Team" },
-  { value: "Advisory", label: "Advisory Board" },
+
   { value: "Center", label: "Center Team" },
   { value: "Research", label: "Research Team" },
+];
+
+export const verticalsData: VerticalData[] = [
+  {
+    id: "sustainability",
+    icon: <Leaf />,
+    title: "Supply Chain Sustainability",
+    description:
+      "Developing frameworks for Net Zero emissions, incorporating ESG factors, optimizing multi-modal logistics, enhancing resilience, and using digital tools for greener, socially responsible supply chains.",
+    imageUrl: "/slide-pics/supply-chain-sustainability.jpg", // Placeholder: Green logistics/nature
+  },
+  {
+    id: "wellness",
+    icon: <HeartPulse />,
+    title: "Logistics Worker Wellness",
+    description:
+      "Improving worker health, safety, and cognitive performance using biomedical monitoring, advanced VR training, ergonomic tech, and human-machine collaboration strategies.",
+    imageUrl: "/slide-pics/worker-wellness.jpg", // Placeholder: Warehouse worker/safety/tech
+  },
+  {
+    id: "algorithms",
+    icon: <Cpu />,
+    title: "Algorithms & ML",
+    description:
+      "Creating scalable algorithms (Optimization, RL, Quantum ML) and AI/ML models for efficient routing, packing, scheduling, demand forecasting, and overall logistics decision support systems.",
+    imageUrl: "/slide-pics/ml-algo.jpg", // Placeholder: Abstract tech/AI/code
+  },
+  {
+    id: "infrastructure",
+    icon: <Truck />,
+    title: "Logistics Infrastructure",
+    description:
+      "Integrating next-generation technologies including autonomous delivery agents (drones, rovers), optimizing EV fleets and charging networks, and designing smart, resilient infrastructure solutions.",
+    imageUrl: "/slide-pics/logistics-infra.jpg", // Placeholder: Drone/EV truck/warehouse tech
+  },
 ];

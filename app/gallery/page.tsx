@@ -13,39 +13,19 @@ import { GalleryImage } from "@/lib/types";
 const galleryData: GalleryImage[] = [
   {
     id: 3,
-    src: "/gallery/image3.jpg",
-    alt: "Student Internship Presentation",
-    description:
-      "An intern presenting their project findings during the summer program.",
+    src: "/gallery/image1.jpg",
+    alt: "Research Presentation",
+    description: "Description 1",
     width: 1200,
     height: 800,
   },
   {
     id: 4,
-    src: "/gallery/image4.jpg",
-    alt: "Drone Technology Showcase",
-    description:
-      "Showcasing drone capabilities relevant to logistics infrastructure.",
+    src: "/gallery/image2.jpg",
+    alt: "Visit by prof.",
+    description: "Description 2",
     width: 900,
     height: 600,
-  },
-  {
-    id: 5,
-    src: "/gallery/image5.jpg",
-    alt: "Seminar Series Speaker",
-    description:
-      "Industry expert delivering a talk during the FedEx SMART Seminar Series.",
-    width: 1080,
-    height: 720,
-  },
-  {
-    id: 6,
-    src: "/gallery/image6.jpg",
-    alt: "Warehouse Simulation VR",
-    description:
-      "Demonstration of the Virtual Reality setup for warehouse testing and training.",
-    width: 1100,
-    height: 750,
   },
   // Add more images following this structure...
   // Make sure the image files exist in your /public/gallery/ directory
@@ -72,7 +52,7 @@ export default function GalleryPage() {
       </h1>
       <p className="text-lg text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
         Explore moments from our events, research activities, collaborations,
-        and technological showcases at the FedEx SMART Centre.
+        and technological showcases at the FedEx SMART Center.
       </p>
 
       {/* Image Grid */}

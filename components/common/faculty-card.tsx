@@ -9,7 +9,7 @@ export default function FacultyCard({
   image,
 }: Faculty) {
   return (
-    <Card className="flex flex-row gap-4 min-w-[400px]">
+    <Card className="flex flex-row gap-4 min-w-[250px] w-full">
       {image && (
         <div className="w-[150px] bg-secondary h-full rounded-l-lg flex justify-center items-center">
           PFP

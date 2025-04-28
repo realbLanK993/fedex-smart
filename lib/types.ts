@@ -88,3 +88,12 @@ export interface TeamMember {
   title: string; // Can combine role and department or affiliation
   profileLink?: string; // The link from your website content
 }
+
+export interface VerticalData {
+  id: string;
+  icon: React.ReactNode;
+  imageUrl: string;
+  title: string;
+  description: string;
+  link?: string; // Link to the main research page section or filtered view
+}

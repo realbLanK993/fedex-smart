@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="w-full md:w-1/2 lg:w-2/5">
             <h3 className="text-base font-semibold text-foreground mb-2">
               <Link href="/" className="hover:text-primary transition-colors">
-                FedEx SMART Centre @ IIT Madras
+                FedEx SMART Center @ IIT Madras
               </Link>
             </h3>
             <p className="text-muted-foreground leading-relaxed text-xs">
@@ -125,7 +125,7 @@ export default function Footer() {
 
         {/* Section 3: Copyright */}
         <div className="pt-2 text-center text-xs text-muted-foreground">
-          © {currentYear} FedEx SMART Centre, Indian Institute of Technology
+          © {currentYear} FedEx SMART Center, Indian Institute of Technology
           Madras. All Rights Reserved.
         </div>
       </div>

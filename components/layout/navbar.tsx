@@ -159,7 +159,7 @@ export default function Navbar({ list }: { list: NavigationItem[] }) {
         </ul>
         <div className="gap-4 flex justify-center items-center">
           <ThemeToggle />
-          <Search size={18} />
+          {/* <Search size={18} /> */}
         </div>
       </nav>
     </header>

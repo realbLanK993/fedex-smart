@@ -30,14 +30,14 @@ export default function ContactPage() {
     {
       name: "Prof. Arshinder Kaur",
       title: "Professor, Dept. of Management Studies",
-      email: "arshinder.kaur@example.iitm.ac.in", // Placeholder - Use official IITM email if known
-      phone: "+91-AAA-AAAAAAA (Example)", // Placeholder phone
+      email: "arshinder@iitm.ac.in", // Placeholder - Use official IITM email if known
+      phone: "044 2257 4553", // Placeholder phone
     },
     {
-      name: "Prof. C Rajendran",
-      title: "Professor, Dept. of Management Studies",
-      email: "c.rajendran@example.iitm.ac.in", // Placeholder - Use official IITM email if known
-      phone: "+91-BBB-BBBBBBB (Example)", // Placeholder phone
+      name: "Prof. N S Narayanaswamy",
+      title: "Professor, Dept. of CSE, IIT Madras",
+      email: "swamy@cse.iitm.ac.in", // Placeholder - Use official IITM email if known
+      phone: "044 2257 4369", // Placeholder phone
     },
   ];
   return (
@@ -85,11 +85,6 @@ export default function ContactPage() {
                     <Phone size={16} className="shrink-0" />
                     <span>{contact.phone}</span>
                   </div>
-                  {/* Location (simplified) */}
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Building size={16} className="shrink-0" />
-                    <span>FedEx SMART Centre, IIT Madras</span>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -103,7 +98,9 @@ export default function ContactPage() {
               <h3 className="text-base font-semibold text-foreground mb-1">
                 Phone
               </h3>
-              <span>{centerContact}</span>
+              <span className="text-muted-foreground hover:text-primary transition-colors break-all">
+                {centerContact}
+              </span>
             </div>
           </div>
           <Separator className="my-6 bg-border/60" />{" "}
@@ -151,7 +148,7 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-          {/* Optional: Phone - Uncomment if needed, but often not primary for research centres */}
+          {/* Optional: Phone - Uncomment if needed, but often not primary for research centers */}
           {/* <Separator className="my-6 bg-border/60" />
           <div className="flex items-start gap-4">
              <Phone className="h-5 w-5 text-primary mt-1 shrink-0" />
@@ -179,7 +176,7 @@ export default function ContactPage() {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="FedEx SMART Centre Location"
+              title="FedEx SMART Center Location"
             ></iframe>
             */}
       {/*</div>*/}

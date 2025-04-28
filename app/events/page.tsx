@@ -33,7 +33,7 @@ export default function EventsPage() {
         </h1>
         <p className=" text-muted-foreground max-w-3xl mx-auto">
           Explore past and upcoming seminars, workshops, hackathons, and other
-          events hosted by or involving the FedEx SMART Centre.
+          events hosted by or involving the FedEx SMART Center.
         </p>
       </section>
 

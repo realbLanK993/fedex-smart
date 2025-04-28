@@ -16,7 +16,7 @@ export default function CommonPage({
 }: CommonPageProps) {
   return (
     <div className="max-w-[1000px] w-full flex flex-col gap-8 pt-24 pb-24">
-      <header className="flex flex-col justify-center items-center gap-8">
+      <header className="flex flex-col justify-center items-center gap-8 px-4">
         <div className="flex flex-col justify-center items-center gap-4">
           <Badge
             variant={"outline"}
@@ -45,14 +45,14 @@ export default function CommonPage({
       <div className="flex flex-col justify-center items-center w-full">
         <article
           dangerouslySetInnerHTML={{ __html: content }}
-          className="prose dark:prose-invert"
+          className="prose dark:prose-invert px-4"
         />
       </div>
       {(faculty || judges) && (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 px-4">
           <p className="font-bold text-xl">Faculty Members</p>
           {faculty && (
-            <div className="flex flex-wrap gap-4 w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
               {faculty.map((person, index) => [
                 <FacultyCard
                   key={index}

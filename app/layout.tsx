@@ -30,18 +30,18 @@ const nav_list: NavigationItem[] = [
         description: "Learn more about our research center",
       },
       {
-        name: "Team",
-        href: "/team",
-        color: "bg-purple-300",
-        description: "Meet our expert research team",
-      },
-      {
         name: "Gallery",
         href: "/gallery",
         color: "bg-green-300",
         description: "View highlights of our work",
       },
     ],
+  },
+  {
+    name: "Team",
+    href: "/team",
+    color: "bg-purple-300",
+    description: "Meet our expert research team",
   },
   {
     name: "Research",

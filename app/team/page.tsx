@@ -16,7 +16,7 @@ export default function TeamPage() {
         <p className="text-lg text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
           Meet the dedicated faculty members from various departments across IIT
           Madras who drive the research and innovation at the FedEx SMART
-          Centre.
+          Center.
         </p>
       </section>
       <Tabs defaultValue={teamCategories[0].value} className="w-full">

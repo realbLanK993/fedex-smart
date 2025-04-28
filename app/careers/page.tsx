@@ -35,7 +35,7 @@ export default function CareersPage() {
           Careers & Opportunities
         </h1>
         <p className="text-muted-foreground">
-          Join the FedEx SMART Centre at IIT Madras - a hub of innovation
+          Join the FedEx SMART Center at IIT Madras - a hub of innovation
           bridging industry and academia. We tackle complex logistics challenges
           through cutting-edge research in sustainability, AI/ML, worker
           wellness, and infrastructure. Explore opportunities to contribute to
