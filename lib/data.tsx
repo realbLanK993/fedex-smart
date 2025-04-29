@@ -5,7 +5,6 @@ import {
   OpportunityItem,
   ResearchListItem,
   TeamCategory,
-  TeamMember,
   TeamMemberRef,
   VerticalData,
 } from "@/lib/types"; // Assuming your type definition is here

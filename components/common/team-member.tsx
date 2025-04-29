@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { ExternalLink, User } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 // ... other imports ...
 
 interface TeamMemberCardProps {
@@ -18,9 +18,7 @@ interface TeamMemberCardProps {
   roleTitle?: string; // Optional override/specific title
 }
 
-export function TeamMemberCard({ person, roleTitle }: TeamMemberCardProps) {
-  const displayTitle = person.designation ?? ""; // Use override or default designation
-
+export function TeamMemberCard({ person }: TeamMemberCardProps) {
   return (
     <Card className="flex flex-col h-full overflow-hidden transition-shadow duration-300 hover:shadow-lg border border-border hover:border-primary/50">
       {/* Image Area */}

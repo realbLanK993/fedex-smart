@@ -6,7 +6,6 @@ import EventCard from "@/components/common/event-card";
 import { EventItem } from "@/lib/types";
 import { eventsListData } from "@/lib/data";
 import AnimatedText from "@/components/common/rolling-text";
-import { Card } from "@/components/ui/card";
 import { StatsCard } from "@/components/common/stats-card";
 
 // --- Helper function to get latest events ---
