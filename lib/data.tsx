@@ -2,13 +2,16 @@
 import {
   CommonPageProps,
   EventItem,
+  Faculty,
   OpportunityItem,
+  Person,
   ResearchListItem,
   TeamCategory,
   TeamMemberRef,
   VerticalData,
 } from "@/lib/types"; // Assuming your type definition is here
 import { Cpu, HeartPulse, Leaf, Truck } from "lucide-react";
+import { getPersonDetails } from "./peopleData";
 
 // Helper function to create faculty objects easily (Adjust departments/institutions as needed)
 const createFaculty = (
@@ -23,365 +26,334 @@ const createFaculty = (
 });
 
 // Define the detailed data for each research slug
+const createFacultyList = (profNames: string[]): Faculty[] => {
+  return profNames.map((name) => {
+    const cleanedName = name.replace(/^(Professor|Profesor)\s+/i, "").trim();
+    return {
+      name: `Prof. ${cleanedName}`, // Standardize prefix
+      // NOTE: Designation/Department info is NOT consistently in this text file per professor
+      // So we provide generic defaults here. Use peopleData if more detail is needed.
+      designation: "Professor / Faculty", // Generic designation
+      location: { department: "IIT Madras", institution: "IIT Madras" },
+    };
+  });
+};
+
+// Helper to create researcher list string
+const formatResearchers = (researcherNames: string[] | undefined): string => {
+  if (!researcherNames || researcherNames.length === 0) return "";
+  return `<p class="mt-4"><strong>Researchers:</strong> ${researcherNames.join(
+    ", "
+  )}</p>`;
+};
+
+const getFacultyByIds = (ids: string[]): Person[] => {
+  return ids
+    .map((id) => getPersonDetails(id)) // Use the helper function
+    .filter((person): person is Person => person !== null); // Type guard to filter nulls
+};
+
+// Define the detailed data, now using faculty array populated by IDs
 export const researchDetailsData: { [key: string]: CommonPageProps } = {
-  "digital-sustainable-supply-chain": {
-    // Slug for P1
-    title: "Digital and Sustainable Supply Chain Modelling & Analytics",
-    date: "Ongoing Research Project (5-Year)",
-    type: "Research Project",
-    header_img_link:
-      "https://images.pexels.com/photos/4342127/pexels-photo-4342127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Sustainable logistics concept
+  "customer-email-analysis": {
+    title: "Customer Email Analysis",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/email-llama.jpg", // Dummy Image Path
     content: `
-          <p>This flagship project focuses on integrating sustainability and digital transformation into supply chain management. Key objectives include:</p>
-          <ul class="list-disc space-y-2 pl-6 my-4">
-            <li>Developing predictive models for critical factors like lead time estimation, customer demand forecasting, and capacity planning using AI and ML techniques.</li>
-            <li>Creating frameworks for end-to-end optimization, integrating planning, production, inventory, distribution, and routing.</li>
-            <li>Exploring digital twin technologies and platforms for seamless tracking, monitoring, and optimization of shipments, warehousing, and packaging globally.</li>
-            <li>Assessing and improving multi-modal global logistics, identifying inefficiencies and enhancing collaboration among stakeholders (governments, industries).</li>
-            <li>Building supply chain resilience through route diversification and robust risk management frameworks.</li>
-            <li>Incorporating Environmental, Social, and Governance (ESG) factors, developing frameworks for socially responsible supply chains, and understanding the role of digital tools in worker empowerment and well-being.</li>
-            <li>Optimizing specific areas like Air Cargo operations and mining customer voice data for actionable insights.</li>
-          </ul>
-          <p>The project aims to provide actionable models, tools, and frameworks aligned with sustainability goals (like SDG13) for a greener and more efficient logistics sector.</p>
-        `, // Combined objectives from PPT/website text
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Arshinder Kaur",
-        "Professor",
-        "Dept. of Management Studies (PI)"
-      ),
-      createFaculty("C Rajendran", "Professor", "Dept. of Management Studies"),
-      createFaculty(
-        "R P Sundararaj",
-        "Professor",
-        "Dept. of Management Studies"
-      ),
-      createFaculty(
-        "Usha Mohan",
-        "Associate Professor",
-        "Dept. of Civil Engg."
-      ),
-      createFaculty(
-        "Nargis Pervin",
-        "Associate Professor",
-        "Dept. of Management Studies"
-      ),
-      createFaculty(
-        "Vaibhav Chawla",
-        "Assistant Professor",
-        "Dept. of Management Studies"
-      ),
-    ],
-  },
-
-  "human-machine-collaboration-wellness": {
-    // Slug for P2
-    title:
-      "Holistic Human-Machine Collaboration with Biomedical-Cognitive Measures",
-    date: "Ongoing Research Project (5-Year)",
-    type: "Research Project",
-    header_img_link:
-      "https://images.pexels.com/photos/844167/pexels-photo-844167.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Worker with tech/wearable
-    content: `
-          <p>This project focuses on enhancing the well-being, safety, and performance of the logistics workforce through advanced human-machine interaction and physiological monitoring. Core areas include:</p>
-          <ul class="list-disc space-y-2 pl-6 my-4">
-            <li><strong>Worker Health Management:</strong> Monitoring physical fatigue using bio-signals (e.g., via smart insoles with FSR/IMU sensors assessing load distribution, gait, posture) and estimating cognitive workload, vigilance, and mental fatigue using eye-tracking parameters.</li>
-            <li><strong>Advanced Worker Training:</strong> Synchronizing data from processes, automation systems, and human activities to identify areas for improvement. Utilizing VR environments for immersive training, process optimization, and safety drills. Providing real-time visual/audio feedback and assistance.</li>
-            <li><strong>Human-Machine Teaming:</strong> Developing algorithms for collaborative robots (COBOTS) to effectively resolve human-human and human-machine conflicts. Enabling dynamic task/work switching between humans and machines based on situation awareness and task significance.</li>
-            <li><strong>Safety Monitoring Technologies:</strong> Implementing real-time systems like AI-powered PPE compliance detection, ergonomic posture analysis for injury prevention, and AI-driven driver safety monitoring (drowsiness, distraction detection).</li>
-          </ul>
-          <p>The ultimate goal is to create safer, healthier, and more efficient work environments by seamlessly integrating technology to support human capabilities and mitigate risks.</p>
-        `, // Combined objectives and tech highlights
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Babji Srinivasan",
-        "Associate Professor",
-        "Dept. of Chemical Engg. (PI)"
-      ),
-      createFaculty(
-        "Rajagopalan Srinivasan",
-        "Professor",
-        "Dept. of Chemical Engg."
-      ),
-      // Ramadurai could also be relevant for driver safety aspects
-    ],
-  },
-
-  "accelerating-learning-algorithms": {
-    // Slug for P3
-    title: "Accelerating Learning and Algorithms for Logistics Problems",
-    date: "Ongoing Research Project (5-Year)",
-    type: "Research Project",
-    header_img_link:
-      "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Code/Abstract AI
-    content: `
-          <p>This project aims to develop sophisticated algorithms, machine learning techniques, and software systems to significantly improve the efficiency and decision-making capabilities within the logistics domain. Key focus areas involve:</p>
-          <ul class="list-disc space-y-2 pl-6 my-4">
-            <li><strong>Scalable Optimization Algorithms:</strong> Tackling complex, NP-hard problems like the Capacitated Vehicle Routing Problem (CVRP) and 3D bin packing using advanced techniques, including parallelization for improved scalability.</li>
-            <li><strong>Reinforcement Learning (RL) Applications:</strong> Developing RL agents for dynamic optimization tasks, particularly focusing on improving railway network efficiency through intelligent train dispatching and routing, utilizing realistic simulators (OSRD, Flatland). Enhancing profitability and reducing administrative load in linehaul routing.</li>
-            <li><strong>Predictive Analytics:</strong> Building models for demand forecasting, employee requirement forecasting, capacity planning, and predictive shipment allocation between different service types.</li>
-            <li><strong>Quantum Machine Learning:</strong> Exploring hybrid quantum-classical algorithms to potentially find better or faster solutions for computationally intensive optimization problems in route planning and packing.</li>
-            <li><strong>Software Systems & Platforms:</strong> Creating software modules, APIs, and integrated platforms incorporating optimizations (route planning, container sharing, scheduling), data analysis (consignment flow, customer feedback mining), and prediction capabilities. Exploring frameworks like Open Network for Logistics.</li>
-            <li><strong>AI-driven Services:</strong> Developing AI-based tools for logistics-specific customer service and electronic Submission Request Gateway (eSRG) processes.</li>
-          </ul>
-          <p>The project aims to deliver impactful software implementations and fundamental research contributions to enhance various facets of logistics operations.</p>
-        `, // Combined objectives and specific techniques
+            <p>The project involved analysing customer email to procure insights, streamline requests and automate customer support workflows. The objective was to create the LLAMA Model that could generate a prompt-based classification for emails, identify text elements that need to be preserved and maintain a context- aware approach to this classification.</p>
+            <p>The process of the project involved identifying key factors for ground truth labelling for emails, studying LLAMA model exploration, studying preprocessing details and identifying the key technical takeaways. Students explored various areas like delivery services, shipment tracking, privacy and delivery issues to understand the possibilities of applying the LLAMA Model.</p>
+            ${formatResearchers([
+              "Aditi Deo Singh (Masters)",
+              "Bhavya Dhingra (MBA)",
+              "sunkeswaram Sreeja (Btech)",
+              "Y Kumari Sai Teja (Btech)",
+              "Krishnanunni (Btech)",
+              "Kurian Philip (MBA)",
+            ])}
+        `,
     links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
-    faculty: [
-      createFaculty(
-        "Chandrashekar Lakshminarayanan",
-        "Assistant Professor",
-        "Dept. of CSE (PI)"
-      ),
-      createFaculty("N S Narayanaswamy", "Professor", "Dept. of CSE"),
-      createFaculty("Rupesh Nasre", "Associate Professor", "Dept. of CSE"),
-      createFaculty("Anil Prabhakar", "Professor", "Dept. of Electrical Engg."),
-      createFaculty("Rahul Marathe", "Associate Professor", "Dept. of CSE"),
-      // Ravindran might be involved via RBCDSAI
-    ],
+    faculty: getFacultyByIds([
+      "nargis-pervin",
+      "vaibhav-chawla",
+      "c-rajendran",
+    ]),
   },
 
-  "autonomous-delivery-integration": {
-    // Slug for P4
-    title: "Development of Modules for Integrating Autonomous Delivery Agents",
-    date: "Ongoing Research Project (5-Year)",
-    type: "Research Project",
-    header_img_link:
-      "https://images.pexels.com/photos/8293778/pexels-photo-8293778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Drone/Delivery Robot
+  "transshipment-hub-india": {
+    title: "Making India a Global Transshipment Hub",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/transshipment.jpg",
     content: `
-          <p>As autonomous delivery vehicles like drones and rovers become more prevalent, this project focuses on creating the necessary infrastructure and integration modules to enable their seamless and efficient adoption within existing logistics frameworks. Objectives include:</p>
-          <ul class="list-disc space-y-2 pl-6 my-4">
-            <li><strong>Integration Module Development:</strong> Building specialized software and hardware interface modules to bridge the gap between autonomous vehicle operators, logistics companies, and regulators.</li>
-            <li><strong>Operational Frameworks:</strong> Designing and testing operational models for various autonomous systems, particularly focusing on drones for mid-mile (e.g., utilizing high-payload vehicles like the ePlane e100) and last-mile deliveries, including concepts like delivery from 'Gateways' to local pickup points.</li>
-            <li><strong>Regulatory Compliance & Safety:</strong> Ensuring developed systems and operational procedures adhere to current and emerging regulatory requirements and maintain high safety standards.</li>
-            <li><strong>Electric Vehicle (EV) Logistics Optimization:</strong> Optimizing EV fleet size (sub-1 ton to trailers) and charging infrastructure (location, type) for different distribution ranges, considering trip patterns, dwell times, and lifecycle costs/emissions.</li>
-            <li><strong>Delivery Agent Well-being Study:</strong> Conducting comprehensive data-driven analysis (surveys, sensors, dashcams) of delivery associates' well-being across different vehicle types, shifts, and regions, and evaluating the impact of interventions.</li>
-          </ul>
-          <p>The project aims to facilitate the practical integration of advanced delivery vehicles, improving efficiency, reducing carbon footprint, and ensuring operational viability.</p>
-        `, // Combined objectives and EV/Drone details
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Gitakrishnan Ramadurai",
-        "Professor",
-        "Dept. of Civil Engg. (PI)"
-      ),
-      createFaculty(
-        "S R Chakravarthy",
-        "Professor",
-        "Dept. of Aerospace Engg."
-      ),
-      // Faculty from P2 might be involved in delivery agent well-being study
-    ],
-  },
-
-  // --- Details for Highlighted Areas (Derived from Projects) ---
-
-  "rl-rail-network": {
-    title: "Reinforcement Learning for Rail Network Efficiency",
-    date: "Ongoing Research",
-    type: "Research Area",
-    header_img_link:
-      "https://images.pexels.com/photos/259819/pexels-photo-259819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Train track/Signal
-    content: `
-            <p>This research focuses on applying Reinforcement Learning (RL) to address inefficiencies in railway logistics, particularly the low speed and priority often given to freight trains in India. The goal is to develop RL-based systems that can provide real-time recommendations for train dispatching (reordering at junctions/stations) and routing to optimize network throughput, reduce delays, and improve overall efficiency.</p>
-            <p>Key methodologies include:</p>
-            <ul class="list-disc space-y-2 pl-6 my-4">
-                <li>Utilizing realistic, open-source railway simulators like OSRD (Open Source Railways Designer) and Flatland to create complex environments for training RL agents.</li>
-                <li>Developing sophisticated RL algorithms capable of handling stochastic delays, complex network topologies, and varying traffic conditions.</li>
-                <li>Starting with smaller scale problems (synthetic and real-world) and scaling up towards the complexity of the Indian Railways network.</li>
-                <li>Evaluating the translational impact of RL-driven recommendations on timetabling and dynamic operations.</li>
-            </ul>
-            <p>This work falls under the broader 'Algorithms & ML' vertical, aiming to leverage AI for significant improvements in rail freight logistics.</p>
+            <p>The problem statement of this project presented challenges like gaps in policies, regulations, operational efficiency and security measures. The students explored key focus areas like airport infrastructure, customs clearance, security screening, sorting & segregation and IT capability.</p>
+            <p>Research Methodology included on-site visits, focussed interviews with key stakeholders and report analysis. A research-driven approach was implemented to understand various transhipment processes, and to study literature-based data regarding policies, challenges and regulatory frameworks.</p>
+            ${formatResearchers([
+              "Deepthi Ramesh (Masters)",
+              "Santhosh Kumar B (MBA)",
+              "Dr. Kelitha",
+            ])}
         `,
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Chandrashekar Lakshminarayanan",
-        "Assistant Professor",
-        "Dept. of CSE "
-      ),
-      createFaculty("N S Narayanaswamy", "Professor", "Dept. of CSE"),
-      createFaculty("Rupesh Nasre", "Associate Professor", "Dept. of CSE"),
-    ],
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["arshinder-kaur"]),
   },
 
-  "drone-logistics-operations": {
-    title: "Drone Delivery Operations & Feasibility (Mid/Last-Mile)",
-    date: "Ongoing Research",
-    type: "Research Area",
-    header_img_link:
-      "https://images.pexels.com/photos/1320694/pexels-photo-1320694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Drone flying over landscape
+  "employee-wellbeing-logistics": {
+    title: "Employee Well-being in Logistics Sector",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/wellbeing.jpg",
     content: `
-            <p>This research investigates the practical application and operational models for drone-based delivery within the logistics network, focusing on both mid-mile and last-mile scenarios. It explores the potential to reconfigure traditional logistics flows by leveraging aerial capabilities.</p>
-            <p>Key aspects include:</p>
-            <ul class="list-disc space-y-2 pl-6 my-4">
-                <li><strong>Mid-Mile Feasibility:</strong> Assessing the viability of using higher payload drones (e.g., targeting 100kg payload capacity, potentially like the ePlane e100 under development) to transport goods between distribution centers or from distribution centers to 'Gateways' closer to urban areas, potentially reducing reliance on expensive central dispatch centers.</li>
-                <li><strong>Last-Mile Innovation:</strong> Designing models where drones deliver from distribution centers or Gateways to localized, potentially mobile or minimally staffed, pickup points for final delivery, optimizing costs associated with last-mile nodes.</li>
-                <li><strong>Integration Modules:</strong> Developing the necessary software and communication protocols for seamless integration between logistics service providers, drone operators (UAS operators), and regulatory bodies.</li>
-                <li><strong>Optimization Problems:</strong> Addressing complex routing and scheduling challenges like the min-cost parallel drone scheduling vehicle routing problem, energy-constrained multi-visit TSP with drones, and locating optimal landing/rendezvous points.</li>
-                <li><strong>Regulatory Adherence:</strong> Ensuring all proposed models and technologies align with current drone regulations (e.g., MTOW limits).</li>
-            </ul>
-            <p>This research is part of the 'Logistics Infrastructure' vertical, aiming to integrate advanced aerial vehicles into the logistics ecosystem effectively.</p>
+            <p>An interesting project that included questionnaire development using statistical methods. The problem statement included challenges in the logistics sector across different employment levels and the need to build more tools that could differentiate between wellness and well-being measures for logistics workers.</p>
+            <p>The students developed a construct that clearly identified the parameters ‘employee wellness’ and ‘employee well-being’ and used this construct to propose applications. Methodology for this project included Exploratory Factory Analysis (EFA), Confirmatory Factor Analysis (CFA), Reliability Analysis and Construct Validity Analysis and the Final Reporting.</p>
+            ${formatResearchers(["Deepthi Ramesh (Masters)"])}
         `,
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Gitakrishnan Ramadurai",
-        "Professor",
-        "Dept. of Civil Engg. (Lead)"
-      ),
-      createFaculty(
-        "S R Chakravarthy",
-        "Professor",
-        "Dept. of Aerospace Engg."
-      ),
-    ],
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds([
+      "usha-mohan",
+      "vaibhav-chawla",
+      "arshinder-kaur",
+    ]),
   },
 
-  "ev-fleet-charging-optimization": {
-    title: "EV Fleet Size & Charging Network Optimization",
-    date: "Ongoing Research",
-    type: "Research Area",
-    header_img_link:
-      "https://images.pexels.com/photos/7195617/pexels-photo-7195617.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Electric truck charging
+  "email-workload-reduction": {
+    title: "Email Workload reduction",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/email-workload.jpg",
     content: `
-            <p>With the growing push towards electrification in logistics, this research focuses on optimizing the deployment of Electric Vehicle (EV) fleets and the supporting charging infrastructure across different operational scales: city (last-mile, sub-1 ton), regional (mid-mile, sub-12 ton), and national (long-distance trucking).</p>
-            <p>The methodology involves:</p>
-            <ul class="list-disc space-y-2 pl-6 my-4">
-                <li>Estimating spatial trip patterns and trip length distributions for different vehicle types and operational contexts.</li>
-                <li>Utilizing real-world data on truck operations, including typical routes, dwell times, and charging/discharging characteristics of relevant EV models.</li>
-                <li>Developing optimization models (potentially using heuristic algorithms and simulation) to determine the optimal EV battery sizes and fleet sizes concurrently with the strategic placement and types (e.g., speed, capacity) of charging facilities.</li>
-                <li>Optimizing routing strategies specifically for EV constraints (range, charging time).</li>
-                <li>Exploring various objective functions beyond cost minimization, such as Life Cycle Assessment (LCA) emissions, energy consumption, and overall lifecycle cost.</li>
-            </ul>
-            <p>This research, part of the 'Logistics Infrastructure' vertical, aims to provide data-driven tools for planning efficient and sustainable EV adoption in logistics.</p>
+            <p>Students developed a model to classify customer queries across various departments. The problem statement aligned the focus on predefined parameters that accomplished zero-shot classification. The model developed could be utilized for summarization of emails to enable efficient outcomes.</p>
+            <p>This model has the potential to increase overall efficiency in the organization thereby enhancing customer experiences.</p>
+            ${formatResearchers([
+              "Omkar Nishad (Btech)",
+              "Alan Mathew (Btech)",
+            ])}
         `,
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Gitakrishnan Ramadurai",
-        "Professor",
-        "Dept. of Civil Engg. (Lead)"
-      ),
-      // Potentially faculty from Electrical Engg. or Energy Systems
-    ],
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["arshinder-kaur", "nargis-pervin"]),
   },
 
-  "worker-wellness-technologies": {
-    title: "Technologies for Logistics Worker Wellness & Safety",
-    date: "Ongoing Research",
-    type: "Research Area",
-    header_img_link:
-      "https://images.pexels.com/photos/5669619/pexels-photo-5669619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Wearable tech/Safety gear
+  "multimodal-logistics-challenges": {
+    title: "Issues and Challenges in Multi-Modal Logistics in India",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/multimodal.jpg",
     content: `
-            <p>This area focuses on the development and application of specific technologies designed to directly monitor, protect, and enhance the well-being and safety of workers in demanding logistics environments like warehouses and driving.</p>
-            <p>Key technologies under development/investigation include:</p>
-            <ul class="list-disc space-y-2 pl-6 my-4">
-                <li><strong>Smart Insoles:</strong> Embedding FSR (Force Sensitive Resistor) and IMU (Inertial Measurement Unit) sensors in footwear to track foot pressure, gait cycle, posture, and alignment. This data helps assess load distribution, detect abnormalities, monitor fatigue, and prevent posture-related injuries.</li>
-                <li><strong>AI-Powered PPE Compliance Monitoring:</strong> Using camera systems and computer vision algorithms for real-time detection of correct Personal Protective Equipment (PPE) usage (helmets, vests, goggles, etc.), triggering alerts for non-compliance in high-risk areas.</li>
-                <li><strong>Virtual Reality (VR) Warehouse Simulation:</strong> Creating immersive virtual environments for layout testing, worker training (safe practice of tasks), process optimization trials, and emergency safety drills without real-world risks.</li>
-                <li><strong>Eye-Tracking for Cognitive Analytics:</strong> Employing eye-tracking glasses or systems to monitor workers' focus, cognitive load, and visual attention patterns, aiming to enhance safety, reduce errors, improve task efficiency, and inform targeted training.</li>
-                <li><strong>Warehouse Posture Detection:</strong> Real-time monitoring using computer vision to detect improper lifting postures or repetitive strain movements, providing ergonomic feedback to prevent injuries and improve techniques.</li>
-                <li><strong>AI Driver Safety Monitoring:</strong> Analyzing driver facial cues, eye movements, and driving patterns via in-cab cameras to detect drowsiness, inattentiveness, and unsafe behaviors, potentially integrated with collision prevention alerts or interventions.</li>
-            </ul>
-            <p>Falling under the 'Logistics Worker Wellness' vertical, this research seeks practical technological solutions for improving human health and safety within the supply chain.</p>
+            <p>Project highlights included exploring infrastructure gaps, regulatory hurdles, operational costs, lack of skilled workforce, technological challenges and environmental concerns.</p>
+            <p>Students studied the possibilities of routes, types of transport, their feasibility and efficiency outcomes.</p>
+            ${formatResearchers(["Kadam (Masters)"])}
         `,
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Babji Srinivasan",
-        "Associate Professor",
-        "Dept. of Chemical Engg. (Lead)"
-      ),
-      createFaculty(
-        "Rajagopalan Srinivasan",
-        "Professor",
-        "Dept. of Chemical Engg."
-      ),
-      createFaculty(
-        "Gitakrishnan Ramadurai",
-        "Professor",
-        "Dept. of Civil Engg."
-      ), // Relevant for driver/delivery agent aspects
-    ],
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["arshinder-kaur"]),
+  },
+
+  "emission-optimizing-cvrp": {
+    title: "Emission-Optimizing CVRP",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/cvrp.jpg",
+    content: `
+            <p>This project explored modelling the effect of various parameters on carbon emissions. The students studied estimated emissions and how emission rates connect with different routes. The approach also included permitting dynamic updates to selected parameters based on traffic.</p>
+            <p>A research-driven method was adopted, and the project progressed to developing the Comprehensive Modal Emission Model to further the study. This included exploring possibilities of computing on a ‘minimum spanning tree’ and other techniques like DFS/BFS, k-NN tree, and divide and conquer based grid. This approach enabled the further study of capacitated vehicle routing at a million scale.</p>
+            <p>The students explored using quantum and classical annealers to identify feasible solutions for route optimization and 3D bin packing. The project's objective also included quadratic unconstrained binary optimization, comparative study of different heuristic solvers, and possible solutions.</p>
+            ${formatResearchers([
+              "Adithya (Masters)",
+              "Priyanga K(Masters)",
+              "Himabinduna(Btech)",
+              "Isha(Btech)",
+              "Rahul (Mtech)",
+            ])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds([
+      "chandrashekar-l",
+      "anil-prabhakar",
+      "rupesh-nasre",
+      "ns-narayanaswamy",
+    ]),
+  },
+
+  "ev-charging-fleet-optimization": {
+    title: "Optimal EV charging networks and EV fleet size",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/e-fleet.jpg",
+    content: `
+            <p>Students identified a Vehicle Routing problem and aligned solutions according to the EV fleet size. The proposed solution included approaches to data collection, VRP formulation, a simulation model using real-world data like driver characteristics and charging characteristics.</p>
+            <p>The students analysed areas like C2G emissions, WTT emissions to contribute to the simulation model. The project’s proposal considered an optimized fleet size, vehicle type, an optimized charging infrastructure type, various locations, and optimized routing for vehicles.</p>
+            ${formatResearchers(["Rokom Perme (PhD)", "Samrudh R (Mtech)"])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["gitakrishnan-ramadurai"]),
   },
 
   "sustainable-resilient-last-mile": {
-    title: "Sustainable & Resilient Last-Mile Distribution Framework",
-    date: "Ongoing Research",
-    type: "Research Area",
-    header_img_link:
-      "https://images.pexels.com/photos/776314/pexels-photo-776314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Placeholder: Delivery van in city traffic
+    title:
+      "Sustainable and Resilient Last-Mile Distribution: A Holistic System Design Framework",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/sustainable-lastmile.jpg",
     content: `
-            <p>Last-mile distribution is often the most complex and costly part of the supply chain, with significant environmental and social impacts. This research aims to develop a holistic system design framework enabling logistics operators to establish strategies that are both sustainable and resilient.</p>
-            <p>The framework integrates:</p>
-            <ul class="list-disc space-y-2 pl-6 my-4">
-                <li><strong>Three Pillars of Sustainability:</strong> Explicitly balancing Economic Viability (total distribution costs), Environmental Efficiency (GHG and pollutant emissions per delivery), and Social Equity (spatial distribution of externalities like congestion, noise, emissions).</li>
-                <li><strong>Four Dimensions of Resilience (R4 Framework):</strong> Ensuring strategies can handle disruptions by being Robust (withstanding shocks), Redundant (having substitutable elements), Resourceful (diagnosing and initiating solutions), and Rapid (restoring functionality quickly).</li>
-                <li><strong>Component Models:</strong> Consolidating econometric consumer behaviour models, distribution-agnostic continuous approximation frameworks (for cost/emission estimation), and domain-agnostic R4 resilience assessment methods.</li>
-            </ul>
-            <p>The objective is to provide e-retailers and policymakers with actionable, data-driven insights to design last-mile systems capable of handling routine fluctuations and major disruptions while balancing economic, environmental, and social goals. This work contributes to both the 'Supply Chain Sustainability' and 'Logistics Infrastructure' verticals.</p>
+            <p>In this project, students analysed problems like the impact of internet usage on the growth of e-commerce and how it influenced the behaviour of consumers and ultimately consumer purchases. The rise in demand for JIT deliveries, which significantly impacted increased distribution cost, increased distribution emissions, greenhouse gas and other pollutants.</p>
+            <p>The project included the study of sustainable possibilities that could address these problems. The students aligned the feasibility of using electric delivery vehicles, light-delivery vehicles, crowd-sourced delivery, autonomous, and unmanned systems to integrate demand and supply. The developed holistic system design considered the demand and supply modules, which enabled sustainable and resilient last-mile distribution.</p>
+            ${formatResearchers(["Blessy(PhD)"])}
+            <p class="mt-4 text-sm italic">Note: Project description mentions 'Professor Anmol'. Assuming primary faculty based on related work.</p>
         `,
-    links: {
-      /* Placeholder links */ common: "#",
-      linkedin: "#",
-      facebook: "#",
-      twitter: "#",
-    },
-    faculty: [
-      createFaculty(
-        "Gitakrishnan Ramadurai",
-        "Professor",
-        "Dept. of Civil Engg. (Lead)"
-      ),
-      // Likely involves PhD student Anmol Pahwa mentioned in PPT
-      createFaculty(
-        "Arshinder Kaur",
-        "Professor",
-        "Dept. of Management Studies"
-      ), // For sustainability aspects
-    ],
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["gitakrishnan-ramadurai", "arshinder-kaur"]), // Manually assigned based on note
   },
-  // Add entries for "air-cargo-optimization", "customer-voice-mining" etc. following the same pattern,
-  // extracting details from the relevant project descriptions (mainly P1).
+
+  "drone-delivery-feasibility-india": {
+    title: "Feasibility of drone deliveries in India",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/drone-feasibility.jpg",
+    content: `
+            <p>The project analysed sustainable logistics in India and considered the feasibility of drones for last-mile and rural deliveries.</p>
+            ${formatResearchers([
+              "Varun Mathivadan (Mtech)",
+              "Abirami S (Masters)",
+            ])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["satya-r-chakravarthy"]),
+  },
+
+  "autonomous-agent-integration-modules": {
+    title:
+      "Development of Modules capable of integrating with the current infrastructure to enable autonomous Delivery Agents to adopt Advanced Delivery Vehicle",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/autonomous-module.jpg",
+    content: `
+            <p>Students analysed the impact of logistics efficiency from autonomous delivery vehicles like drones, considering the integration challenges that it presented. The objective included the development of modules that could leverage the management of autonomous delivery agents.</p>
+            <p>These modules enabled organizations that had struggled with logistics efficiency to adopt advanced delivery vehicles for multi-modal transport.</p>
+            ${formatResearchers([
+              "Abirami S(Masters)",
+              "Varun Mathivadan (Mtech)",
+            ])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["satya-r-chakravarthy"]),
+  },
+
+  "vision-based-warehouse-safety": {
+    title:
+      "Vision-based approaches for monitoring warehouse worker safety and performance",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/vision-safety.jpg",
+    content: `
+            <p>The project analysed the possibilities of developing systems and processes that ensured worker safety in warehouses and logistics facilities. Automated risk assessments, operational efficiency, and data-driven insights were analysed to create an advanced AI ergonomics platform that enabled improved efficiencies across all sectors.</p>
+            ${formatResearchers(["Manoj Shyam (Masters)"])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["rajagopalan-srinivasan", "babji-srinivasan"]),
+  },
+
+  "wearable-sensors-worker-fatigue": {
+    title:
+      "Wearable sensors for monitoring fatigue and performance of warehouse workers",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/wearable.jpg",
+    content: `
+            <p>An interesting project that studied real-time data like heart rate, skin temperature, and locomotion patterns to understand worker fatigue in real-time scenarios. A predictive analysis report presented how these parameters could help understand the reasons and possible times for worker fatigue and thereby help prevent it.</p>
+            <p>Students presented possible solutions that empowered workers to avoid fatigue and improve productivity.</p>
+            ${formatResearchers(["Karthikeyan (PhD)", "Shyam Sivam (SPO)"])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["rajagopalan-srinivasan", "babji-srinivasan"]),
+  },
+
+  "vr-warehouse-simulation": {
+    title: "Virtual simulation of various operations in the warehouse",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/vr-warehouse.jpg",
+    content: `
+            <p>The impact of virtual reality in the real world is undeniable, and the students have leveraged its capabilities to enhance warehouse operations to empower employees, improve logistics, and simulate real-world warehouse problems.</p>
+            <p>The endless capabilities of VR have made it possible to develop successful models for training and safety simulation, warehouse process optimization, cognitive workload, and ergonomic assessment.</p>
+            ${formatResearchers(["Jegatheeswari D (masters)"])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["rajagopalan-srinivasan", "babji-srinivasan"]),
+  },
+
+  "sarathi-ai-driver-monitoring": {
+    title: "Sarathi AI - Driver monitoring system",
+    date: "Research Project",
+    type: "Research",
+    header_img_link: "/research/sarathi-ai.jpg",
+    content: `
+            <p>A cutting-edge technology-driven solution was developed to enhance safety, efficiency, and compliance in warehouse and logistics operations. Students presented methods like measuring and monitoring performance, tracking by remote, and integration of an alarm when required.</p>
+            <p>The project included features like fatigue and distraction detection, speed and route monitoring, proximity and collision warnings, seatbelt and posture detection, AI-based behavioural analysis, real-time data and reporting, and environmental monitoring.</p>
+            ${formatResearchers(["Thasnimol (PhD)"])}
+       `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["rajagopalan-srinivasan", "babji-srinivasan"]),
+  },
+
+  // --- Short Term Projects ---
+  "demand-capacity-forecasting": {
+    title: "Demand Analysis, Capacity planning and Forecasting Models",
+    date: "Short Term Project",
+    type: "Short Term Project",
+    header_img_link: "/research/demand-forecast.jpg",
+    content: `
+            <p>This project focuses on optimizing operations within a business by assessing the demand, planning capacity accordingly, and using forecasting models to predict future needs. The problem statement focussed on precise capacity planning and accurately forecasting demand.</p>
+            <p>The objective of the project is to develop a python-based demand forecasting model that integrates harmonic analysis, linear regression and time series feature engineering to highlight complex demand patterns. With a strong focus on forecast accuracy, the project is working towards reducing operational inefficiencies and supporting strategic air network planning.</p>
+            <p>The key deliverables for this project included developing a python-based forecasting model and developing comprehensive documentation. The progress of this includes a comprehensive review of state-of-the-art time series forecasting methods, Toffee-tree, which is an automatic feature engineering with 286+ trend cycles and BOFA (Bi-objective optimization with fourier-based linear regression for multi-seasonal data).</p>
+            <p>The project has completed the forecasting of international shipping, engineered features capturing temporal trends and seasonality. A Harmonic Regression Model has been built, the students used MAE, RMSE and MAPE for model performance evaluation.</p>
+            ${formatResearchers([])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["c-rajendran"]),
+  },
+
+  "large-scale-last-mile-delivery": {
+    title: "Optimizing Large-scale Last-mile delivery",
+    date: "Short Term Project (Est. Completion: June 2025)",
+    type: "Short Term Project",
+    header_img_link: "/research/last-mile.jpg",
+    content: `
+            <p>The Project focused on allocation and routing of courier personnel with the consideration of simultaneous delivery and pickup. The problem statement presented the last-mile delivery as the most difficult and cost-intensive segments of the logistics chain.</p>
+            <p>A matheuristic approach was proposed to efficiently handle large-scale last-mile delivery problems. The objective of the project included development of a MILP model for clustering and routing. The students tested the matheuristic model benchmark instances from the Li & Lim dataset and presented an output for an instance with 100 nodes.</p>
+            <p>The project is ongoing and is due for completion in June 2025.</p>
+            ${formatResearchers([])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["c-rajendran"]),
+  },
+
+  "air-taxi-infrastructure-placement": {
+    title: "Optimized infrastructure placement for air taxi system",
+    date: "Short Term Project (Est. Completion: May 2025)",
+    type: "Short Term Project",
+    header_img_link: "/research/airtaxi.jpg",
+    content: `
+            <p>The objective of this project is to optimize vertiports, vertistops and customer points to improve air taxi operation, to reduce industrial impact and to understand potential applications of FedEx logistics, drone delivery networks and urban air mobility solutions.</p>
+            <p>The project is planned to move forward through 5 levels and students aim for completion by May 2025. The methods of analysis used include clustering with TSP coding, MILP Math Model, Solver-Gurobi Py and Allotment Stratified.</p>
+            <p>The project is proposed to move forward with a plan to expand optimization and integrate real-time data, pilot tests in cities to assess scalability, finally submit models and publish research papers.</p>
+            ${formatResearchers([])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["c-rajendran"]),
+  },
+
+  "multi-echelon-network-design": {
+    title: "Multi-Echelon Network Design",
+    date: "Short Term Project (Est. Completion: May 2025)",
+    type: "Short Term Project",
+    header_img_link: "/research/multiechelon.jpg",
+    content: `
+            <p>The problem statement of this project highlighted product distribution challenges and is focused on developing efficient delivery paths that are based multi-echelon network design that covers state hubs, regional sort centers and micro-fulfillment centers. The multi-echelon distribution network covers the movement of goods through multiple levels before it reaches the customers.</p>
+            <p>Students analyse the flow of goods through this network design and utilize the best optimization approach to achieve the objectives of the project. The objectives to meet optimization of product distribution, determine the optimal number and location of distribution centers and the establishment of a major central distribution state hub will be met by May 2025 according to the phased plan of the project.</p>
+            ${formatResearchers([])}
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds(["c-rajendran"]),
+  },
 };
 
 // src/data/eventsData.ts
@@ -549,38 +521,126 @@ export const opportunityTypes = [
   ...Array.from(new Set(opportunitiesData.map((item) => item.type))),
 ];
 
+// Based *only* on the provided "Projects" text file with verticals
 export const researchListData: ResearchListItem[] = [
-  // --- Key Research Highlights (Derived from PPT/Website Content & detailed data) ---
   {
-    id: "rl-rail-network", // Consistent ID
-    title: "Reinforcement Learning for Rail Network Efficiency", // Consistent Title
+    id: "customer-email-analysis",
+    title: "Customer Email Analysis",
+    slug: "customer-email-analysis",
+    vertical: "Supply Chain Sustainability",
+  },
+  {
+    id: "transshipment-hub-india",
+    title: "Making India a Global Transshipment Hub",
+    slug: "transshipment-hub-india",
+    vertical: "Supply Chain Sustainability",
+  },
+  {
+    id: "employee-wellbeing-logistics",
+    title: "Employee Well-being in Logistics Sector",
+    slug: "employee-wellbeing-logistics",
+    vertical: "Supply Chain Sustainability",
+  },
+  {
+    id: "email-workload-reduction",
+    title: "Email Workload reduction",
+    slug: "email-workload-reduction",
+    vertical: "Supply Chain Sustainability",
+  },
+  {
+    id: "multimodal-logistics-challenges",
+    title: "Issues and Challenges in Multi-Modal Logistics in India",
+    slug: "multimodal-logistics-challenges",
+    vertical: "Supply Chain Sustainability",
+  },
+  {
+    id: "emission-optimizing-cvrp",
+    title: "Emission-Optimizing CVRP",
+    slug: "emission-optimizing-cvrp",
     vertical: "Algorithms & ML",
-    slug: "rl-rail-network", // Consistent Slug
   },
   {
-    id: "drone-logistics-operations", // Consistent ID
-    title: "Drone Delivery Operations & Feasibility (Mid/Last-Mile)", // Consistent Title
+    id: "ev-charging-fleet-optimization",
+    title: "Optimal EV charging networks and EV fleet size",
+    slug: "ev-charging-fleet-optimization",
     vertical: "Logistics Infrastructure",
-    slug: "drone-logistics-operations", // Consistent Slug
   },
   {
-    id: "ev-fleet-charging-optimization", // Consistent ID
-    title: "EV Fleet Size & Charging Network Optimization", // Consistent Title
+    id: "sustainable-resilient-last-mile",
+    title:
+      "Sustainable and Resilient Last-Mile Distribution: A Holistic System Design Framework",
+    slug: "sustainable-resilient-last-mile",
     vertical: "Logistics Infrastructure",
-    slug: "ev-fleet-charging-optimization", // Consistent Slug
+  }, // Vertical from file
+  {
+    id: "drone-delivery-feasibility-india",
+    title: "Feasibility of drone deliveries in India",
+    slug: "drone-delivery-feasibility-india",
+    vertical: "Logistics Infrastructure",
   },
   {
-    id: "worker-wellness-technologies", // Added
-    title: "Technologies for Logistics Worker Wellness & Safety",
+    id: "autonomous-agent-integration-modules",
+    title:
+      "Development of Modules capable of integrating with the current infrastructure to enable autonomous Delivery Agents to adopt Advanced Delivery Vehicle",
+    slug: "autonomous-agent-integration-modules",
+    vertical: "Logistics Infrastructure",
+  },
+  {
+    id: "vision-based-warehouse-safety",
+    title:
+      "Vision-based approaches for monitoring warehouse worker safety and performance",
+    slug: "vision-based-warehouse-safety",
+    vertical: "Logistics Infrastructure",
+  }, // Vertical from file (Note: Content suggests Wellness)
+  {
+    id: "wearable-sensors-worker-fatigue",
+    title:
+      "Wearable sensors for monitoring fatigue and performance of warehouse workers",
+    slug: "wearable-sensors-worker-fatigue",
     vertical: "Logistics Worker Wellness",
-    slug: "worker-wellness-technologies", // Added - Ensure this key exists in researchDetailsData
   },
   {
-    id: "sustainable-resilient-last-mile", // Added
-    title: "Sustainable & Resilient Last-Mile Distribution Framework",
-    vertical: "Supply Chain Sustainability", // Or Infrastructure
-    slug: "sustainable-resilient-last-mile", // Added - Ensure this key exists in researchDetailsData
+    id: "vr-warehouse-simulation",
+    title: "Virtual simulation of various operations in the warehouse",
+    slug: "vr-warehouse-simulation",
+    vertical: "Logistics Worker Wellness",
   },
+  {
+    id: "sarathi-ai-driver-monitoring",
+    title: "Sarathi AI - Driver monitoring system",
+    slug: "sarathi-ai-driver-monitoring",
+    vertical: "Logistics Worker Wellness",
+  },
+  {
+    id: "integrated-warehouse-testbed",
+    title: "An integrated test bed for state-of-the-art warehouse simulation",
+    slug: "integrated-warehouse-testbed",
+    vertical: "Logistics Worker Wellness",
+  }, // Assuming related to #13
+  {
+    id: "demand-capacity-forecasting",
+    title: "Demand Analysis, Capacity planning and Forecasting Models",
+    slug: "demand-capacity-forecasting",
+    vertical: "Supply Chain Sustainability",
+  }, // Explicitly given as "sustai"
+  {
+    id: "large-scale-last-mile-delivery",
+    title: "Optimizing Large-scale Last-mile delivery",
+    slug: "large-scale-last-mile-delivery",
+    vertical: "Supply Chain Sustainability",
+  }, // Assigned based on Prof. Rajendran
+  {
+    id: "air-taxi-infrastructure-placement",
+    title: "Optimized infrastructure placement for air taxi system",
+    slug: "air-taxi-infrastructure-placement",
+    vertical: "Logistics Infrastructure",
+  }, // Assigned based on content (air taxi/infra)
+  {
+    id: "multi-echelon-network-design",
+    title: "Multi-Echelon Network Design",
+    slug: "multi-echelon-network-design",
+    vertical: "Supply Chain Sustainability",
+  }, // Assigned based on Prof. Rajendran / Network Design
 ];
 
 export const researchVerticals = [
@@ -633,6 +693,46 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       <li>Judges evaluated projects based on innovation, feasibility, and impact.</li>
       <li>Post-event engagement with IIT professors and students to foster collaboration.</li>
     </ul>
+  `,
+    links: {
+      common: "/events/hackathon-shastra-2025",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    judges: [
+      {
+        name: "Vijay Kumar R",
+        description: "FedEx Manager Shared Services",
+      },
+      {
+        name: "S. Karthikeyan",
+        description: "FedEx Manager Clearance Operations",
+      },
+      {
+        name: "Micheal",
+        description: "FedEx Representative",
+      },
+    ],
+  },
+  "sarc-shastra-2025": {
+    title: "SARC - Shaastra aerial robotics challenge",
+    date: "January 4th, 2025",
+    type: "Hackathon",
+    header_img_link: "/events/fedex-smart-hackathon.webp",
+    content: `
+    <p>
+    The FedEx SMART Centre partnered with SHAASTRA, the annual festival of IIT Madras, to host two
+key competitions focused on the logistics and supply chain sectors. As part of this initiative, OPSIUM
+(Operations and Supply Chain Case Study) was introduced as a case study competition that attracted
+over 500 students from prestigious institutions like IITs and IIMs. The challenge involved creating an
+advanced demand forecasting system for FedEx. The competition, judged by FedEx experts Mr.
+Mohan Singh and Mr. Vikram Anand, saw IIT Madras win first and third places, with N.L. Dalmia
+Institute of Management Studies &amp; Research securing second place. The FedEx judges added value
+to the event with their industry expertise, providing students with valuable guidance and insights,
+transforming the competition to an inspiring and impactful experience.
+    </p>
+    
   `,
     links: {
       common: "/events/hackathon-shastra-2025",

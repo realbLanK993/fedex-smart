@@ -42,12 +42,12 @@ export default function HoverList({
         initial="initial"
         whileHover="hovered"
         className={twMerge(
-          "border-b border-border/80 py-6 px-4 md:py-8 md:px-8 flex justify-between items-center gap-4 w-full hover:bg-accent transition-colors duration-200", // Use accent for hover, consistent padding
+          "wborder-b border-border/80 py-6 px-4 md:py-8 md:px-8 flex justify-between items-center gap-4 w-full hover:bg-accent transition-colors duration-200", // Use accent for hover, consistent padding
           className
         )}
       >
         {/* Left side: Title and Vertical */}
-        <div>
+        <div className=" max-w-[80%]">
           {/* Use primary color for title for emphasis */}
           <div className=" md:text-2xl font-medium text-primary mb-1 flex gap-1">
             <motion.h1

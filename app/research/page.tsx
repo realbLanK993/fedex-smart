@@ -12,8 +12,9 @@ import {
 import { researchListData, researchVerticals, verticalsData } from "@/lib/data";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 // src/data/researchListData.ts
 
@@ -22,16 +23,32 @@ import Link from "next/link";
 export default function ResearchPage() {
   const [selectedVertical, setSelectedVertical] =
     useState<string>("All Research");
+  const [searchTerm, setSearchTerm] = useState<string>(""); // <-- Add state for search term
 
   // Memoize filtered list to avoid recalculation on every render
   const filteredResearch = useMemo(() => {
-    if (selectedVertical === "All Research") {
-      return researchListData;
+    // Start with the full list
+    let results = researchListData;
+
+    // Filter by vertical (if not "All Research")
+    if (selectedVertical !== "All Research") {
+      results = results.filter((item) => item.vertical === selectedVertical);
     }
-    return researchListData.filter(
-      (item) => item.vertical === selectedVertical
-    );
-  }, [selectedVertical]); // Recalculate only when selectedVertical changes
+
+    // Filter by search term (if search term is not empty)
+    if (searchTerm.trim() !== "") {
+      const lowerCaseSearchTerm = searchTerm.toLowerCase().trim();
+      results = results.filter(
+        (item) =>
+          item.title.toLowerCase().includes(lowerCaseSearchTerm) || // Check title
+          item.vertical.toLowerCase().includes(lowerCaseSearchTerm) // Optionally check vertical too
+        // You could add item.description check here if needed,
+        // but might require adding description to researchListData
+      );
+    }
+
+    return results;
+  }, [selectedVertical, searchTerm]); // Add searchTerm to dependency array
 
   return (
     // Use defined-width if it's a global class you have, otherwise use container
@@ -109,17 +126,15 @@ export default function ResearchPage() {
         ))}
       </div>
       {/* Filter Section */}
-      <section className="flex flex-col sm:flex-row sm:items-center gap-4 w-full">
-        {/* <Label htmlFor="research-filter" className="text-sm font-medium shrink-0">Filter by Vertical:</Label> */}
-        <Select
-          value={selectedVertical}
-          onValueChange={setSelectedVertical} // Update state on change
-        >
+      <section className="flex flex-col sm:flex-row sm:items-center gap-4 w-full mb-10">
+        {/* Select Dropdown */}
+        <Select value={selectedVertical} onValueChange={setSelectedVertical}>
           <SelectTrigger
             id="research-filter"
-            className="max-w-xs w-full rounded-full border-primary/50 focus:ring-primary" // Add primary color hints
+            className="w-full sm:max-w-xs rounded-full border-primary/50 focus:ring-primary"
           >
-            <SelectValue placeholder="Select Research Area" />
+            <SelectValue placeholder="Filter by Vertical" />{" "}
+            {/* Updated placeholder */}
           </SelectTrigger>
           <SelectContent>
             {researchVerticals.map((vertical) => (
@@ -129,6 +144,20 @@ export default function ResearchPage() {
             ))}
           </SelectContent>
         </Select>
+
+        {/* Search Input */}
+        <div className="relative w-full sm:max-w-xs">
+          {" "}
+          {/* Control width */}
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
+            type="search"
+            placeholder="Search research titles..."
+            className="w-full rounded-full pl-9 border-primary/50 focus:ring-primary" // Add padding for icon
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} // Update search state
+          />
+        </div>
       </section>
 
       {/* Research List Section */}

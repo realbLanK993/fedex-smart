@@ -5,7 +5,8 @@ import { Badge } from "../ui/badge";
 export default function FacultyCard({
   designation,
   name,
-  location,
+  department,
+  institution,
   image,
 }: Faculty) {
   return (
@@ -21,8 +22,8 @@ export default function FacultyCard({
         </Badge>
         <p className="text-xl font-bold"> {name} </p>
         <div className="flex flex-col gap-2">
-          <p> {location.department} </p>
-          <p className="text-sm text-gray-400"> {location.institution} </p>
+          <p> {department} </p>
+          <p className="text-sm text-gray-400"> {institution} </p>
         </div>
       </div>
     </Card>

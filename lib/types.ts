@@ -4,10 +4,8 @@ export type Faculty = {
   image?: string;
   designation: string;
   name: string;
-  location: {
-    department?: string;
-    institution?: string;
-  };
+  department?: string;
+  institution?: string;
 };
 
 export type Judge = {
@@ -23,6 +21,12 @@ export type Speaker = {
     department?: string;
     institution?: string;
   };
+};
+
+export type Researcher = {
+  image?: string;
+  name: string;
+  description?: string;
 };
 
 export type NavigationItem = {
@@ -47,9 +51,10 @@ export type CommonPageProps = {
   };
   header_img_link: string;
   content: string;
-  faculty?: Faculty[];
+  faculty?: Person[];
   judges?: Judge[];
   speakers?: Speaker[];
+  researchers?: Researcher[];
 };
 
 export interface GalleryImage {

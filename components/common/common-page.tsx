@@ -61,7 +61,8 @@ export default function CommonPage({
                   key={index}
                   name={person.name}
                   designation={person.designation}
-                  location={person.location}
+                  institution={person.institution}
+                  department={person.department}
                 />,
               ])}
             </div>
