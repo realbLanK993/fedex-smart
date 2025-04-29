@@ -6,6 +6,8 @@ import EventCard from "@/components/common/event-card";
 import { EventItem } from "@/lib/types";
 import { eventsListData } from "@/lib/data";
 import AnimatedText from "@/components/common/rolling-text";
+import { Card } from "@/components/ui/card";
+import { StatsCard } from "@/components/common/stats-card";
 
 // --- Helper function to get latest events ---
 function getLatestEvents(allEvents: EventItem[], count: number): EventItem[] {
@@ -46,6 +48,9 @@ export default function Home() {
     <main className="defined-width flex flex-col gap-24 md:gap-32 p-6 md:p-8 lg:p-12">
       <Hero />
 
+      <section>
+        <StatsCard />
+      </section>
       <div className="flex flex-col gap-16 md:gap-20">
         {/* --- Latest Events Section --- */}
         <section className="flex flex-col gap-8 p-6 rounded-lg">

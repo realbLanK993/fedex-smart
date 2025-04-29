@@ -6,6 +6,7 @@ import {
   ResearchListItem,
   TeamCategory,
   TeamMember,
+  TeamMemberRef,
   VerticalData,
 } from "@/lib/types"; // Assuming your type definition is here
 import { Cpu, HeartPulse, Leaf, Truck } from "lucide-react";
@@ -550,33 +551,6 @@ export const opportunityTypes = [
 ];
 
 export const researchListData: ResearchListItem[] = [
-  // --- Main 5-Year Projects ---
-  {
-    id: "p1",
-    title: "Digital and Sustainable Supply Chain Modelling & Analytics",
-    vertical: "Supply Chain Sustainability",
-    slug: "digital-sustainable-supply-chain",
-  },
-  {
-    id: "p2",
-    title:
-      "Holistic Human-Machine Collaboration with Biomedical-Cognitive Measures",
-    vertical: "Logistics Worker Wellness",
-    slug: "human-machine-collaboration-wellness",
-  },
-  {
-    id: "p3",
-    title: "Accelerating Learning and Algorithms for Logistics Problems",
-    vertical: "Algorithms & ML",
-    slug: "accelerating-learning-algorithms",
-  },
-  {
-    id: "p4",
-    title: "Development of Modules for Integrating Autonomous Delivery Agents",
-    vertical: "Logistics Infrastructure",
-    slug: "autonomous-delivery-integration",
-  },
-
   // --- Key Research Highlights (Derived from PPT/Website Content & detailed data) ---
   {
     id: "rl-rail-network", // Consistent ID
@@ -637,7 +611,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Gopalakrishnan Mohan",
         "International Visiting Chair Professor",
@@ -645,7 +619,6 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
         "Arizona State University & IIT Madras"
       ),
     ],
-    judges: [],
   },
   "hackathon-shastra-2025": {
     title: "FedEx SMART Hackathon",
@@ -668,7 +641,6 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [],
     judges: [
       {
         name: "Vijay Kumar R",
@@ -706,7 +678,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Vinod Alex Kadavan",
         "Director & Founder",
@@ -738,7 +710,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Ravikanth Yamarthy",
         "CEO",
@@ -770,7 +742,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Brahmayya Akella",
         "Co-founder & Chief Strategy Officer",
@@ -803,7 +775,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Vinay Goyal",
         "Founder & CEO",
@@ -836,7 +808,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Jitesh J Thakkar",
         "Professor & Dean (Academics)",
@@ -868,7 +840,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Goda Doreswamy",
         "Vice President, Data Science",
@@ -902,7 +874,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "K Ganesh",
         "Partner & Global Lead",
@@ -937,7 +909,7 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
       facebook: "#",
       twitter: "#",
     },
-    faculty: [
+    speakers: [
       createFaculty(
         "Allan Rodrigues",
         "Managing Director",
@@ -950,236 +922,131 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
 };
 
 // --- Populate this with actual data ---
-export const teamData: TeamMember[] = [
-  // --- Advisory Board (Extracted from "Governing Board" HTML + Duplicates) ---
+export const teamData: TeamMemberRef[] = [
+  // --- Advisory Board ---
+  { id: "adv01", personId: "nitin-tatiwala", category: "Advisory" },
+  { id: "adv02", personId: "kami-vishwanathan", category: "Advisory" },
   {
-    id: "adv01",
+    id: "adv-swamy",
+    personId: "ns-narayanaswamy",
     category: "Advisory",
-    imageUrl:
-      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/05/nitin-150x150.png",
-    name: "Nitin Tatiwala",
-    title: "Vice President, AMEA Marketing, FedEx",
-    profileLink: undefined,
-  },
+    roleTitle: "Advisory Member",
+  }, // Specify advisory role
   {
-    id: "adv02",
+    id: "adv-arshinder",
+    personId: "arshinder-kaur",
     category: "Advisory",
-    imageUrl:
-      "https://www.fedex.com/content/dam/fedex/us-united-states/About/upload/Kami_Viswanathan_Circle_Headshot_2_100KB.webp",
-    name: "Kami Vishwanathan",
-    title: "President, Middle East, Indian Subcontinent and Africa, FedEx",
-    profileLink:
-      "https://www.fedex.com/en-us/about/leadership/kami-viswanathan.html",
-  },
-  {
-    // Duplicate entry for Swamy under Advisory
-    id: "adv-swamy", // Unique ID for this role
-    category: "Advisory",
-    imageUrl: "https://cse.iitm.ac.in/images/swamy.webp",
-    name: "Prof. N S Narayanaswamy",
-    title: "Professor, Dept. of CSE, IIT Madras | Advisory Member", // Title indicating advisory role
-    profileLink: "https://cse.iitm.ac.in/profile.php?arg=MTA=",
-  },
-  {
-    // Duplicate entry for Arshinder under Advisory
-    id: "adv-arshinder", // Unique ID for this role
-    category: "Advisory",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/arshinder.png",
-    name: "Prof. Arshinder Kaur",
-    title:
-      "Professor, Dept. of Management Studies, IIT Madras | Advisory Member", // Title indicating advisory role
-    profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur",
-  },
-  {
-    id: "adv03", // Renumbered original adv03
-    category: "Advisory",
-    imageUrl:
-      "https://civil.iitm.ac.in/faculty/mash/admin/download/athena-infonomics-advisors-potrait_ashwin-mahalingam-600x600.webp",
-    name: "Ashwin Mahalingam",
-    title: "Dean ACR, IIT Madras",
-    profileLink: "https://civil.iitm.ac.in/faculty/mash/",
-  },
-  {
-    id: "adv04", // Renumbered original adv04
-    category: "Advisory",
-    imageUrl:
-      "https://civil.iitm.ac.in/faculty/manus/admin/download/50472.webp",
-    name: "Manu Santhanam",
-    title: "Dean (IC & SR), IIT Madras",
-    profileLink: "https://civil.iitm.ac.in/faculty/manus/",
-  },
-  {
-    id: "adv05", // Renumbered original adv05
-    category: "Advisory",
-    imageUrl:
-      "https://www.ieor.iitb.ac.in/files/faculty/amahajan/2019sept_200.png",
-    name: "Ashutosh Mahajan",
-    title: "Professor, IE & OR, IIT Bombay",
-    profileLink: "https://www.ieor.iitb.ac.in/amahajan",
-  },
+    roleTitle: "Advisory Member",
+  }, // Specify advisory role
+  { id: "adv03", personId: "ashwin-mahalingam", category: "Advisory" }, // Corrected Dean ID
+  { id: "adv04", personId: "manu-santhanam", category: "Advisory" },
+  { id: "adv05", personId: "ashutosh-mahajan", category: "Advisory" },
 
-  // --- Faculty Team (Original entries remain) ---
+  // --- Faculty Team ---
+  // Add PI/Co-PI info to roleTitle where applicable
   {
-    id: 1, // Original Faculty ID
+    id: 1,
+    personId: "arshinder-kaur",
     category: "Faculty",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/arshinder.png",
-    name: "Prof. Arshinder Kaur",
-    title: "Professor, Dept. of Management Studies | PI, Sustainability", // Primary Faculty Role Title
-    profileLink: "https://doms.iitm.ac.in/index.php/arshinder-kaur",
+    roleTitle: "Professor | PI, Sustainability",
   },
   {
     id: 2,
+    personId: "c-rajendran",
     category: "Faculty",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/rajendran.png",
-    name: "Prof. C Rajendran",
-    title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/rajendran-c",
+    roleTitle: "Professor | Co-PI, Sustainability",
   },
   {
     id: 3,
+    personId: "rp-sundararaj",
     category: "Faculty",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/sudararaj_doms.png",
-    name: "Prof. R P Sundararaj",
-    title: "Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/rps",
+    roleTitle: "Professor | Co-PI, Sustainability",
   },
   {
     id: 4,
+    personId: "nargis-pervin",
     category: "Faculty",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/nargis.png",
-    name: "Prof. Nargis Pervin",
-    title:
-      "Associate Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/nargis-pervin",
+    roleTitle: "Associate Professor | Co-PI, Sustainability",
   },
   {
     id: 5,
+    personId: "vaibhav-chawla",
     category: "Faculty",
-    name: "Prof. Vaibhav Chawla",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/vaibhav.png",
-    title:
-      "Assistant Professor, Dept. of Management Studies | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/vaibhav",
+    roleTitle: "Assistant Professor | Co-PI, Sustainability",
   },
   {
     id: 6,
+    personId: "usha-mohan",
     category: "Faculty",
-    name: "Prof. Usha Mohan",
-    imageUrl: "https://doms.iitm.ac.in/images/2023/11/20/usha.png",
-    title: "Associate Professor, Dept. of Civil Engg. | Co-PI, Sustainability",
-    profileLink: "https://doms.iitm.ac.in/index.php/ushamohan",
+    roleTitle: "Associate Professor | Co-PI, Sustainability",
   },
   {
     id: 7,
+    personId: "chandrashekar-l",
     category: "Faculty",
-    name: "Prof. Chandrashekar L",
-    imageUrl: "https://cse.iitm.ac.in/images/CL.webp",
-    title: "Assistant Professor, Dept. of CSE | PI, Algorithms & ML",
-    profileLink: "https://cse.iitm.ac.in/profile.php?arg=Mjc5Nw==",
+    roleTitle: "Assistant Professor | PI, Algorithms & ML",
   },
   {
-    id: 8, // Original Faculty ID
+    id: 8,
+    personId: "ns-narayanaswamy",
     category: "Faculty",
-    imageUrl: "https://cse.iitm.ac.in/images/swamy.webp",
-    name: "Prof. N S Narayanaswamy",
-    title: "Professor, Dept. of CSE | Co-PI, Algorithms & ML", // Primary Faculty Role Title
-    profileLink: "https://cse.iitm.ac.in/profile.php?arg=MTA=",
+    roleTitle: "Professor | Co-PI, Algorithms & ML",
   },
   {
     id: 9,
+    personId: "rupesh-nasre",
     category: "Faculty",
-    imageUrl: "https://www.cse.iitm.ac.in/~rupesh/media/rupesh.webp",
-    name: "Prof. Rupesh Nasre",
-    title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink: "https://www.cse.iitm.ac.in/~rupesh/",
+    roleTitle: "Associate Professor | Co-PI, Algorithms & ML",
   },
-  {
-    id: 10,
-    category: "Faculty",
-    imageUrl: "https://dsai.iitm.ac.in/~ravi/img/ravi-pic.webp",
-    name: "Prof. B. Ravindran",
-    title: "Professor, Dept. of CSE | Head, RBCDSAI",
-    profileLink: "https://www.cse.iitm.ac.in/~ravi/", // Using previously known link
-  },
+  { id: 10, personId: "b-ravindran", category: "Faculty" }, // Can add "| Head, RBCDSAI" if desired
   {
     id: 11,
+    personId: "anil-prabhakar",
     category: "Faculty",
-    name: "Prof. Anil Prabhakar",
-    title: "Professor, Dept. of Electrical Engg. | Co-PI, Algorithms & ML",
-    profileLink: "https://www.ee.iitm.ac.in/anilpr/",
+    roleTitle: "Professor | Co-PI, Algorithms & ML",
   },
   {
     id: 12,
+    personId: "rahul-marathe",
     category: "Faculty",
-    name: "Prof. Rahul Marathe",
-    title: "Associate Professor, Dept. of CSE | Co-PI, Algorithms & ML",
-    profileLink:
-      "https://irepose.iitm.ac.in/entities/person/51187/publications",
+    roleTitle: "Associate Professor | Co-PI, Algorithms & ML",
   },
   {
     id: 13,
+    personId: "babji-srinivasan",
     category: "Faculty",
-    imageUrl:
-      "https://home.iitm.ac.in/babji.srinivasan/assets/img/profiles/babjiSrinivasan.webp",
-    name: "Prof. Babji Srinivasan",
-    title: "Associate Professor, Dept. of Chemical Engg. | PI, Worker Wellness",
-    profileLink: "https://home.iitm.ac.in/babji.srinivasan/babji.html",
+    roleTitle: "Associate Professor | PI, Worker Wellness",
   },
   {
     id: 14,
+    personId: "satya-r-chakravarthy",
     category: "Faculty",
-    imageUrl:
-      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/06/satya_c-150x150.png",
-    name: "Prof. Satya R Chakravarthy",
-    title: "Professor, Dept. of Aerospace Engg. | Co-PI, Infrastructure",
-    profileLink: "https://aero.iitm.ac.in/personnel/dr-s-r-chakravarthy/",
+    roleTitle: "Professor | Co-PI, Infrastructure",
   },
   {
     id: 15,
+    personId: "rajagopalan-srinivasan",
     category: "Faculty",
-    imageUrl:
-      "https://web1.iitm.ac.in/logistics/wp-content/uploads/2024/05/raj-150x150.png",
-    name: "Prof. Rajagopalan Srinivasan",
-    title: "Professor, Dept. of Chemical Engg. | Co-PI, Worker Wellness",
-    profileLink: "https://che.iitm.ac.in/raj/",
+    roleTitle: "Professor | Co-PI, Worker Wellness",
   },
   {
     id: 16,
+    personId: "gitakrishnan-ramadurai",
     category: "Faculty",
-    imageUrl:
-      "https://civil.iitm.ac.in/faculty/gitakrishnan/admin/download/gr%20-%20Gitakrishnan%20Ramadurai.webp",
-    name: "Prof. Gitakrishnan Ramadurai",
-    title: "Professor, Dept. of Civil Engg. | PI, Infrastructure",
-    profileLink: "https://civil.iitm.ac.in/faculty/gitakrishnan/",
+    roleTitle: "Professor | PI, Infrastructure",
   },
 
-  // --- Center Team (Placeholders - Update with info from Contact Page) ---
-  {
-    id: "ctr01",
-    category: "Center",
-    name: "Ms. Geetha Udayakumar",
-    title: "Smart Center Coordinator",
-  },
-  {
-    id: "ctr02",
-    category: "Center",
-    name: "Dr. Kelitha Cherian",
-    title: "Centre Program Manager",
-  },
+  // --- Center Team (Referencing placeholders in peopleData) ---
+  { id: "ctr01", personId: "center-admin", category: "Center" },
+  { id: "ctr02", personId: "center-pm", category: "Center" },
+  { id: "ctr02", personId: "center-content-writer", category: "Center" },
+  { id: "ctr02", personId: "center-support", category: "Center" },
 
-  // --- Research Team (Placeholders - Add Postdocs, Staff, PhDs) ---
-  {
-    id: "res01",
-    category: "Research",
-    name: "[Postdoctoral Fellow Name]",
-    title: "Postdoctoral Research Fellow",
-  },
-  {
-    id: "res02",
-    category: "Research",
-    name: "[Research Staff Name]",
-    title: "Project Engineer / Research Associate",
-  },
+  // --- Research Team (Referencing placeholders in peopleData) ---
+  { id: "res01", personId: "placeholder-postdoc-1", category: "Research" },
+  { id: "res02", personId: "placeholder-staff-1", category: "Research" },
+  { id: "res03", personId: "placeholder-scholar-1", category: "Research" },
+  // Add more placeholder references if needed
 ];
 // Define the order and labels for tabs
 export const teamCategories: { value: TeamCategory; label: string }[] = [
@@ -1195,6 +1062,7 @@ export const verticalsData: VerticalData[] = [
     id: "sustainability",
     icon: <Leaf />,
     title: "Supply Chain Sustainability",
+    link: "/digital-sustainable-supply-chain",
     description:
       "Developing frameworks for Net Zero emissions, incorporating ESG factors, optimizing multi-modal logistics, enhancing resilience, and using digital tools for greener, socially responsible supply chains.",
     imageUrl: "/slide-pics/supply-chain-sustainability.webp", // Placeholder: Green logistics/nature
@@ -1203,6 +1071,7 @@ export const verticalsData: VerticalData[] = [
     id: "wellness",
     icon: <HeartPulse />,
     title: "Logistics Worker Wellness",
+    link: "/human-machine-collaboration-wellness",
     description:
       "Improving worker health, safety, and cognitive performance using biomedical monitoring, advanced VR training, ergonomic tech, and human-machine collaboration strategies.",
     imageUrl: "/slide-pics/worker-wellness.webp", // Placeholder: Warehouse worker/safety/tech
@@ -1211,6 +1080,7 @@ export const verticalsData: VerticalData[] = [
     id: "algorithms",
     icon: <Cpu />,
     title: "Algorithms & ML",
+    link: "/accelerating-learning-algorithms",
     description:
       "Creating scalable algorithms (Optimization, RL, Quantum ML) and AI/ML models for efficient routing, packing, scheduling, demand forecasting, and overall logistics decision support systems.",
     imageUrl: "/slide-pics/ml-algo.webp", // Placeholder: Abstract tech/AI/code
@@ -1219,6 +1089,7 @@ export const verticalsData: VerticalData[] = [
     id: "infrastructure",
     icon: <Truck />,
     title: "Logistics Infrastructure",
+    link: "/autonomous-delivery-integration",
     description:
       "Integrating next-generation technologies including autonomous delivery agents (drones, rovers), optimizing EV fleets and charging networks, and designing smart, resilient infrastructure solutions.",
     imageUrl: "/slide-pics/logistics-infra.webp", // Placeholder: Drone/EV truck/warehouse tech

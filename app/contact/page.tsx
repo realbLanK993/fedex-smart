@@ -137,9 +137,7 @@ export default function ContactPage() {
               </p>
               {/* Optional: Link to Google Maps */}
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  fullAddress
-                )}`}
+                href={`https://maps.app.goo.gl/e3LSTxQQZ5aHTg7Z7`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-primary hover:underline mt-1 inline-block"

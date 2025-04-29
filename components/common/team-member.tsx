@@ -1,40 +1,36 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+// src/components/TeamMemberCard.tsx (Conceptual Changes)
+import { Person } from "@/lib/types"; // Import Person type
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react"; // Or ArrowRight
+} from "../ui/card";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { ExternalLink, User } from "lucide-react";
+// ... other imports ...
 
-// Define the props the component expects
 interface TeamMemberCardProps {
-  imageUrl?: string; // Optional for now, use placeholder if missing
-  name: string;
-  title: string; // e.g., "Professor, Dept. of Management Studies" or "Lead PI, Sustainability"
-  profileLink?: string; // Link to their IITM profile or relevant page
+  person: Person; // Expect the full Person object
+  roleTitle?: string; // Optional override/specific title
 }
 
-export function TeamMemberCard({
-  imageUrl,
-  name,
-  title,
-  profileLink,
-}: TeamMemberCardProps) {
+export function TeamMemberCard({ person, roleTitle }: TeamMemberCardProps) {
+  const displayTitle = person.designation ?? ""; // Use override or default designation
+
   return (
     <Card className="flex flex-col h-full overflow-hidden transition-shadow duration-300 hover:shadow-lg border border-border hover:border-primary/50">
       {/* Image Area */}
-      <div className="relative w-full h-48 bg-muted">
+      <div className="relative w-full h-64 bg-muted">
         {" "}
         {/* Fixed height for image area */}
-        {imageUrl ? (
+        {person.imageUrl ? (
           <Image
-            src={imageUrl}
-            alt={`Profile picture of ${name}`}
+            src={person.imageUrl}
+            alt={`Profile picture of ${person.name}`}
             fill // Cover the area
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" // Example sizes
             className="object-cover" // Crop to fit
@@ -62,17 +58,26 @@ export function TeamMemberCard({
 
       {/* Content Area */}
       <CardHeader className="pt-4 pb-2">
-        <CardTitle className="text-lg font-semibold">{name}</CardTitle>
-        <CardDescription className="text-sm">{title}</CardDescription>
+        <CardTitle className="text-lg font-semibold">{person.name}</CardTitle>
+        <CardDescription className="text-sm">
+          {person.designation}
+        </CardDescription>
+        <CardDescription className="text-sm">
+          {person.department}
+        </CardDescription>
       </CardHeader>
 
       {/* Optional Footer for Link Button */}
-      {profileLink && (
+      {person.profileLink && (
         <CardFooter className="pt-2 pb-4 mt-auto">
           {" "}
           {/* mt-auto pushes footer down */}
           <Button variant="outline" size="sm" asChild className="w-full">
-            <Link href={profileLink} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={person.profileLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {" "}
               {/* Open profile in new tab */}
               View Profile <ExternalLink className="ml-2 h-4 w-4" />
@@ -81,7 +86,7 @@ export function TeamMemberCard({
         </CardFooter>
       )}
       {/* Add a spacer if no footer to help align cards in a grid */}
-      {!profileLink && <div className="h-12"></div>}
+      {!person.profileLink && <div className="h-12"></div>}
     </Card>
   );
 }

@@ -39,9 +39,34 @@ const nav_list: NavigationItem[] = [
   },
   {
     name: "Team",
+    icon: <ChevronDown size={16} />,
     href: "/team",
-    color: "bg-purple-300",
-    description: "Meet our expert research team",
+    subItems: [
+      {
+        name: "Governing Board",
+        href: "/team/governing-board", // Keeping original href
+        color: "bg-red-300",
+        description: "Strategic Guidance Leadership.", // Updated & Concise
+      },
+      {
+        name: "Faculty Team",
+        href: "/team/faculty-team", // Keeping original href
+        color: "bg-yellow-300",
+        description: "Core IITM Research Faculty.", // Updated & Concise
+      },
+      {
+        name: "Center Team",
+        href: "/team/center-team", // Keeping original href
+        color: "bg-purple-300",
+        description: "Centre Operations & Support.", // Updated & Concise
+      },
+      {
+        name: "Research Team",
+        href: "/team/research-team", // Keeping original href
+        color: "bg-blue-300",
+        description: "Project Researchers & Scholars.", // Updated & Concise
+      },
+    ],
   },
   {
     name: "Research",

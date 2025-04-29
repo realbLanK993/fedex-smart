@@ -12,6 +12,8 @@ import {
 import { researchListData, researchVerticals, verticalsData } from "@/lib/data";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 // src/data/researchListData.ts
 
@@ -41,7 +43,7 @@ export default function ResearchPage() {
         <h1 className="text-3xl font-bold tracking-tight mb-4">
           Our Research Landscape
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-lg text-muted-foreground text-justify">
           Discover the ongoing research projects and technological explorations
           at the FedEx SMART Center, driving innovation across the logistics
           spectrum. Filter by core vertical below.
@@ -89,9 +91,18 @@ export default function ResearchPage() {
                   </h3>
                 </div>
                 {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed  text-justify">
                   {vertical.description}
                 </p>
+                {/* Link */}
+                <Link
+                  href={`/research${vertical.link}`}
+                  className="inline-flex items-center text-primary font-medium hover:underline group"
+                >
+                  {/* Generate dynamic link text */}
+                  Explore {vertical.title.split(" ")[0]} Research
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
           </section>

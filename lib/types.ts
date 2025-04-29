@@ -1,3 +1,5 @@
+import { peopleData } from "./peopleData";
+
 export type Faculty = {
   image?: string;
   designation: string;
@@ -12,6 +14,15 @@ export type Judge = {
   image?: string;
   name: string;
   description?: string;
+};
+export type Speaker = {
+  image?: string;
+  designation: string;
+  name: string;
+  location: {
+    department?: string;
+    institution?: string;
+  };
 };
 
 export type NavigationItem = {
@@ -38,6 +49,7 @@ export type CommonPageProps = {
   content: string;
   faculty?: Faculty[];
   judges?: Judge[];
+  speakers?: Speaker[];
 };
 
 export interface GalleryImage {
@@ -96,4 +108,23 @@ export interface VerticalData {
   title: string;
   description: string;
   link?: string; // Link to the main research page section or filtered view
+}
+
+// src/lib/types.ts (or where you keep types)
+export interface Person {
+  id: string; // Unique identifier (e.g., 'arshinder-kaur')
+  name: string;
+  designation: string;
+  institution: string;
+  department?: string; // Optional
+  imageUrl?: string;
+  profileLink?: string;
+}
+export interface TeamMemberRef {
+  id: number | string; // Unique ID for this specific role/listing
+  personId: keyof typeof peopleData; // Reference to the key in peopleData
+  category: TeamCategory;
+  // Optional title override if different from primary designation
+  // or to add role context (e.g., PI/Co-PI)
+  roleTitle?: string;
 }

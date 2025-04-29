@@ -12,6 +12,14 @@ import { GalleryImage } from "@/lib/types";
 
 const galleryData: GalleryImage[] = [
   {
+    id: 2,
+    src: "/gallery/image3.webp",
+    alt: "SARC Event",
+    description: "A student working on the drone in SARC Event",
+    width: 1200,
+    height: 800,
+  },
+  {
     id: 3,
     src: "/gallery/image1.webp",
     alt: "Research Presentation",

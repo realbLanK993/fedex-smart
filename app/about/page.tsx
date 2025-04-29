@@ -50,9 +50,9 @@ export default function About() {
         <section className="flex flex-col gap-16">
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold tracking-tight">Our Vision</h2>
-            <p className="text-lg">
-              Our vision is at the forefront of the emerging R&D landscape at
-              the heart of advanced logistics solutions, leveraging advanced
+            <p className="text-lg text-justify ">
+              Our vision is at the forefront of the emerging R&amp;D landscape
+              at the heart of advanced logistics solutions, leveraging advanced
               technologies to impact efficiency, sustainability, and
               organizational excellence across the supply chain ecosystem.
               Empower our team and stakeholders with the application of best
@@ -64,7 +64,7 @@ export default function About() {
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold tracking-tight">Our Mission</h2>
-            <p className=" ">
+            <p className=" text-lg text-justify">
               The mission of the FedEx IITM Center of Excellence is to create a
               beacon of excellence that impacts the global industrial landscape
               with cutting-edge sustainable solutions while working towards a
