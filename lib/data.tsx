@@ -221,23 +221,6 @@ export const researchDetailsData: { [key: string]: CommonPageProps } = {
     ]),
   },
 
-  "email-workload-reduction": {
-    title: "Email Workload reduction",
-    date: "Research Project",
-    type: "Research",
-    header_img_link: "/research/email-workload.jpg",
-    content: `
-            <p>Students developed a model to classify customer queries across various departments. The problem statement aligned the focus on predefined parameters that accomplished zero-shot classification. The model developed could be utilized for summarization of emails to enable efficient outcomes.</p>
-            <p>This model has the potential to increase overall efficiency in the organization thereby enhancing customer experiences.</p>
-            ${formatResearchers([
-              "Omkar Nishad (Btech)",
-              "Alan Mathew (Btech)",
-            ])}
-        `,
-    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
-    faculty: getFacultyByIds(["arshinder-kaur", "nargis-pervin"]),
-  },
-
   "multimodal-logistics-challenges": {
     title: "Issues and Challenges in Multi-Modal Logistics in India",
     date: "Research Project",
@@ -667,12 +650,6 @@ export const researchListData: ResearchListItem[] = [
     id: "employee-wellbeing-logistics",
     title: "Employee Well-being in Logistics Sector",
     slug: "employee-wellbeing-logistics",
-    vertical: "Supply Chain Sustainability",
-  },
-  {
-    id: "email-workload-reduction",
-    title: "Email Workload reduction",
-    slug: "email-workload-reduction",
     vertical: "Supply Chain Sustainability",
   },
   {
