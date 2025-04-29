@@ -2,7 +2,6 @@
 import {
   CommonPageProps,
   EventItem,
-  Faculty,
   OpportunityItem,
   Person,
   ResearchListItem,
@@ -26,18 +25,18 @@ const createFaculty = (
 });
 
 // Define the detailed data for each research slug
-const createFacultyList = (profNames: string[]): Faculty[] => {
-  return profNames.map((name) => {
-    const cleanedName = name.replace(/^(Professor|Profesor)\s+/i, "").trim();
-    return {
-      name: `Prof. ${cleanedName}`, // Standardize prefix
-      // NOTE: Designation/Department info is NOT consistently in this text file per professor
-      // So we provide generic defaults here. Use peopleData if more detail is needed.
-      designation: "Professor / Faculty", // Generic designation
-      location: { department: "IIT Madras", institution: "IIT Madras" },
-    };
-  });
-};
+// const createFacultyList = (profNames: string[]): Faculty[] => {
+//   return profNames.map((name) => {
+//     const cleanedName = name.replace(/^(Professor|Profesor)\s+/i, "").trim();
+//     return {
+//       name: `Prof. ${cleanedName}`, // Standardize prefix
+//       // NOTE: Designation/Department info is NOT consistently in this text file per professor
+//       // So we provide generic defaults here. Use peopleData if more detail is needed.
+//       designation: "Professor / Faculty", // Generic designation
+//       location: { department: "IIT Madras", institution: "IIT Madras" },
+//     };
+//   });
+// };
 
 // Helper to create researcher list string
 const formatResearchers = (researcherNames: string[] | undefined): string => {

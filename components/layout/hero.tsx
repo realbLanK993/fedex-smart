@@ -70,8 +70,8 @@ export default function Hero() {
 
       <p className="text-center">
         {`Welcome to the FedEx SMART Center at IIT Madras—where innovation meets
-          impact. We’re pioneering greener supply chains, smarter technologies,
-          and healthier logistics for a connected world.`}
+    impact. We’re pioneering greener supply chains, smarter technologies,
+    and healthier logistics for a connected world. Join our vibrant ecosystem fostering R&D breakthroughs, talent growth through mentorship and internships, and impactful industry-academia partnerships.`}
       </p>
     </header>
   );
