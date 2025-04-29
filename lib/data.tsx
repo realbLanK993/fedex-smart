@@ -54,6 +54,112 @@ const getFacultyByIds = (ids: string[]): Person[] => {
 
 // Define the detailed data, now using faculty array populated by IDs
 export const researchDetailsData: { [key: string]: CommonPageProps } = {
+  // --- P1: Digital and Sustainable Supply Chain ---
+  "digital-sustainable-supply-chain": {
+    title: "Digital and Sustainable Supply Chain Modelling & Analytics", // Title from your P1 description
+    date: "Ongoing Research Project (5-Year)", // Contextual date
+    type: "Research Project", // Contextual type
+    header_img_link: "/slide-pics/supply-chain-sustainability.webp", // Placeholder image path
+    content: `
+            <p>This flagship project focuses on integrating sustainability and digital transformation into supply chain management. Key objectives include:</p>
+            <ul class="list-disc space-y-2 pl-6 my-4">
+                <li>Developing predictive models for critical factors like lead time estimation, customer demand forecasting, and capacity planning using AI and ML techniques.</li>
+                <li>Creating frameworks for end-to-end optimization, integrating planning, production, inventory, distribution, and routing.</li>
+                <li>Exploring digital twin technologies and platforms for seamless tracking, monitoring, and optimization of shipments, warehousing, and packaging globally.</li>
+                <li>Assessing and improving multi-modal global logistics, identifying inefficiencies and enhancing collaboration among stakeholders (governments, industries).</li>
+                <li>Building supply chain resilience through route diversification and robust risk management frameworks.</li>
+                <li>Incorporating Environmental, Social, and Governance (ESG) factors, developing frameworks for socially responsible supply chains, and understanding the role of digital tools in worker empowerment and well-being.</li>
+                <li>Optimizing specific areas like Air Cargo operations and mining customer voice data for actionable insights.</li>
+            </ul>
+            <p>The project aims to provide actionable models, tools, and frameworks aligned with sustainability goals (like SDG13) for a greener and more efficient logistics sector.</p>
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" }, // Placeholder links
+    faculty: getFacultyByIds([
+      "arshinder-kaur", // Corresponds to Arshinder Kaur (PI)
+      "c-rajendran", // Corresponds to C Rajendran
+      "rp-sundararaj", // Corresponds to R P Sundararaj
+      "usha-mohan", // Corresponds to Usha Mohan
+      "nargis-pervin", // Corresponds to Nargis Pervin
+      "vaibhav-chawla", // Corresponds to Vaibhav Chawla
+    ]),
+  },
+
+  // --- P2: Human-Machine Collaboration & Wellness ---
+  "human-machine-collaboration-wellness": {
+    title:
+      "Holistic Human-Machine Collaboration with Biomedical-Cognitive Measures", // Title from your P2 description
+    date: "Ongoing Research Project (5-Year)",
+    type: "Research Project",
+    header_img_link: "/slide-pics/worker-wellness.webp", // Placeholder image path
+    content: `
+            <p>This project focuses on enhancing the well-being, safety, and performance of the logistics workforce through advanced human-machine interaction and physiological monitoring. Core areas include:</p>
+            <ul class="list-disc space-y-2 pl-6 my-4">
+                <li><strong>Worker Health Management:</strong> Monitoring physical fatigue using bio-signals (e.g., via smart insoles with FSR/IMU sensors assessing load distribution, gait, posture) and estimating cognitive workload, vigilance, and mental fatigue using eye-tracking parameters.</li>
+                <li><strong>Advanced Worker Training:</strong> Synchronizing data from processes, automation systems, and human activities to identify areas for improvement. Utilizing VR environments for immersive training, process optimization, and safety drills. Providing real-time visual/audio feedback and assistance.</li>
+                <li><strong>Human-Machine Teaming:</strong> Developing algorithms for collaborative robots (COBOTS) to effectively resolve human-human and human-machine conflicts. Enabling dynamic task/work switching between humans and machines based on situation awareness and task significance.</li>
+                <li><strong>Safety Monitoring Technologies:</strong> Implementing real-time systems like AI-powered PPE compliance detection, ergonomic posture analysis for injury prevention, and AI-driven driver safety monitoring (drowsiness, distraction detection).</li>
+            </ul>
+            <p>The ultimate goal is to create safer, healthier, and more efficient work environments by seamlessly integrating technology to support human capabilities and mitigate risks.</p>
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds([
+      "babji-srinivasan", // Corresponds to Babji Srinivasan (PI)
+      "rajagopalan-srinivasan", // Corresponds to Rajagopalan Srinivasan
+    ]),
+  },
+
+  // --- P3: Accelerating Learning & Algorithms ---
+  "accelerating-learning-algorithms": {
+    title: "Accelerating Learning and Algorithms for Logistics Problems", // Title from your P3 description
+    date: "Ongoing Research Project (5-Year)",
+    type: "Research Project",
+    header_img_link: "/slide-pics/ml-algo.webp", // Placeholder image path
+    content: `
+            <p>This project aims to develop sophisticated algorithms, machine learning techniques, and software systems to significantly improve the efficiency and decision-making capabilities within the logistics domain. Key focus areas involve:</p>
+            <ul class="list-disc space-y-2 pl-6 my-4">
+                <li><strong>Scalable Optimization Algorithms:</strong> Tackling complex, NP-hard problems like the Capacitated Vehicle Routing Problem (CVRP) and 3D bin packing using advanced techniques, including parallelization for improved scalability.</li>
+                <li><strong>Reinforcement Learning (RL) Applications:</strong> Developing RL agents for dynamic optimization tasks, particularly focusing on improving railway network efficiency through intelligent train dispatching and routing, utilizing realistic simulators (OSRD, Flatland). Enhancing profitability and reducing administrative load in linehaul routing.</li>
+                <li><strong>Predictive Analytics:</strong> Building models for demand forecasting, employee requirement forecasting, capacity planning, and predictive shipment allocation between different service types.</li>
+                <li><strong>Quantum Machine Learning:</strong> Exploring hybrid quantum-classical algorithms to potentially find better or faster solutions for computationally intensive optimization problems in route planning and packing.</li>
+                <li><strong>Software Systems & Platforms:</strong> Creating software modules, APIs, and integrated platforms incorporating optimizations (route planning, container sharing, scheduling), data analysis (consignment flow, customer feedback mining), and prediction capabilities. Exploring frameworks like Open Network for Logistics.</li>
+                <li><strong>AI-driven Services:</strong> Developing AI-based tools for logistics-specific customer service and electronic Submission Request Gateway (eSRG) processes.</li>
+            </ul>
+            <p>The project aims to deliver impactful software implementations and fundamental research contributions to enhance various facets of logistics operations.</p>
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds([
+      "chandrashekar-l", // Corresponds to Chandrashekar Lakshminarayanan (PI)
+      "ns-narayanaswamy", // Corresponds to N S Narayanaswamy
+      "rupesh-nasre", // Corresponds to Rupesh Nasre
+      "anil-prabhakar", // Corresponds to Anil Prabhakar
+      "rahul-marathe", // Corresponds to Rahul Marathe
+      "b-ravindran", // Corresponds to B. Ravindran (Inferred involvement)
+    ]),
+  },
+
+  // --- P4: Autonomous Delivery Integration ---
+  "autonomous-delivery-integration": {
+    title: "Development of Modules for Integrating Autonomous Delivery Agents", // Title from your P4 description
+    date: "Ongoing Research Project (5-Year)",
+    type: "Research Project",
+    header_img_link: "/slide-pics/logistics-infra.webp", // Placeholder image path
+    content: `
+            <p>As autonomous delivery vehicles like drones and rovers become more prevalent, this project focuses on creating the necessary infrastructure and integration modules to enable their seamless and efficient adoption within existing logistics frameworks. Objectives include:</p>
+            <ul class="list-disc space-y-2 pl-6 my-4">
+                <li><strong>Integration Module Development:</strong> Building specialized software and hardware interface modules to bridge the gap between autonomous vehicle operators, logistics companies, and regulators.</li>
+                <li><strong>Operational Frameworks:</strong> Designing and testing operational models for various autonomous systems, particularly focusing on drones for mid-mile (e.g., utilizing high-payload vehicles like the ePlane e100) and last-mile deliveries, including concepts like delivery from 'Gateways' to local pickup points.</li>
+                <li><strong>Regulatory Compliance & Safety:</strong> Ensuring developed systems and operational procedures adhere to current and emerging regulatory requirements and maintain high safety standards.</li>
+                <li><strong>Electric Vehicle (EV) Logistics Optimization:</strong> Optimizing EV fleet size (sub-1 ton to trailers) and charging infrastructure (location, type) for different distribution ranges, considering trip patterns, dwell times, and lifecycle costs/emissions.</li>
+                <li><strong>Delivery Agent Well-being Study:</strong> Conducting comprehensive data-driven analysis (surveys, sensors, dashcams) of delivery associates' well-being across different vehicle types, shifts, and regions, and evaluating the impact of interventions.</li>
+            </ul>
+            <p>The project aims to facilitate the practical integration of advanced delivery vehicles, improving efficiency, reducing carbon footprint, and ensuring operational viability.</p>
+        `,
+    links: { common: "#", linkedin: "#", facebook: "#", twitter: "#" },
+    faculty: getFacultyByIds([
+      "gitakrishnan-ramadurai", // Corresponds to Gitakrishnan Ramadurai (PI)
+      "satya-r-chakravarthy", // Corresponds to S R Chakravarthy
+    ]),
+  },
   "customer-email-analysis": {
     title: "Customer Email Analysis",
     date: "Research Project",
