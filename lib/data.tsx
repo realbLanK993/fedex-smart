@@ -466,7 +466,30 @@ export const eventsListData: EventItem[] = [
     slug: "/events/seminar-kadavan",
   },
 
-  // --- Upcoming/Planned Events ---
+  {
+    id: "opsium-shastra-2025",
+    title: "OPSIUM - Operations And Supply Chain Case Completions",
+    description: `The FedEx SMART Centre partnered with SHAASTRA, the annual festival of IIT Madras, to host two
+key competitions focused on the logistics and supply chain sectors. As part of this initiative, OPSIUM
+(Operations and Supply Chain Case Study) was introduced as a case study competition that attracted
+over 500 students from prestigious institutions like IITs and IIMs.`,
+    tag: "Hackathon",
+    date: new Date("2025-01-04"), // Placeholder Date in Jan 2025
+    img_link: "/events/opsium.png", // Placeholder: Code/Hackathon
+    slug: "/events/opsium-shastra-2025", // Update when details available
+  },
+  {
+    id: "sarc-shastra-2025",
+    title: "SARC - Shaastra Aerial Robotics Challenge",
+    description: `The FedEx SMART Centre partnered with SHAASTRA, IIT Madras&#39; annual engineering festival, to host
+two major competitions in logistics and supply chain. One of these, the SARC (Shaastra Aerial
+Robotics Challenge), focused on aerial robotics, where participants designed autonomous drones for
+tasks like package delivery. Over 400 students and professionals from 40 institutions competed.`,
+    tag: "Hackathon",
+    date: new Date("2025-01-04"), // Placeholder Date in Jan 2025
+    img_link: "/events/sarc.png", // Placeholder: Code/Hackathon
+    slug: "/events/sarc-shastra-2025", // Update when details available
+  },
   {
     id: "hackathon-shastra-2025",
     title: "FedEx SMART Hackathon",
@@ -701,24 +724,20 @@ export const eventDetailsData: { [key: string]: CommonPageProps } = {
     },
     judges: [
       {
-        name: "Vijay Kumar R",
-        description: "FedEx Manager Shared Services",
+        name: "Mr Vijay Kumar",
+        description: "FedEx Representative",
       },
       {
-        name: "S. Karthikeyan",
-        description: "FedEx Manager Clearance Operations",
-      },
-      {
-        name: "Micheal",
+        name: "Mr Vinodh Kumar",
         description: "FedEx Representative",
       },
     ],
   },
   "sarc-shastra-2025": {
-    title: "SARC - Shaastra aerial robotics challenge",
+    title: "SARC - Shaastra Aerial Robotics Challenge",
     date: "January 4th, 2025",
     type: "Hackathon",
-    header_img_link: "/events/fedex-smart-hackathon.webp",
+    header_img_link: "/events/sarc.png",
     content: `
     <p>
     The FedEx SMART Centre partnered with SHAASTRA, the annual festival of IIT Madras, to host two
@@ -750,6 +769,42 @@ transforming the competition to an inspiring and impactful experience.
       },
       {
         name: "Micheal",
+        description: "FedEx Representative",
+      },
+    ],
+  },
+  "opsium-shastra-2025": {
+    title: "OPSIUM - Operations And Supply Chain Case Completions",
+    date: "January 4th, 2025",
+    type: "Hackathon",
+    header_img_link: "/events/opsium.png",
+    content: `
+    <p>
+    The FedEx SMART Centre partnered with SHAASTRA, the annual festival of IIT Madras, to host two
+key competitions focused on the logistics and supply chain sectors. As part of this initiative, OPSIUM
+(Operations and Supply Chain Case Study) was introduced as a case study competition that attracted
+over 500 students from prestigious institutions like IITs and IIMs. The challenge involved creating an
+advanced demand forecasting system for FedEx. The competition, judged by FedEx experts Mr.
+Mohan Singh and Mr. Vikram Anand, saw IIT Madras win first and third places, with N.L. Dalmia
+Institute of Management Studies &amp; Research securing second place. The FedEx judges added value
+to the event with their industry expertise, providing students with valuable guidance and insights,
+transforming the competition to an inspiring and impactful experience.
+    </p>
+    
+  `,
+    links: {
+      common: "/events/hackathon-shastra-2025",
+      linkedin: "#",
+      facebook: "#",
+      twitter: "#",
+    },
+    judges: [
+      {
+        name: "Mr Mohan Singh",
+        description: "FedEx Representative",
+      },
+      {
+        name: "Mr Vikram Anand",
         description: "FedEx Representative",
       },
     ],
