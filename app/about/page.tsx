@@ -51,15 +51,16 @@ export default function About() {
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold tracking-tight">Our Vision</h2>
             <p className="text-lg text-justify ">
-              Our vision is at the forefront of the emerging R&amp;D landscape
-              at the heart of advanced logistics solutions, leveraging advanced
-              technologies to impact efficiency, sustainability, and
-              organizational excellence across the supply chain ecosystem.
-              Empower our team and stakeholders with the application of best
-              practices while creating a repository of academic and industrial
-              expertise. Constant work towards building structured frameworks
-              that foster a system of standardization, efficiency, strategic
-              decision-making, collaboration, and knowledge sharing.
+              Our vision is to be at the forefront of the emerging R&amp;D
+              landscape at the heart of advanced logistics solutions, leveraging
+              advanced technologies to impact efficiency, sustainability, and
+              organizational excellence across the supply chain ecosystem. To
+              consistently empower our team and stakeholders with the
+              application of best practices while creating a repository of
+              academic and industrial expertise. To constantly work towards
+              building structured frameworks that foster a system of
+              standardization, efficiency, strategic decision-making,
+              collaboration, and knowledge sharing.
             </p>
           </div>
           <div className="flex flex-col gap-4">
@@ -68,12 +69,12 @@ export default function About() {
               The mission of the FedEx IITM Center of Excellence is to create a
               beacon of excellence that impacts the global industrial landscape
               with cutting-edge sustainable solutions while working towards a
-              Net Zero Carbon footprint. It is our endeavor to build powerful
+              Net Zero Carbon footprint. It is our endeavour to build powerful
               collaborations between intellectual academia and industry,
               building innovations that push the boundaries of technology and
               innovation. Through a research-driven approach, experiential
               learning, and the development of next-generation technologies, we
-              aim to bridge the gaps in the supply chain logistics space. Our
+              aim to bridge the gaps in the supply chain logistics space.  Our
               drive is geared towards addressing current real-world logistics
               challenges and empowering organizations, researchers, academia,
               and students to thrive in an increasingly interconnected world.
