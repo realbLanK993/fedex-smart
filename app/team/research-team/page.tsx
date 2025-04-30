@@ -17,7 +17,7 @@ export default function ResearchTeamPage() {
   return (
     <main className="defined-width px-4 py-16 md:py-24">
       {/* Header Section */}
-      <section className="text-center mb-12 md:mb-16">
+      <section className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
         <h1 className="text-4xl font-bold tracking-tight text-primary mb-4">
           {pageTitle}
         </h1>
