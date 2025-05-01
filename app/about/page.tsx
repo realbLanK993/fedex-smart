@@ -51,16 +51,16 @@ export default function About() {
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold tracking-tight">Our Vision</h2>
             <p className="text-lg text-justify ">
-              Our vision is to be at the forefront of the emerging R&amp;D
-              landscape at the heart of advanced logistics solutions, leveraging
-              advanced technologies to impact efficiency, sustainability, and
-              organizational excellence across the supply chain ecosystem. To
-              consistently empower our team and stakeholders with the
-              application of best practices while creating a repository of
-              academic and industrial expertise. To constantly work towards
-              building structured frameworks that foster a system of
-              standardization, efficiency, strategic decision-making,
-              collaboration, and knowledge sharing.
+              Our vision is to be at the forefront of the emerging R&D landscape
+              at the heart of advanced logistics solutions, leveraging advanced
+              technologies to impact efficiency, sustainability, and
+              organizational excellence across the supply chain ecosystem. A
+              critical part of this vision is to consistently empower our team
+              and stakeholders with the application of best practices while
+              creating a repository of academic and industrial expertise. Over
+              the year, we have been working towards building structured
+              frameworks that foster a system of standardization, efficiency,
+              strategic decision-making, collaboration, and knowledge sharing.
             </p>
           </div>
           <div className="flex flex-col gap-4">
